@@ -7,6 +7,6 @@ while true; do
 done  &
 
 
-feh --randomize --bg-fill ~/Pictures/Wallapers/* &
+feh --randomize --bg-fill ~/Pictures/Wallpapers/ &
 
 exec dwm
