@@ -1,4 +1,4 @@
-/*
+*
 
 !.gitignore
 !.bashrc
@@ -7,3 +7,7 @@
 !.inputrc
 !.dwm.h
 !.vimrc
+
+
+!.ln_configs/
+!.ln_configs/*

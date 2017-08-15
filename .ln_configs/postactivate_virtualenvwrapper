@@ -1,0 +1,10 @@
+#!/bin/bash
+# This hook is sourced after every virtualenv is activated.
+#https://stackoverflow.com/questions/10406926/how-do-i-change-the-default-virtualenv-prompt#10509429
+
+if [ ${_OLD_VIRTUAL_PS1:0:2} == '\n' ]; then
+    PS1="\n(`basename \"$VIRTUAL_ENV\"`) ${_OLD_VIRTUAL_PS1:2:${#_OLD_VIRTUAL_PS1}}"
+else
+    PS1="\n(`basename \"$VIRTUAL_ENV\"`) $_OLD_VIRTUAL_PS1 "
+fi
+
