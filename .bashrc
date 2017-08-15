@@ -37,3 +37,8 @@ if [ -z $DISPLAY ] && [ -n $XDG_VTNR ] && [ "$XDG_VTNR" -eq 1 ]; then
 fi
 
 cd ~
+
+#python virtualenv
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/.Devel
+source /usr/bin/virtualenvwrapper.sh
