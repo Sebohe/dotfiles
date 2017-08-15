@@ -31,14 +31,15 @@ stty ixon -ixoff
 export PATH=$PATH:/home/sebas/scripts/
 
 
+#python virtualenv
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/.Devel
+source /usr/bin/virtualenvwrapper.sh
+
+
 #STARTX on login
 if [ -z $DISPLAY ] && [ -n $XDG_VTNR ] && [ "$XDG_VTNR" -eq 1 ]; then 
 	exec startx
 fi
 
 cd ~
-
-#python virtualenv
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/.Devel
-source /usr/bin/virtualenvwrapper.sh
