@@ -15,6 +15,8 @@ Plugin 'davidhalter/jedi-vim'
 
 Plugin 'sentientmachine/Pretty-Vim-Python'
 
+Plugin 'scrooloose/syntastic'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
