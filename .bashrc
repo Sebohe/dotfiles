@@ -3,6 +3,8 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+setxkbmap -option compose:ralt
+
 
 #ALIASES
 alias ls='ls --color=auto'
@@ -11,6 +13,8 @@ alias gc='git commit'
 alias grep='grep --color=auto'
 alias kpd='keybase pgp decrypt'
 alias kpe='keybase pgp encrypt'
+#alias git='hub'
+
 
 #PS1
 GREEN="\[$(tput setaf 2)\]"
@@ -43,3 +47,12 @@ if [ -z $DISPLAY ] && [ -n $XDG_VTNR ] && [ "$XDG_VTNR" -eq 1 ]; then
 fi
 
 cd ~
+
+
+if [[ -z $(pgrep tmux) ]]; then
+    tmux
+fi
+
+if [[ -n $(pgrep tmux) ]]; then
+    tmux attach
+fi

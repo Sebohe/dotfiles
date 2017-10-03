@@ -17,14 +17,23 @@ Plugin 'sentientmachine/Pretty-Vim-Python'
 
 Plugin 'scrooloose/syntastic'
 
+Plugin 'flazz/vim-colorschemes'
+
+Plugin 'ervandew/supertab'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+"colorscheme wombat
 
 syntax on
+syntax enable
 
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
+
+
+let g:jedi#popup_on_dot = 0
 
