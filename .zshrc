@@ -23,7 +23,7 @@ alias grep='grep --color=auto'
 
 #PROMPT
 NEWLINE=$'\n'
-PROMPT="${NEWLINE}%F{red}%n%f@%F{blue}%m%f %F{yellow}%/~%f ->"
+PROMPT="${NEWLINE}%F{red}%n%f@%F{blue}%m%f %F{yellow}%/%f-> "
 
 #DEFAULTS
 BROWSER=/usr/bin/firefox
