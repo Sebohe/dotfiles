@@ -17,11 +17,11 @@ alias kpe='keybase pgp encrypt'
 
 
 #PS1
-GREEN="\[$(tput setaf 2)\]"
-SKY_BLUE="\[$(tput setaf 27)\]"
-YELLOW="\[$(tput setaf 220)\]"
-RESET="\[$(tput sgr0)\]"
-export PS1="\n${SKY_BLUE}\u${YELLOW}\w\n${GREEN}->${RESET}"
+#GREEN="\[$(tput setaf 2)\]"
+#SKY_BLUE="\[$(tput setaf 27)\]"
+#YELLOW="\[$(tput setaf 220)\]"
+#RESET="\[$(tput sgr0)\]"
+#export PS1="\n${SKY_BLUE}\u${YELLOW}\w\n${GREEN}->${RESET}"
 
 #DEFAULTS
 BROWSER=/usr/bin/firefox
@@ -50,9 +50,9 @@ cd ~
 
 
 if [[ -z $(pgrep tmux) ]]; then
-    tmux
+    #tmux
 fi
 
 if [[ -n $(pgrep tmux) ]]; then
-    tmux attach
+   # tmux attach
 fi

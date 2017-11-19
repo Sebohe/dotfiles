@@ -11,11 +11,13 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'davidhalter/jedi-vim'
+" Plugin 'davidhalter/jedi-vim'
 
-Plugin 'sentientmachine/Pretty-Vim-Python'
+" Plugin 'sentientmachine/Pretty-Vim-Python'
 
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
+
+Plugin 'tomlion/vim-solidity'
 
 Plugin 'flazz/vim-colorschemes'
 
@@ -24,7 +26,7 @@ Plugin 'ervandew/supertab'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-"colorscheme wombat
+colorscheme forgotten-dark
 
 syntax on
 syntax enable
@@ -33,7 +35,7 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
-
+set ff=unix
 
 let g:jedi#popup_on_dot = 0
 
