@@ -51,8 +51,10 @@ cd ~
 
 if [[ -z $(pgrep tmux) ]]; then
     #tmux
+    echo
 fi
 
 if [[ -n $(pgrep tmux) ]]; then
    # tmux attach
+   echo
 fi
