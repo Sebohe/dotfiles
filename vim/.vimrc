@@ -30,7 +30,9 @@ Plugin 'Lokaltog/vim-powerline'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-colorscheme forgotten-dark
+if filereadable("~/.vim/bundle/vim-colorschemes/forgotten-dark")
+    colorscheme forgotten-dark
+endif
 
 syntax on
 syntax enable
