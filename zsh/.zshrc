@@ -34,7 +34,7 @@ stty ixany
 stty ixon -ixoff
 
 #PATH
-export PATH=$PATH:/home/sebas/scripts/
+export PATH=$PATH:/home/sebas/.local/bin
 
 
 #python virtualenv
