@@ -6,10 +6,6 @@ unsetopt beep
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/sebas/.zshrc'
-
-autoload -Uz compinit
-compinit
 # End of lines added by compinstall
 # ~/.bashrc
 
@@ -32,6 +28,7 @@ PROMPT="${NEWLINE}%F{red}%n%f@%F{blue}%m%f %F{yellow}%/%f-> "
 #DEFAULTS
 BROWSER=/usr/bin/firefox
 EDITOR=/usr/bin/vim
+TERM=/usr/bin/alacritty
 
 #DISABLE crtl+s in terminal
 stty ixany
