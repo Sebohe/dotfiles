@@ -2,10 +2,10 @@
 
 mkdir -p ~/githubs/
 
-yaourt -Syu
-yaourt -S vim git zsh tmux stow python-pip
+yaourt -Syu --noconfirm
+yaourt -S vim git zsh tmux stow python-pip --noconfirm
 sudo pip install virtualenvwrapper
-chsh -s /bin/zsh $(whoami)
+sudo chsh -s /bin/zsh $(whoami)
 mkdir -p ~/.local/bin/
 
 #dotfiles
