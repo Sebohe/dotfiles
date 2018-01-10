@@ -8,6 +8,10 @@ bindkey -e
 # The following lines were added by compinstall
 # End of lines added by compinstall
 # ~/.bashrc
+#
+zstyle :compinstall filename '/home/sebas/.zshrc'
+autoload -Uz compinit
+compinit
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -60,6 +64,7 @@ if [[ -n $(pgrep tmux) ]]; then
 fi
 
 xinputs_disable.sh
+xinput --set-prop 14 'libinput Accel Speed' 0.45
 
 KEYTIMEOUT=1
 
