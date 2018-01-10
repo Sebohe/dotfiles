@@ -8,6 +8,12 @@ TOUCH=$(xinput list | grep Touch | awk '{print $5}' | awk -F"=" '{print $2}')
 #echo POWER: $POWER
 #echo TOUCH: $TOUCH
 
-xinput disable $WMI
-xinput disable $POWER
-xinput disable $TOUCH
+if [[ $WMI ]]; then
+    xinput disable $WMI
+fi
+if [[ $POWER ]]; then
+    xinput disable $POWER
+fi
+if [[ $TOUCH ]]; then
+    xinput disable $TOUCH
+fi
