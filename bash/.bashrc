@@ -8,12 +8,8 @@ setxkbmap -option compose:ralt
 
 #ALIASES
 alias ls='ls --color=auto'
-alias gs='git status'
-alias gc='git commit'
 alias grep='grep --color=auto'
-alias kpd='keybase pgp decrypt'
-alias kpe='keybase pgp encrypt'
-#alias git='hub'
+source .aliases
 
 
 #PS1
