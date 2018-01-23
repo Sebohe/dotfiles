@@ -28,6 +28,7 @@ PROMPT="${NEWLINE}%F{red}%n%f@%F{blue}%m%f %F{yellow}%/%f-> "
 #DEFAULTS
 BROWSER=/usr/bin/firefox
 EDITOR=/usr/bin/vim
+GIT_EDITOR=vim
 
 #DISABLE crtl+s in terminal
 stty ixany

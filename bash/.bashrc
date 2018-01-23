@@ -22,6 +22,7 @@ source .aliases
 #DEFAULTS
 BROWSER=/usr/bin/firefox
 EDITOR=/usr/bin/vim
+GIT_EDITOR=$EDITOR
 
 #DISABLE crtl+s in terminal
 stty ixany
