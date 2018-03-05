@@ -20,10 +20,10 @@ setxkbmap -option compose:ralt
 
 
 #ALIASES
-source .aliases
+source $HOME/.aliases
 #PROMPT
 NEWLINE=$'\n'
-PROMPT="${NEWLINE}%F{red}%n%f@%F{blue}%m%f %F{yellow}%/%f${NEWLINE}-> "
+PROMPT="${NEWLINE}%F{red}%n%f@%F{blue}%m%f %F{yellow}%/%f${NEWLINE}%F{green}->%f"
 
 #DEFAULTS
 BROWSER=/usr/bin/firefox
@@ -71,5 +71,9 @@ workon web3.36
 source /home/sebas/.nix-profile/etc/profile.d/nix.sh
 
 export AWS_CONFIG_FILE=$HOME/.aws/config
-alias disconnect='nmcli d disconnect wlp2s0'
 export PATH=~/.npm-global/bin:$PATH
+
+LS_COLORS='no=00;37:fi=00:di=00;33:ln=04;36:pi=40;33:so=01;35:bd=40;33;01:'
+export LS_COLORS
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
