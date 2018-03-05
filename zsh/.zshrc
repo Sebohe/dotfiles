@@ -20,11 +20,7 @@ setxkbmap -option compose:ralt
 
 
 #ALIASES
-alias ls='ls --color=auto'
-alias gs='git status'
-alias gc='git commit'
-alias grep='grep --color=auto'
-
+source .aliases
 #PROMPT
 NEWLINE=$'\n'
 PROMPT="${NEWLINE}%F{red}%n%f@%F{blue}%m%f %F{yellow}%/%f${NEWLINE}-> "
@@ -32,6 +28,7 @@ PROMPT="${NEWLINE}%F{red}%n%f@%F{blue}%m%f %F{yellow}%/%f${NEWLINE}-> "
 #DEFAULTS
 BROWSER=/usr/bin/firefox
 EDITOR=/usr/bin/vim
+GIT_EDITOR=vim
 
 #DISABLE crtl+s in terminal
 stty ixany
