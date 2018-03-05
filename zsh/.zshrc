@@ -27,7 +27,7 @@ alias grep='grep --color=auto'
 
 #PROMPT
 NEWLINE=$'\n'
-PROMPT="${NEWLINE}%F{red}%n%f@%F{blue}%m%f %F{yellow}%/%f-> "
+PROMPT="${NEWLINE}%F{red}%n%f@%F{blue}%m%f %F{yellow}%/%f${NEWLINE}-> "
 
 #DEFAULTS
 BROWSER=/usr/bin/firefox
@@ -64,8 +64,15 @@ if [[ -n $(pgrep tmux) ]]; then
 fi
 
 xinputs_disable.sh
-xinput --set-prop 14 'libinput Accel Speed' 0.45
+#xinput --set-prop 14 'libinput Accel Speed' 0.45
 
 KEYTIMEOUT=1
 
 bindkey -v
+
+workon web3.36
+source /home/sebas/.nix-profile/etc/profile.d/nix.sh
+
+export AWS_CONFIG_FILE=$HOME/.aws/config
+alias disconnect='nmcli d disconnect wlp2s0'
+export PATH=~/.npm-global/bin:$PATH

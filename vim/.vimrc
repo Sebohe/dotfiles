@@ -17,6 +17,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Plugin 'scrooloose/syntastic'
 
+Plugin 'wikitopian/hardmode'
+
 Plugin 'tomlion/vim-solidity'
 
 Plugin 'flazz/vim-colorschemes'
@@ -36,6 +38,11 @@ endif
 
 syntax on
 syntax enable
+set guifont=inconsolota
+
+let g:HardMode_level = 'wannabe'
+let g:HardMode_hardmodeMsg = 'no arrows!'
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 
 set tabstop=4
 set shiftwidth=4
