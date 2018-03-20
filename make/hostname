@@ -1,0 +1,15 @@
+sysctl kernel.hostname=NEW_HOSTNAME
+
+edit /etc/hostname to NEW_HOSTNAME
+
+edit /etc/hosts to NEW_HOSTNAME
+
+sudo useradd -m -G $(groups | sed s/\ /,/g) -s /bin/bash NEW_USER
+
+sudo passwd NEW_USER
+
+change autologin at: sudo vim /etc/lightdm/lightdm.conf to NEW_USER
+
+reboot and make sure that you are in the new user
+
+sudo userdel clean
