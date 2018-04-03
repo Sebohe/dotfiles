@@ -11,7 +11,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" Plugin 'davidhalter/jedi-vim'
+"wmit  Plugin 'davidhalter/jedi-vim'
 
 " Plugin 'sentientmachine/Pretty-Vim-Python'
 
@@ -25,7 +25,7 @@ Plugin 'flazz/vim-colorschemes'
 
 Plugin 'ervandew/supertab'
 
-Plugin 'Lokaltog/vim-powerline'
+" Plugin 'Lokaltog/vim-powerline'
 
 " Plugin 'JamshedVesuna/vim-markdown-preview'
 
@@ -49,9 +49,13 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 set ff=unix
+set autoread
+set hlsearch
 
 let g:jedi#popup_on_dot = 0
 
 " https://www.johnhawthorn.com/2012/09/vi-escape-delays/
-set timeoutlen=1000 ttimeoutlen=0
+set timeoutlen=500 ttimeoutlen=0
+
+hi MatchParen cterm=underline ctermbg=none ctermfg=magenta
 

@@ -1,5 +1,7 @@
 #!/bin/sh
-
+xrandr --auto
+xrandr --output HDMI-1 --off
+xrandr --output HDMI-1 --auto
 export MONITOR=$(xrandr | grep HDMI | awk '{print $1}')
 export LAPTOP=$(xrandr | grep eDP | awk '{print $1}')
 
