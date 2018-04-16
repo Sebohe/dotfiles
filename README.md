@@ -12,4 +12,5 @@
 
 ### Commands I always forget
 
-    ncdu harddrive usage (alternative to df -ha and du -hs)
+    ncdu # harddrive usage (alternative to df -ha and du -hs)
+    pacman -Qo <file> #See which package owns the file
