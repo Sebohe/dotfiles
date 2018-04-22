@@ -32,30 +32,47 @@ Plugin 'ervandew/supertab'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-if filereadable("~/.vim/bundle/vim-colorschemes/forgotten-dark")
-    colorscheme forgotten-dark
-endif
-
 syntax on
 syntax enable
-set guifont=inconsolota
+
+" Colors
+hi MatchParen cterm=underline ctermbg=none ctermfg=magenta
+" favorite themes: {{{
+" Ligh {{{
+"  sol-term
+"  lightning
+"  PapayaWhip
+"  github
+"  newspaper
+"  Saturn
+"  laederon
+"  stonewashed-256
+" }}}
+" Dark {{{
+" forgotten-dark
+" }}}
+"
+" }}}
+colorscheme forgotten-dark
+
 
 let g:HardMode_level = 'wannabe'
 let g:HardMode_hardmodeMsg = 'no arrows!'
 autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 
+" Tabs and spaces
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
 set ff=unix
 set autoread
-set hlsearch
+" set hlsearch
 
-let g:jedi#popup_on_dot = 0
+" jedi python
+" let g:jedi#popup_on_dot = 0
 
 " https://www.johnhawthorn.com/2012/09/vi-escape-delays/
 set timeoutlen=500 ttimeoutlen=0
 
-hi MatchParen cterm=underline ctermbg=none ctermfg=magenta
 
