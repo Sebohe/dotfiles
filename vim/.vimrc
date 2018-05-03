@@ -53,8 +53,7 @@ hi MatchParen cterm=underline ctermbg=none ctermfg=magenta
 " }}}
 "
 " }}}
-colorscheme forgotten-dark
-
+colorscheme scite
 
 let g:HardMode_level = 'wannabe'
 let g:HardMode_hardmodeMsg = 'no arrows!'
@@ -75,4 +74,7 @@ set autoread
 " https://www.johnhawthorn.com/2012/09/vi-escape-delays/
 set timeoutlen=500 ttimeoutlen=0
 
+set undofile " Maintain undo history between sessions
+set undodir=~/.vim/undodir
 
+autocmd FileType markdown setlocal spell

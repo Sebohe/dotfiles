@@ -31,11 +31,9 @@ VISUAL=vim
 stty ixany
 stty ixon -ixoff
 
-#GO
-export GOPATH=~/.go
 
 #PATH
-export PATH=$PATH:/home/sebas/.local/bin
+export PATH=$PATH:/home/sebas/.local/bin:$HOME/.gem/ruby/2.5.0/bin
 
 #ALIASES
 source $HOME/.aliases
@@ -48,6 +46,10 @@ source /usr/bin/virtualenvwrapper.sh
 #NIX
 source /home/sebas/.nix-profile/etc/profile.d/nix.sh
 
+#GO
+export GOPATH=$HOME/.go
+export PATH=$PATH:$GOPATH/bin:/usr/lib/go/bin
+
 #LOCALVARS
 source $HOME/.localvars
 
@@ -56,16 +58,13 @@ if [ -z $DISPLAY ] && [ -n $XDG_VTNR ] && [ "$XDG_VTNR" -eq 1 ]; then
 	exec startx
 fi
 
-cd ~
+#if [[ -z $(pgrep tmux) ]]; then
+#    tmux
+#fi
 
-
-if [[ -z $(pgrep tmux) ]]; then
-    tmux
-fi
-
-if [[ -n $(pgrep tmux) ]]; then
-   tmux attach
-fi
+#if [[ -n $(pgrep tmux) ]]; then
+#   tmux attach
+#fi
 
 xinputs_disable.sh
 #xinput --set-prop 14 'libinput Accel Speed' 0.45
