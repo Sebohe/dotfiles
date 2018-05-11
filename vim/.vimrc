@@ -19,8 +19,6 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'wikitopian/hardmode'
 
-Plugin 'tomlion/vim-solidity'
-
 Plugin 'flazz/vim-colorschemes'
 
 Plugin 'ervandew/supertab'
@@ -50,7 +48,7 @@ set softtabstop=4
 set expandtab
 set ff=unix
 set autoread
-set hlsearch
+" set hlsearch
 
 let g:jedi#popup_on_dot = 0
 
