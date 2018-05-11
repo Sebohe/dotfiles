@@ -1,37 +1,34 @@
 # Configuration for Alacritty, the GPU enhanced terminal emulator
 # color_start
-# taerminal.yml
-# Colors (Taerminal)
+# dracula.yml
+# Colors (Dracula)
 colors:
   # Default colors
   primary:
-    background: '0x26282a'
-    foreground: '0xf0f0f0'
-  cursor:
-    background: '0xf0f0f0'
-    foreground: '0x26282a'
+    background: '0x282a36'
+    foreground: '0xf8f8f2'
 
   # Normal colors
   normal:
-    black:   '0x26282a'
-    red:     '0xff8878'
-    green:   '0xb4fb73'
-    yellow:  '0xfffcb7'
-    blue:    '0x8bbce5'
-    magenta: '0xffb2fe'
-    cyan:    '0xa2e1f8'
-    white:   '0xf1f1f1'
+    black:   '0x000000'
+    red:     '0xff5555'
+    green:   '0x50fa7b'
+    yellow:  '0xf1fa8c'
+    blue:    '0xcaa9fa'
+    magenta: '0xff79c6'
+    cyan:    '0x8be9fd'
+    white:   '0xbfbfbf'
 
   # Bright colors
   bright:
-    black:   '0x6f6f6f'
-    red:     '0xfe978b'
-    green:   '0xd6fcba'
-    yellow:  '0xfffed5'
-    blue:    '0xc2e3ff'
-    magenta: '0xffc6ff'
-    cyan:    '0xc0e9f8'
-    white:   '0xffffff'
+    black:   '0x282a35'
+    red:     '0xff6e67'
+    green:   '0x5af78e'
+    yellow:  '0xf4f99d'
+    blue:    '0xcaa9fa'
+    magenta: '0xff92d0'
+    cyan:    '0x9aedfe'
+    white:   '0xe6e6e6'
 # color_end
 
 # Any items in the `env` entry below will be added as
