@@ -19,8 +19,6 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'wikitopian/hardmode'
 
-Plugin 'tomlion/vim-solidity'
-
 Plugin 'flazz/vim-colorschemes'
 
 Plugin 'ervandew/supertab'
