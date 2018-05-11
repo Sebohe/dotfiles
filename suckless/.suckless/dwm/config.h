@@ -28,7 +28,12 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,      1 << 8,            0,           -1 },
+	{ "Firefox",  NULL,       NULL,      1 << 8,        0,           -1 },
+    { "Riot",     NULL,       NULL,       4,            0,             -1},
+    { "Telegram", NULL,       NULL,       4,            0,             -1},
+    { "Google",   NULL,       NULL,       64,         0,             -1},
+    { "Chromium", NULL,       NULL,       128,         0,             -1},
+    { "Tor",      NULL,       NULL,       128,         0,             -1},
 };
 
 /* layout(s) */
