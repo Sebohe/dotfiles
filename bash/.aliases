@@ -10,5 +10,9 @@ alias pp='populus'
 alias connect='nmcli d w c'
 alias ppc='populus compile'
 alias v='vim '
-alias dls='docker service ls; echo =====; docker container ls -a'
+alias dls='docker service ls'
 alias drm='docker service rm '
+alias todo='topydo -t ~/todo.txt'
+alias dsl='docker service logs -f '
+alias gls="git log --graph --pretty=format:'%Cred%h%Creset %Cgreen(%cr) %C(bold blue)<%an>%Creset%C(yellow)%d%Creset %s %Creset' --abbrev-commit --branches --remotes --tags -10 && echo \"=======\" && git status -s"
+alias cat=bat

@@ -16,7 +16,7 @@ compinit
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-setxkbmap -option compose:ralt
+bindkey -e
 
 #PROMPT
 NEWLINE=$'\n'
@@ -67,6 +67,8 @@ fi
 #fi
 
 xinputs_disable.sh
+setxkbmap -option compose:ralt
+setxkbmap -option ctrl:nocaps
 #xinput --set-prop 14 'libinput Accel Speed' 0.45
 
 KEYTIMEOUT=1
