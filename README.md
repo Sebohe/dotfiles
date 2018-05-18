@@ -29,4 +29,4 @@
 
 ### Vim
 
-    :sclose # Syntastic hide warning box
+    :lclose # Syntastic hide warning box
