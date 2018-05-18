@@ -26,3 +26,7 @@
     export MAC=$(echo ${MAC:0:2}:${MAC:2:2}:${MAC:4:2}:${MAC:6:2}:${MAC:8:2}:${MAC:10:2})
     # Find IP: substitute vname-mac-addr with your vm's mac address in ':' notation
     arp -a | grep vmname-mac-addr
+
+### Vim
+
+    :sclose # Syntastic hide warning box
