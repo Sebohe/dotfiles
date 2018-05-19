@@ -11,7 +11,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'vim-syntastic/syntastic'
+Plugin 'w0rp/ale'
 
 Plugin 'scrooloose/nerdtree'
 
@@ -21,7 +21,7 @@ Plugin 'flazz/vim-colorschemes'
 
 Plugin 'ervandew/supertab'
 
-Plugin 'Lokaltog/vim-powerline'
+" Plugin 'Lokaltog/vim-powerline'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -31,22 +31,6 @@ syntax enable
 
 " Colors
 hi MatchParen cterm=underline ctermbg=none ctermfg=magenta
-" favorite themes: {{{
-" Ligh {{{
-"  sol-term
-"  lightning
-"  PapayaWhip
-"  github
-"  newspaper
-"  Saturn
-"  laederon
-"  stonewashed-256
-" }}}
-" Dark {{{
-" forgotten-dark
-" }}}
-"
-" }}}
 colorscheme vimbrant
 
 let g:HardMode_level = 'wannabe'
@@ -70,18 +54,10 @@ set undodir=~/.vim/undodir
 
 autocmd FileType markdown setlocal spell
 
-" Synstastic stuff
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_error_symbol = "✗"
-let g:syntastic_warning_symbol = "⚠"
-
-
 map <C-n> :NERDTreeToggle<CR>
-"
+
+
+let g:ale_linters = {'javascript': ['eslint'],}
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
+
