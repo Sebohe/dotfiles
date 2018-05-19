@@ -13,6 +13,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'w0rp/ale'
 
+Plugin 'vim-airline/vim-airline'
+
 Plugin 'scrooloose/nerdtree'
 
 Plugin 'wikitopian/hardmode'
@@ -58,6 +60,7 @@ map <C-n> :NERDTreeToggle<CR>
 
 
 let g:ale_linters = {'javascript': ['eslint'],}
-let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '--'
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚠'
 
