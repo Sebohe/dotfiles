@@ -12,7 +12,7 @@ if [[ $(xrandr | grep HDMI | grep disconnected) ]]; then
 fi
 
 if [[ $(xrandr | grep HDMI | grep 1080) ]]; then
-        xrandr --output $MONITOR --mode 1920x1080 --auto --pos 0x0 --rotate normal --output $LAPTOP --mode 1920x1080 --pos 1920x0 --rotate normal
+        xrandr --output $MONITOR --mode 1920x1080 --auto --pos 1920x0 --rotate normal --output $LAPTOP --mode 1920x1080 --pos 0x0 --rotate normal
 fi
 
 if [[ $(xrandr | grep HDMI | grep 1050) ]]; then
