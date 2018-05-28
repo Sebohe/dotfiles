@@ -27,7 +27,7 @@ filetype plugin indent on    " required
 syntax on
 syntax enable
 hi MatchParen cterm=underline ctermbg=none ctermfg=magenta
-colorscheme vimbrant
+colorscheme github
 
 let g:HardMode_level = 'wannabe'
 let g:HardMode_hardmodeMsg = 'no arrows!'
@@ -40,7 +40,7 @@ set softtabstop=4
 set expandtab
 set ff=unix
 set autoread
-" set hlsearch
+set hlsearch
 
 " https://www.johnhawthorn.com/2012/09/vi-escape-delays/
 set timeoutlen=500 ttimeoutlen=0
