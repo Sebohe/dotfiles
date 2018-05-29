@@ -27,7 +27,7 @@ filetype plugin indent on    " required
 syntax on
 syntax enable
 hi MatchParen cterm=underline ctermbg=none ctermfg=magenta
-colorscheme github
+colorscheme koehler
 
 let g:HardMode_level = 'wannabe'
 let g:HardMode_hardmodeMsg = 'no arrows!'
