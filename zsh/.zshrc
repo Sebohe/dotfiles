@@ -1,22 +1,18 @@
-# Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 unsetopt beep
-bindkey -e
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-# End of lines added by compinstall
-# ~/.bashrc
-#
-#zstyle :compinstall filename '/home/sebas/.zshrc'
+
+zstyle :compinstall filename '/home/sebas/.zshrc'
 autoload -Uz compinit
 compinit
 
+# Vi mode in zsh
+bindkey -v
+KEYTIMEOUT=1
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-
-bindkey -e
 
 #DEFAULTS
 BROWSER=/usr/bin/firefox
@@ -48,8 +44,6 @@ then
     setxkbmap -option ctrl:nocaps
 fi
 
-KEYTIMEOUT=1
-bindkey -v
 
 
 # OH MY ZSH
@@ -65,8 +59,11 @@ ZSH_THEME="oxide"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git,
+  git
+  git-extras
   docker
+  docker-compose
+  taskwarrior
 )
 
 source $ZSH/oh-my-zsh.sh
