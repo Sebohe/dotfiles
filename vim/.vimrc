@@ -18,16 +18,23 @@ Plugin 'spf13/vim-autoclose'
 Plugin 'wikitopian/hardmode'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'ervandew/supertab'
+Plugin 'tomlion/vim-solidity'
 " Plugin 'Lokaltog/vim-powerline'
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+" Remap W to w
+command WQ wq
+command Wq wq
+command W w
+command Q q
 
 
 " Colors
 syntax on
 syntax enable
 hi MatchParen cterm=underline ctermbg=none ctermfg=magenta
-colorscheme koehler
+colorscheme vimbrant
 
 let g:HardMode_level = 'wannabe'
 let g:HardMode_hardmodeMsg = 'no arrows!'
@@ -52,9 +59,9 @@ autocmd FileType markdown setlocal spell
 
 map <C-n> :NERDTreeToggle<CR>
 
-
 let g:ale_linters = {'javascript': ['eslint'],}
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
-let g:airline_theme='angr'
+let g:airline_theme='deus'
+

@@ -7,9 +7,6 @@ zstyle :compinstall filename '/home/sebas/.zshrc'
 autoload -Uz compinit
 compinit
 
-# Vi mode in zsh
-bindkey -v
-KEYTIMEOUT=1
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -67,3 +64,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+
+# Vi mode in zsh
+bindkey -v
+KEYTIMEOUT=1
