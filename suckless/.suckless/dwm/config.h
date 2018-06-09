@@ -34,6 +34,7 @@ static const Rule rules[] = {
     { "Google",   NULL,       NULL,       64,         0,             -1},
     { "Chromium", NULL,       NULL,       128,         0,             -1},
     { "Tor",      NULL,       NULL,       128,         0,             -1},
+    { "Firefox Developer Edition",      NULL,       NULL,       128,         0,             -1},
 };
 
 /* layout(s) */

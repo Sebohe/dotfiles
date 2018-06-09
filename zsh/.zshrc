@@ -39,6 +39,7 @@ then
     xinputs_disable.sh
     setxkbmap -option compose:ralt
     setxkbmap -option ctrl:nocaps
+    # xmodmap -e "keycode 37 = "
 fi
 
 
@@ -57,7 +58,7 @@ ZSH_THEME="oxide"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  git-extras
+  ssh-agent
   docker
   docker-compose
   taskwarrior

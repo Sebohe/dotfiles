@@ -1,8 +1,6 @@
 [user]
 	email = sebasheston@gmail.com
 	name = Sebastian Bolanos
-[credential]
-	helper = store
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
