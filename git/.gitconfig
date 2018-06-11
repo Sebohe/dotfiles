@@ -1,27 +1,7 @@
 [user]
 	email = sebasheston@gmail.com
 	name = Sebastian Bolanos
-[credential]
-	helper = store
-[filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
 [core]
 	edit = vim
-	pager = diff-so-fancy | less --tabs=4 -RFX
 [color]
 	ui = true
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
-[color "diff"]
-	meta = yellow
-	frag = magenta bold
-	commit = yellow bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
