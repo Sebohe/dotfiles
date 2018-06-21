@@ -1,6 +1,0 @@
-#!/bin/bash
-# This hook is sourced after every virtualenv is activated.
-#https://stackoverflow.com/questions/10406926/how-do-i-change-the-default-virtualenv-prompt#10509429
-
-
-# This doesn't work with zsh (check last comit)
