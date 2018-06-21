@@ -26,7 +26,7 @@ export GOPATH=$HOME/.go
 
 #PATH
 export PATH=$PATH:$GOPATH/bin:/usr/lib/go/bin
-export PATH=$PATH:$HOME/.local/bin:$HOME/.gem/ruby/2.5.0/bin:$HOME/.npm-global/bin
+export PATH=$PATH:$HOME/.local/bin:$HOME/.gem/ruby/2.5.0/bin:$HOME/.npm-global/bin:$HOME/.cargo/bin
 
 #ALIASES
 source $HOME/.aliases
@@ -56,13 +56,7 @@ ZSH_THEME="oxide"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-  ssh-agent
-  docker
-  docker-compose
-  taskwarrior
-)
+plugins=(git git-extras ssh-agent docker taskwarriorhistory resty)
 
 source $ZSH/oh-my-zsh.sh
 

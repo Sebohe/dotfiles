@@ -15,5 +15,7 @@ alias drm='docker service rm '
 alias todo='topydo -t ~/todo.txt'
 alias dsl='docker service logs -f '
 alias gls="git log --graph --pretty=format:'%Cred%h%Creset %Cgreen(%cr) %C(bold blue)<%an>%Creset%C(yellow)%d%Creset %s %Creset' --abbrev-commit --branches --remotes --tags -10 && echo \"=======\" && git status -s"
-alias cat=bat
 alias dlf='docker service logs -f --raw '
+alias dlft='docker service logs -f --raw mobile_api_tester'
+alias POST='curl -X POST -H content-type: application/json -d '
+alias URL='http://localhost:8000/mobile_api'
