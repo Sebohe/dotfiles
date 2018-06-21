@@ -88,5 +88,5 @@ function oxide_precmd {
 add-zsh-hook precmd oxide_precmd
 
 PROMPT=$'
-%{$limegreen%}%~${PR_RST} $vcs_info_msg_0_$(virtualenv_info)
+%F{blue}%m %{$limegreen%}%~${PR_RST} $vcs_info_msg_0_$(virtualenv_info)
 %(?.%F{white}.%F{red})$%f '
