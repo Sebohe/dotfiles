@@ -14,10 +14,10 @@ Plugin 'w0rp/ale'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
-Plugin 'spf13/vim-autoclose'
+Plugin 'tpope/vim-surround'
 Plugin 'wikitopian/hardmode'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'ervandew/supertab'
+Plugin 'valloric/youcompleteme'
 Plugin 'tomlion/vim-solidity'
 " Plugin 'Lokaltog/vim-powerline'
 call vundle#end()            " required
@@ -29,6 +29,8 @@ command Wq wq
 command W w
 command Q q
 
+"
+set mouse=a
 
 " Colors
 syntax on
@@ -65,3 +67,4 @@ let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
 let g:airline_theme='deus'
 
+let g:ycm_autoclose_preview_window_after_insertion = 1

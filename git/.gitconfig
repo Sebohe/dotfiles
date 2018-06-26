@@ -3,5 +3,6 @@
 	name = Sebastian Bolanos
 [core]
 	edit = vim
+	helper = store
 [color]
 	ui = true
