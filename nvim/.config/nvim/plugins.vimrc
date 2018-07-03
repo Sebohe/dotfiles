@@ -1,19 +1,14 @@
 call plug#begin('~/.vim/plugged')
-Plug 'VundleVim/Vundle.vim'
 Plug 'w0rp/ale'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-surround'
-Plug 'wikitopian/hardmode'
 Plug 'flazz/vim-colorschemes'
 Plug 'tomlion/vim-solidity'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'rust-lang/rust.vim'
 Plug 'Shougo/deoplete.nvim'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
 call plug#end()
 
 " Colors
