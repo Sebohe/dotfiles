@@ -26,10 +26,10 @@ let g:deoplete#sources#ternjs#case_insensitive = 1
 " When completing a property and no completions are found, Tern will use some 
 " heuristics to try and return some properties anyway. Set this to 0 to 
 " turn that off. Default: 1
-let g:deoplete#sources#ternjs#guess = 0
+let g:deoplete#sources#ternjs#guess = 1
 
 " Determines whether the result set will be sorted. Default: 1
-let g:deoplete#sources#ternjs#sort = 0
+let g:deoplete#sources#ternjs#sort = 1
 
 " When disabled, only the text before the given position is considered part of 
 " the word. When enabled (the default), the whole variable name that the cursor
@@ -48,21 +48,15 @@ let g:deoplete#sources#ternjs#include_keywords = 1
 let g:deoplete#sources#ternjs#in_literal = 0
 
 
-"Add extra filetypes
-let g:deoplete#sources#ternjs#filetypes = [
-                \ 'jsx',
-                                \ 'javascript.jsx',
-                                                \ 'vue',
-                                                                \ '...'
-                                                                                \ ]
 if !exists('g:deoplete#omni#input_patterns')
       let g:deoplete#omni#input_patterns = {}
-  endif
+endif
   " let g:deoplete#disable_auto_complete = 1
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endiflet g:deoplete#enable_at_startup = 1
-
+    autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " deoplete tab-complete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " tern
 autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
+
+let g:deoplete#enable_at_startup = 1
