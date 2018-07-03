@@ -1,46 +1,39 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'w0rp/ale'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-surround'
-Plugin 'wikitopian/hardmode'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'valloric/youcompleteme'
-Plugin 'tomlion/vim-solidity'
-" Plugin 'Lokaltog/vim-powerline'
-call vundle#end()            " required
-filetype plugin indent on    " required
-
+call plug#begin('~/.vim/plugged')
+Plug 'VundleVim/Vundle.vim'
+Plug 'w0rp/ale'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-surround'
+Plug 'wikitopian/hardmode'
+Plug 'flazz/vim-colorschemes'
+Plug 'tomlion/vim-solidity'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'rust-lang/rust.vim'
+Plug 'Shougo/deoplete.nvim'
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+call plug#end()
 " Remap W to w
 command WQ wq
 command Wq wq
 command W w
 command Q q
 
-"
-set mouse=a
+" Line numbers
+set number
 
 " Colors
 syntax on
 syntax enable
 hi MatchParen cterm=underline ctermbg=none ctermfg=magenta
-colorscheme vimbrant
+" colorscheme vimbrant
+colorscheme seattle
 
-let g:HardMode_level = 'wannabe'
-let g:HardMode_hardmodeMsg = 'no arrows!'
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+" let g:HardMode_level = 'wannabe'
+" let g:HardMode_hardmodeMsg = 'no arrows!'
+" autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 
 " Tabs and spaces
 set tabstop=4
@@ -61,10 +54,9 @@ autocmd FileType markdown setlocal spell
 
 map <C-n> :NERDTreeToggle<CR>
 
+" ale
 let g:ale_linters = {'javascript': ['eslint'],}
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
 let g:airline_theme='deus'
-
-let g:ycm_autoclose_preview_window_after_insertion = 1
