@@ -4,8 +4,8 @@ let &packpath = &runtimepath
 source ~/.config/nvim/deoplete.vimrc
 source ~/.config/nvim/plugins.vimrc
 
-set guicursor=
 set ls=0
+hi MatchParen cterm=underline ctermfg=magenta
 
 " Configs
 command WQ wq

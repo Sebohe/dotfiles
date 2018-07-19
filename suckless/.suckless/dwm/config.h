@@ -19,7 +19,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "Terminal", "Books", "Messaging", "VMs", "5", "6", "Chromium", "8", "Firefox" };
+static const char *tags[] = { "Terminal", "Books", "Messaging", "VMs", "5", "Music", "Brave", "8", "Firefox" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -31,7 +31,8 @@ static const Rule rules[] = {
 	{ "Firefox",  NULL,       NULL,      1 << 8,        0,           -1 },
     { "Riot",     NULL,       NULL,       4,            0,             -1},
     { "Telegram", NULL,       NULL,       4,            0,             -1},
-    { "Google",   NULL,       NULL,       64,         0,             -1},
+    { "Google",   NULL,       NULL,       65,         0,             -1},
+    { "Brave",   NULL,       NULL,       64,         0,             -1},
     { "Chromium", NULL,       NULL,       128,         0,             -1},
     { "Tor",      NULL,       NULL,       128,         0,             -1},
     { "Firefox Developer Edition",      NULL,       NULL,       128,         0,             -1},
