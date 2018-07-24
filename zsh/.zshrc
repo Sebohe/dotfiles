@@ -7,7 +7,6 @@ zstyle :compinstall filename '/home/sebas/.zshrc'
 autoload -Uz compinit
 compinit
 
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -39,10 +38,7 @@ then
     xinputs_disable.sh
     setxkbmap -option compose:ralt
     setxkbmap -option ctrl:nocaps
-    # xmodmap -e "keycode 37 = "
 fi
-
-
 
 # OH MY ZSH
 export ZSH=$HOME/.oh-my-zsh
@@ -59,7 +55,10 @@ ZSH_THEME="oxide"
 plugins=(git git-extras ssh-agent docker taskwarriorhistory )
 
 source $ZSH/oh-my-zsh.sh
+# I like it being super strict when it comes to paths
+CASE_SENSITIVE="true"
 
 # Vi mode in zsh
 bindkey -v
 KEYTIMEOUT=1
+
