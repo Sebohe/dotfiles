@@ -31,7 +31,12 @@ export PATH=$PATH:$HOME/.local/bin:$HOME/.gem/ruby/2.5.0/bin:$HOME/.npm-global/b
 source $HOME/.aliases
 
 #LOCALVARS
+if [ ! -f $HOME/.localvars ]
+then
+    touch $HOME/.localvar
+fi
 source $HOME/.localvars
+  
 
 if [[ `hostname` == "ultron" ]]
 then
@@ -52,11 +57,14 @@ ZSH_THEME="oxide"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-extras ssh-agent docker taskwarriorhistory )
+plugins=(git git-extras ssh-agent docker taskwarrior history )
 
-source $ZSH/oh-my-zsh.sh
 # I like it being super strict when it comes to paths
 CASE_SENSITIVE="true"
+
+
+# THIS NEEDS TO BE AT THE BOTTOM
+source $ZSH/oh-my-zsh.sh
 
 # Vi mode in zsh
 bindkey -v
