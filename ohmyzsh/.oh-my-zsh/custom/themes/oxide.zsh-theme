@@ -87,6 +87,12 @@ function oxide_precmd {
 }
 add-zsh-hook precmd oxide_precmd
 
+if [ ! -f $HOME/.ip ]; then
+    curl ipecho.net/plain > $HOME/.ip
+fi
+
+IP=$(cat $HOME/.ip)
+
 PROMPT=$'
-%F{blue}%m %{$limegreen%}%~${PR_RST} $vcs_info_msg_0_$(virtualenv_info)
+%F{blue}%m@$IP %{$limegreen%}%~${PR_RST} $vcs_info_msg_0_$(virtualenv_info)
 %(?.%F{white}.%F{red})$%f '

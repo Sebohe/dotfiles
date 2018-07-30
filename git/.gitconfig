@@ -4,5 +4,6 @@
 [core]
 	edit = vim
 	helper = store
+	editor = vim
 [color]
 	ui = true
