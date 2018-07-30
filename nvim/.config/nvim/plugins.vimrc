@@ -8,7 +8,8 @@ Plug 'tomlion/vim-solidity'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'rust-lang/rust.vim'
 Plug 'Shougo/deoplete.nvim'
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 call plug#end()
 
 " Colors
@@ -26,3 +27,14 @@ let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
 let g:airline_theme='deus'
+
+
+" omnifuncs
+augroup omnifuncs
+  autocmd!
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+augroup end

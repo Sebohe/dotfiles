@@ -1,5 +1,8 @@
 " Set bin if you have many instalations
 let g:deoplete#sources#ternjs#tern_bin = '/home/sebas/.npm-global/bin/tern'
+
+let g:deoplete#auto_complete_delay = 0
+
 let g:deoplete#sources#ternjs#timeout = 1
 
 " Whether to include the types of the completions in the result data. Default: 0
@@ -12,7 +15,7 @@ let g:deoplete#sources#ternjs#depths = 1
 
 " Whether to include documentation strings (if found) in the result data.
 " Default: 0
-let g:deoplete#sources#ternjs#docs = 1
+let g:deoplete#sources#ternjs#docs = 0
 
 " When on, only completions that match the current word at the given point will
 " be returned. Turn this off to get all results, so that you can filter on the 
@@ -47,16 +50,29 @@ let g:deoplete#sources#ternjs#include_keywords = 1
 " If completions should be returned when inside a literal. Default: 1
 let g:deoplete#sources#ternjs#in_literal = 0
 
-
+" enable deoplete at startup and make sure the autocompletion will actually
+" trigger using the omnifuncs set later on.
 if !exists('g:deoplete#omni#input_patterns')
       let g:deoplete#omni#input_patterns = {}
 endif
-  " let g:deoplete#disable_auto_complete = 1
-    autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" automatically closing the scratch window at the top of the vim window on 
+" finishing a complete or leaving insert. If you don’t have something 
+" like this set, you’ll have to manually close it with 
+" :pc, :pclose or :q with the preview window active.
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " deoplete tab-complete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
 " tern
 autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
+let g:deoplete#sources#ternjs#filetypes = [
+	\ 'jsx',
+	\ 'javascript.jsx',
+	\ 'javascript'
+	\ ]
+
+
 
 let g:deoplete#enable_at_startup = 1
