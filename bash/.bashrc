@@ -29,16 +29,3 @@ stty ixon -ixoff
 if [ -z $DISPLAY ] && [ -n $XDG_VTNR ] && [ "$XDG_VTNR" -eq 1 ]; then 
 	exec startx
 fi
-
-cd ~
-
-
-if [[ -z $(pgrep tmux) ]]; then
-    #tmux
-    echo
-fi
-
-if [[ -n $(pgrep tmux) ]]; then
-   # tmux attach
-   echo
-fi
