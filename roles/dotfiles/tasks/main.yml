@@ -1,4 +1,9 @@
 ---
+- name: Remove dotfiles if it exists
+  file:
+    path: "{{ dotfiles }}"
+    state: absent
+
 - name: Clone dotfiles
   git:
     repo: https://gitlab.com/sebohe/dotfiles 

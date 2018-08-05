@@ -12,6 +12,7 @@
   roles:
     - common
     - user
-    - stow
+    - dotfiles
     - ohmyzsh
+    - vim_plugins
     - sshd
