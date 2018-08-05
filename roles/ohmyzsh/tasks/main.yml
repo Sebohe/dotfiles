@@ -1,9 +1,12 @@
 ---
 - name: Install oh-my-zsh
-  shell: oh-my-zsh-install.sh
-    dir: "{{ dotfiles }}"
-    state: present
+  shell: "{{ dotfiles }}/ohmyzsh/install.sh"
+  args:
+    executable: /bin/bash
 
-- name: stow ohmyzsh configs
-  command:
-    chdir: "{{ dotfiles }}
+- name: Stow files
+  command: "stow --target=/home/{{ username }} {{ item }}"
+  args:
+    chdir: "{{ dotfiles }}"
+  with_items:
+    - ohmyzsh
