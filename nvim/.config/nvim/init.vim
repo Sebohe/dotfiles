@@ -32,4 +32,3 @@ autocmd FileType markdown setlocal spell
 " Source plugins
 source ~/.config/nvim/plugins.vimrc
 source ~/.config/nvim/deoplete.vimrc
-
