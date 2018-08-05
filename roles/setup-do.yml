@@ -1,0 +1,5 @@
+---
+- hosts: parity-PoA
+  tasks:
+    - name: Setup personal dotfiles
+      apt: name=stow state=installed

@@ -3,3 +3,5 @@ bundle
 build
 plugged
 undodir
+.vs
+*.retry

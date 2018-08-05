@@ -1,0 +1,9 @@
+---
+- hosts: ocean
+  user: root
+  vars:
+    username: sebas
+    password: supersecret
+    public_key: ~/.ssh/id_ed25519.pub
+  roles:
+    - user
