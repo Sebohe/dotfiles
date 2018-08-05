@@ -1,8 +1,9 @@
 ---
-- name: Install oh-my-zsh
-  shell: "{{ dotfiles }}/ohmyzsh/install.sh"
-  args:
-    executable: /bin/bash
+- name: Cloning oh-my-zsh
+  git:
+    repo: https://github.com/robbyrussell/oh-my-zsh
+    dest: "/home/{{ username }}/.oh-my-zsh"
+  register: cloning
 
 - name: Stow files
   command: "stow --target=/home/{{ username }} {{ item }}"
