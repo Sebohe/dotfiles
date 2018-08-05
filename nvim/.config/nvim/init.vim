@@ -1,9 +1,6 @@
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 
-source ~/.config/nvim/deoplete.vimrc
-source ~/.config/nvim/plugins.vimrc
-
 set ls=0
 hi MatchParen cterm=underline ctermfg=magenta
 
@@ -25,7 +22,14 @@ set hlsearch
 " https://www.johnhawthorn.com/2012/09/vi-escape-delays/
 set timeoutlen=500 ttimeoutlen=0
 
-set undofile " Maintain undo history between sessions
+" Maintain undo history between sessions
+set undofile 
 set undodir=~/.vim/undodir
 
+" Add spell check to markdown files
 autocmd FileType markdown setlocal spell
+
+" Source plugins
+source ~/.config/nvim/plugins.vimrc
+source ~/.config/nvim/deoplete.vimrc
+
