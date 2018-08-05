@@ -3,6 +3,8 @@
   git:
     repo: https://gitlab.com/sebohe/dotfiles 
     dest: "{{ dotfiles }}"
+  become: yes
+  become_user: "{{ username }}"
 
 - name: Remove .bashrc
   file: 
@@ -21,4 +23,6 @@
     - vim
     - tmux
     - git
+  become: yes
+  become_user: "{{ username }}"
 

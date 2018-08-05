@@ -3,7 +3,9 @@
   git:
     repo: https://github.com/robbyrussell/oh-my-zsh
     dest: "/home/{{ username }}/.oh-my-zsh"
-  register: cloning
+  become: yes
+  become_user: "{{ username }}"
+
 
 - name: Stow files
   command: "stow --target=/home/{{ username }} {{ item }}"
@@ -11,3 +13,5 @@
     chdir: "{{ dotfiles }}"
   with_items:
     - ohmyzsh
+  become: yes
+  become_user: "{{ username }}"
