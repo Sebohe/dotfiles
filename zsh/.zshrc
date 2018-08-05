@@ -35,7 +35,9 @@ if [ ! -f $HOME/.localvars ]
 then
     touch $HOME/.localvar
 fi
+
 source $HOME/.localvars
+source $HOME/.tiny_care
   
 
 if [[ `hostname` == "ultron" ]]
@@ -44,6 +46,14 @@ then
     setxkbmap -option compose:ralt
     setxkbmap -option ctrl:nocaps
 fi
+
+# https://raw.githubusercontent.com/Parth/dotfiles/master/zsh/zshrc.sh
+# Custom cd
+c() {
+		cd $1;
+		ls;
+}
+alias cd="c"
 
 # OH MY ZSH
 export ZSH=$HOME/.oh-my-zsh
