@@ -5,5 +5,8 @@
     username: sebas
     password: supersecret
     public_key: ~/.ssh/id_ed25519.pub
+    dotfiles: /home/{{ username }}/.dotfiles
+    ssh_port: 22
   roles:
-    - user
+    - common
+    - ssh
