@@ -1,0 +1,26 @@
+---
+- name: Create plugged directory for neovim
+  file:
+    path: "/home/{{ username }}/.vim/plugged"
+    state: directory
+  become: yes
+  become_user: "{{ username }}"
+
+- name: Install neovim
+  apt:
+    name: neovim
+    state: present
+    
+- name: Change neovim plugins to server plugins
+  lineinfile:
+    dest: "{{ dotfiles }}/nvim/.config/nvim/init.vim"
+    state: present
+    regexp: '^(.*)plugins\.vimrc(.*)$'
+    line: 'source ~/.config/nvim/server_plugins.vimrc'
+  become: yes
+  become_user: "{{ username }}"
+
+- name: Run PlugInstall
+  command: nvim -E -s -c "source /home/{{ username }}/.config/nvim/init.vim" -c PlugInstall -c qa
+  become: yes
+  become_user: "{{ username }}"
