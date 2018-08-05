@@ -19,8 +19,3 @@
     line: 'source ~/.config/nvim/server_plugins.vimrc'
   become: yes
   become_user: "{{ username }}"
-
-- name: Run PlugInstall
-  command: nvim -E -s -c "source /home/{{ username }}/.config/nvim/init.vim" -c PlugInstall -c qa
-  become: yes
-  become_user: "{{ username }}"
