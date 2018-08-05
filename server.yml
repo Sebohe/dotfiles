@@ -1,12 +1,16 @@
+# To generate password hashes
+# python -c "from passlib.hash import sha512_crypt; import getpass; print(sha512_crypt.using(rounds=5000).hash(getpass.getpass()))"
 ---
 - hosts: ocean
   user: root
   vars:
     username: sebas
-    password: supersecret
+    password: $6$/ir6o2RJxk/0Dw0j$T.P8diCX8ZE.uyLbEG3fo8ilS414PvCIllXkkh7ODtScHqvSZqsqH3AR9yOJQvwXvvSHN6izUx3PJGwMI2Clk0
     public_key: ~/.ssh/id_ed25519.pub
     ssh_port: 22
     dotfiles: /home/{{ username }}/.dotfiles
   roles:
     - common
+    - user
+    - stow
     - sshd

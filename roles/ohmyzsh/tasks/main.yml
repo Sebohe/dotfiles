@@ -1,0 +1,9 @@
+---
+- name: Install oh-my-zsh
+  shell: oh-my-zsh-install.sh
+    dir: "{{ dotfiles }}"
+    state: present
+
+- name: stow ohmyzsh configs
+  command:
+    chdir: "{{ dotfiles }}

@@ -15,9 +15,9 @@
 - name: Create default user
   user:
     name: "{{ username }}"
+    groups: sudo
     password: "{{ password }}"
     shell: /bin/zsh
-    update_password: always
     state: present
 
 - name: Add authorized key

@@ -1,0 +1,25 @@
+---
+- name: Clone dotfiles
+  git:
+    repo: https://gitlab.com/sebohe/dotfiles 
+    dest: "{{ dotfiles }}"
+
+- name: Remove .bashrc
+  file: 
+    path: "/home/{{ username }}/.bashrc"
+    state: absent
+
+- name: Stow files
+  command: "stow --target=/home/{{ username }} {{ item }}"
+  args:
+    chdir: "{{ dotfiles }}"
+  with_items:
+    - stow
+    - ohmyzsh
+    - zsh
+    - bash
+    - nvim
+    - vim
+    - tmux
+    - git
+
