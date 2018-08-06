@@ -15,7 +15,7 @@
   lineinfile:
     dest: "{{ dotfiles }}/nvim/.config/nvim/init.vim"
     state: present
-    regexp: '^(.*)plugins\.vimrc(.*)$'
+    regexp: '^(.*)/plugins\.vimrc(.*)$'
     line: 'source ~/.config/nvim/server_plugins.vimrc'
   become: yes
   become_user: "{{ username }}"

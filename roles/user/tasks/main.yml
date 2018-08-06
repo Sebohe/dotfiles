@@ -12,7 +12,7 @@
     line: "%sudo ALL=(ALL:ALL) ALL"
     validate: "/usr/sbin/visudo -cf %s"
 
-- name: Create default user
+- name: Create {{ username }} user
   user:
     name: "{{ username }}"
     groups: sudo
