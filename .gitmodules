@@ -1,3 +1,6 @@
 [submodule "ohmyzsh/oh-my-zsh"]
 	path = ohmyzsh/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh
+[submodule "roles/go"]
+	path = roles/go
+	url = git@gitlab.com:sebohe/ansible-go

@@ -16,4 +16,5 @@
     - ohmyzsh
     - vim_plugins
     - docker
+    - go
     - sshd
