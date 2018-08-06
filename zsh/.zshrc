@@ -36,6 +36,7 @@ then
     touch $HOME/.localvar
 fi
 
+source $HOME/.nix-profile/etc/profile.d/nix.sh
 source $HOME/.localvars
 source $HOME/.tiny_care
   
