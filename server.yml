@@ -15,4 +15,5 @@
     - dotfiles
     - ohmyzsh
     - vim_plugins
+    - docker
     - sshd
