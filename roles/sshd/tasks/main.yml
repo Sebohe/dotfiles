@@ -18,7 +18,7 @@
 - name: change port number
   lineinfile:
     dest: /etc/ssh/sshd_config
-    regexp: "^#Port |^Port "
+    regexp: "^#?Port"
     line: "Port {{ ssh_port }}"
     state: present
   notify: restart ssh

@@ -3,7 +3,7 @@ HISTSIZE=10000
 SAVEHIST=10000
 unsetopt beep
 
-zstyle :compinstall filename '/home/sebas/.zshrc'
+zstyle :compinstall filename '/home/'$HOME'/.zshrc'
 autoload -Uz compinit
 compinit
 
