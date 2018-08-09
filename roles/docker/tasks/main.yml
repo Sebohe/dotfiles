@@ -40,3 +40,9 @@
 
 - name: Add {{ username }} to docker user group
   shell: usermod -aG docker {{username}}
+
+- name: Install pip deps for docker
+  pip:
+    name:
+      - docker-py
+      - docker-compose
