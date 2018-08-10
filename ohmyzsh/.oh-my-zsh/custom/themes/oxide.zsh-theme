@@ -93,6 +93,12 @@ fi
 
 IP=$(cat $HOME/.ip)
 
+pathColor=%F{red}
+if [[ `hostname` == "ultron" ]]
+then
+  pathColor=%F{blue}
+fi
+
 PROMPT=$'
-%F{blue}%m@$IP %{$limegreen%}%~${PR_RST} $vcs_info_msg_0_$(virtualenv_info)
+$pathColor%m@$IP %{$limegreen%}%~${PR_RST} $vcs_info_msg_0_$(virtualenv_info)
 %(?.%F{white}.%F{red})$%f '
