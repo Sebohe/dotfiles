@@ -2,7 +2,7 @@
 # python -c "from passlib.hash import sha512_crypt; import getpass; print(sha512_crypt.using(rounds=5000).hash(getpass.getpass()))"
 ---
 - hosts: ocean
-  user: root
+  remote_user: root
   vars:
     username: sebas
     password: $6$/ir6o2RJxk/0Dw0j$T.P8diCX8ZE.uyLbEG3fo8ilS414PvCIllXkkh7ODtScHqvSZqsqH3AR9yOJQvwXvvSHN6izUx3PJGwMI2Clk0

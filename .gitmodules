@@ -3,4 +3,4 @@
 	url = https://github.com/robbyrussell/oh-my-zsh
 [submodule "roles/go"]
 	path = roles/go
-	url = git@gitlab.com:sebohe/ansible-go
+	url = https://gitlab.com/sebohe/ansible-go
