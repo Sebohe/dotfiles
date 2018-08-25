@@ -1,3 +1,15 @@
+
+
+#
+# User configuration sourced by interactive shells
+#
+
+# Change default zim location
+export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
+
+# Start zim
+[[ -s ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh
+
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
@@ -68,16 +80,15 @@ ZSH_THEME="oxide"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-extras ssh-agent docker taskwarrior history )
+plugins=(git ssh-agent docker taskwarrior )
 
 # I like it being super strict when it comes to paths
 CASE_SENSITIVE="true"
 
 
 # THIS NEEDS TO BE AT THE BOTTOM
-source $ZSH/oh-my-zsh.sh
+#source $ZSH/oh-my-zsh.sh
 
 # Vi mode in zsh
 bindkey -v
 KEYTIMEOUT=1
-
