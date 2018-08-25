@@ -3,3 +3,4 @@ init.sh
 \.gitignore
 \.git
 .*.\.swp
+.vs
