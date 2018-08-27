@@ -10,7 +10,6 @@ command Wq wq
 command W w
 command Q q
 
-set number
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -18,6 +17,21 @@ set expandtab
 set ff=unix
 set autoread
 set hlsearch
+
+set number
+set relativenumber
+
+augroup linenumbers
+  autocmd!
+  autocmd BufEnter *    :set relativenumber
+  autocmd BufLeave *    :set number norelativenumber
+  autocmd WinEnter *    :set relativenumber
+  autocmd WinLeave *    :set number norelativenumber
+  autocmd InsertEnter * :set number norelativenumber
+  autocmd InsertLeave * :set relativenumber
+  autocmd FocusLost *   :set number norelativenumber
+  autocmd FocusGained * :set relativenumber
+augroup END
 
 " https://www.johnhawthorn.com/2012/09/vi-escape-delays/
 set timeoutlen=500 ttimeoutlen=0
