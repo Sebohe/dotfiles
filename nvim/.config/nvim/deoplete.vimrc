@@ -24,7 +24,7 @@ let g:deoplete#sources#ternjs#filter = 0
 
 " Whether to use a case-insensitive compare between the current word and 
 " potential completions. Default 0
-let g:deoplete#sources#ternjs#case_insensitive = 1
+let g:deoplete#sources#ternjs#case_insensitive = 0
 
 " When completing a property and no completions are found, Tern will use some 
 " heuristics to try and return some properties anyway. Set this to 0 to 
@@ -53,7 +53,7 @@ let g:deoplete#sources#ternjs#in_literal = 0
 " enable deoplete at startup and make sure the autocompletion will actually
 " trigger using the omnifuncs set later on.
 if !exists('g:deoplete#omni#input_patterns')
-      let g:deoplete#omni#input_patterns = {}
+  let g:deoplete#omni#input_patterns = {}
 endif
 
 " automatically closing the scratch window at the top of the vim window on 
@@ -72,7 +72,6 @@ let g:deoplete#sources#ternjs#filetypes = [
 	\ 'javascript.jsx',
 	\ 'javascript'
 	\ ]
-
 
 
 let g:deoplete#enable_at_startup = 1
