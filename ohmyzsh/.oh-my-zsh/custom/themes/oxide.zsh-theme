@@ -94,7 +94,7 @@ fi
 IP=$(cat $HOME/.ip)
 
 pathColor=%F{red}
-if [[ `hostname` == "ultron" ]]
+if [[ `hostname` == "ultron" || `hostname` == "mini" ]]
 then
   pathColor=%F{blue}
 fi

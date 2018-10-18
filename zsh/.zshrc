@@ -95,5 +95,3 @@ KEYTIMEOUT=1
 
 
 source $HOME/.z.sh
-unalias node
-
