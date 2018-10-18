@@ -1,6 +1,18 @@
 # Change default zim location
 #export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 #[[ -s ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh
+#
+
+# XDG
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+if [ ! -w ${XDG_RUNTIME_DIR:="/run/user/$UID"} ]; then
+    echo "\$XDG_RUNTIME_DIR ($XDG_RUNTIME_DIR) not writable. Setting to /tmp." >&2
+    XDG_RUNTIME_DIR=/tmp
+fi
+export XDG_RUNTIME_DIR
+
 
 HISTFILE=~/.histfile
 HISTSIZE=10000
@@ -68,7 +80,7 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="oxide"
 
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ssh-agent docker taskwarrior history-substring-search zsh-syntax-highlighting)
+plugins=(git ssh-agent docker taskwarrior history-substring-search zsh-syntax-highlighting git-open)
 
 # I like it being super strict when it comes to paths
 CASE_SENSITIVE="true"
@@ -83,3 +95,5 @@ KEYTIMEOUT=1
 
 
 source $HOME/.z.sh
+unalias node
+
