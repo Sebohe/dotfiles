@@ -1,7 +1,6 @@
-# Change default zim location
-#export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
-#[[ -s ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh
-#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
 
 # XDG
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -23,8 +22,6 @@ zstyle :compinstall filename '/home/'$HOME'/.zshrc'
 autoload -Uz compinit
 compinit
 
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
 
 #DEFAULTS
 BROWSER=/usr/bin/firefox
@@ -93,5 +90,8 @@ source $ZSH/oh-my-zsh.sh
 bindkey -v
 KEYTIMEOUT=1
 
-
 source $HOME/.z.sh
+
+if [ -z $DISPLAY ] && [ -n $XDG_VTNR ] && [ "$XDG_VTNR" -eq 1 ]; then
+  exec startx
+fi
