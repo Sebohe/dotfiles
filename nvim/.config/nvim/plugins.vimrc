@@ -10,6 +10,8 @@ Plug 'rust-lang/rust.vim'
 Plug 'Shougo/deoplete.nvim'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'wellle/tmux-complete.vim'
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 " Colors
@@ -28,6 +30,8 @@ let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
 let g:airline_theme='deus'
 
+" tmux-complete
+let g:tmuxcomplete#trigger = ''
 
 " omnifuncs
 augroup omnifuncs
