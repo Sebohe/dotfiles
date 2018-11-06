@@ -20,7 +20,6 @@ set hlsearch
 
 set number
 set relativenumber
-
 augroup linenumbers
   autocmd!
   autocmd BufEnter *    :set relativenumber
@@ -32,6 +31,12 @@ augroup linenumbers
   autocmd FocusLost *   :set number norelativenumber
   autocmd FocusGained * :set relativenumber
 augroup END
+
+" Change vim splits from C + W <direction> to just C <direction>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " https://www.johnhawthorn.com/2012/09/vi-escape-delays/
 set timeoutlen=500 ttimeoutlen=0
