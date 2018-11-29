@@ -19,3 +19,6 @@
 [submodule "suckless/rust-dwm-status"]
 	path = suckless/rust-dwm-status
 	url = https://github.com/pierrechevalier83/rust-dwm-status
+[submodule "zsh/zsh-nvm"]
+	path = zsh/zsh-nvm
+	url = https://github.com/lukechilds/zsh-nvm.git

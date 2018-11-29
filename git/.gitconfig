@@ -1,9 +1,13 @@
 [user]
 	email = sebasheston@gmail.com
 	name = Sebastian Bolanos
+	signingkey = 994BAAD59E549901650F6533BA776CA40972302A
 [core]
 	edit = vim
 	helper = store
 	editor = vim
 [color]
 	ui = true
+[pager]
+  branch = false
+  log = true
