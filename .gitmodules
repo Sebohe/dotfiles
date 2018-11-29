@@ -10,9 +10,6 @@
 [submodule "suckless/dwm"]
 	path = suckless/dwm
 	url = http://git.suckless.org/dwm
-[submodule "alacritty/alacritty"]
-	path = alacritty/alacritty
-	url = https://github.com/jwilm/alacritty
 [submodule "suckless/slstatus"]
 	path = suckless/slstatus
 	url = https://git.suckless.org/slstatus
