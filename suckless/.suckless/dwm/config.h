@@ -28,6 +28,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
   { "Riot",     NULL,       NULL,       4,            0,             -1},
+  { "Discord",     NULL,       NULL,       4,            0,             -1},
   { "Telegram", NULL,       NULL,       4,            0,             -1},
   { "Google",   NULL,       NULL,       65,           0,             -1},
   { "Brave",    NULL,       NULL,       64,           0,             -1},
