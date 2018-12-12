@@ -7,15 +7,6 @@
 [submodule "z"]
 	path = z
 	url = https://github.com/rupa/z
-[submodule "suckless/dwm"]
-	path = suckless/dwm
-	url = http://git.suckless.org/dwm
-[submodule "suckless/slstatus"]
-	path = suckless/slstatus
-	url = https://git.suckless.org/slstatus
-[submodule "suckless/rust-dwm-status"]
-	path = suckless/rust-dwm-status
-	url = https://github.com/pierrechevalier83/rust-dwm-status
 [submodule "zsh/zsh-nvm"]
 	path = zsh/zsh-nvm
 	url = https://github.com/lukechilds/zsh-nvm.git
