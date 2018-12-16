@@ -1,4 +1,3 @@
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -38,10 +37,18 @@ export GOPATH=$HOME/.go
 
 #PATH
 export PATH=$PATH:$GOPATH/bin:/usr/lib/go/bin
-export PATH=$PATH:$HOME/.local/bin:$HOME/.gem/ruby/2.5.0/bin:$HOME/.npm-global/bin:$HOME/.cargo/bin
+export PATH=$PATH:$HOME/.local/bin:$HOME/.gem/ruby/2.5.0/bin:$HOME/.cargo/bin:$HOME
 
 #ALIASES
 source $HOME/.aliases
+
+#NVM
+export NVM_DIR="$HOME/.nvm"
+function nvm() {
+	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" 
+	[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
+	nvm "$*"
+}
 
 #LOCALVARS
 if [ ! -f $HOME/.localvars ]
@@ -77,7 +84,7 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="oxide"
 
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ssh-agent docker taskwarrior history-substring-search zsh-syntax-highlighting git-open)
+plugins=(git ssh-agent docker taskwarrior history-substring-search zsh-syntax-highlighting git-open zsh-nvm)
 
 # I like it being super strict when it comes to paths
 CASE_SENSITIVE="true"
@@ -95,3 +102,6 @@ source $HOME/.z.sh
 if [ -z $DISPLAY ] && [ -n $XDG_VTNR ] && [ "$XDG_VTNR" -eq 1 ]; then
   exec startx
 fi
+
+
+export NVM_LAZY_LOAD=true
