@@ -22,12 +22,10 @@
   apt_repository:
     repo: "{{ docker_apt_repository }}"
     state: present
-  update_cache: yes
 
 - name: Install docker
   apt:
     name: "{{ item }}"
-    update_cache: yes
     state: present
   with_items:
     - docker-ce
@@ -41,8 +39,6 @@
 - name: Add {{ username }} to docker user group
   shell: usermod -aG docker {{username}}
 
-- name: Install pip deps for docker
-  pip:
-    name:
-      - docker-py
-      - docker-compose
+- name: Swarm initA
+  docker_swarm:
+    state: present

@@ -4,13 +4,14 @@
   
 - name: Install packages
   apt:
-    name: "{{ item }}"
+    name: ['python3-pip',
+          'python-pip',
+          'stow',
+          'zsh',
+          'ufw',
+          'vim',
+          'curl',
+          'nmap',
+          'ncdu']
     state: present
     update_cache: yes
-  with_items:
-  - python3-pip
-  - stow
-  - zsh
-  - ufw
-  - vim
-  - curl

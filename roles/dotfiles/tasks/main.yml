@@ -4,6 +4,7 @@
     repo: https://gitlab.com/sebohe/dotfiles 
     dest: "{{ dotfiles }}"
     force: yes
+    recursive: yes
   become: yes
   become_user: "{{ username }}"
 
