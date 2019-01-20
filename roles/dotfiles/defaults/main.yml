@@ -1,0 +1,27 @@
+server:
+  - bash
+  - bin
+  - git
+  - npm
+  - nvim
+  - ohmyzsh
+  - tern
+  - tmux
+  - vim
+  - zsh
+
+localhost:
+  - bash
+  - bin
+  - git
+  - npm
+  - nvim
+  - ohmyzsh
+  - tern
+  - tmux
+  - vim
+  - zsh
+  - alacritty
+  - suckless
+  - xinit
+
