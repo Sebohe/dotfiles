@@ -1,5 +1,5 @@
 " Set bin if you have many instalations
-let g:deoplete#sources#ternjs#tern_bin = '/home/sebas/.npm-global/bin/tern'
+let g:deoplete#sources#ternjs#tern_bin = '/home/sebas/.local/bin/tern'
 
 let g:deoplete#auto_complete_delay = 0
 
