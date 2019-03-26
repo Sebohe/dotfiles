@@ -28,12 +28,14 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
   { "Riot",     NULL,       NULL,       4,            0,             -1},
-  { "Discord",     NULL,       NULL,       4,            0,             -1},
+  { "Discord",  NULL,       NULL,       4,            0,             -1},
+  { "Signal",   NULL,       NULL,       4,            0,             -1},
   { "Telegram", NULL,       NULL,       4,            0,             -1},
   { "Google",   NULL,       NULL,       65,           0,             -1},
   { "Brave",    NULL,       NULL,       64,           0,             -1},
   { "Chromium", NULL,       NULL,       128,          0,             -1},
   { "Tor",      NULL,       NULL,       128,          0,             -1},
+  { "Code",     NULL,       NULL,       0,            0,             -1},
 };
 
 /* layout(s) */
