@@ -3,7 +3,7 @@
 colors:
   # Default colors
   primary:
-    background: '0x000000'
+    background: '0x150027'
     foreground: '0xeaeaea'
 
     # Bright and dim foreground colors
@@ -68,14 +68,14 @@ colors:
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
-#env:
+env:
   # TERM variable
   #
   # This value is used to set the `$TERM` environment variable for
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use 'alacritty' if it is
   # available, otherwise 'xterm-256color' is used.
-  #TERM: xterm-256color
+  TERM: xterm-256color
 
 window:
   # Window dimensions (changes require restart)
@@ -157,19 +157,19 @@ tabspaces: 4
 font:
   # Normal (roman) font face
   normal:
-    family: hack 
+    family: Fira Code
     # The `style` can be specified to pick a specific face.
     #style: Regular
 
   # Bold font face
   bold:
-    family: hack 
+    family: Fira Code 
     # The `style` can be specified to pick a specific face.
     #style: Bold
 
   # Italic font face
   italic:
-    family: hack
+    family: Fira Code
     # The `style` can be specified to pick a specific face.
     #style: Italic
 

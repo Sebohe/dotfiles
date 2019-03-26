@@ -7,11 +7,14 @@ Plug 'flazz/vim-colorschemes'
 Plug 'tomlion/vim-solidity'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'rust-lang/rust.vim'
-Plug 'Shougo/deoplete.nvim'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'wellle/tmux-complete.vim'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'othree/html5.vim'
+Plug 'ianks/vim-tsx'
+
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
 
 " Colors

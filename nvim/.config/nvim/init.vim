@@ -4,6 +4,10 @@ let &packpath = &runtimepath
 set ls=0
 hi MatchParen cterm=underline ctermfg=magenta
 
+set encoding=utf-8
+set t_Co=256
+set termencoding=utf-8
+
 " Configs
 command WQ wq
 command Wq wq
