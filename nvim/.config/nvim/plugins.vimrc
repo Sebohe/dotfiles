@@ -7,12 +7,23 @@ Plug 'flazz/vim-colorschemes'
 Plug 'tomlion/vim-solidity'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'rust-lang/rust.vim'
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
-Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'carlitux/deoplete-ternjs', {
+      \'do': 'npm install -g tern',
+      \'for': ['javascript', 'javascript.jsx']
+\     }
+Plug 'othree/jspc.vim', { 'for': [
+\     'javascript', 
+\     'javascript.jsx', 
+\     'typescript',
+\     'typescript.tsx',
+\   ]}
 Plug 'wellle/tmux-complete.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'othree/html5.vim'
-Plug 'ianks/vim-tsx'
+
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
@@ -27,7 +38,19 @@ colorscheme seattle
 map <C-n> :NERDTreeToggle<CR>
 
 " ale
-let g:ale_linters = {'javascript': ['eslint'],}
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'typescript': ['tsserver', 'tslint'],
+\}
+  
+let g:ale_fixers = {
+\    'javascript': ['eslint'],
+\    'typescript': ['prettier'],
+\    'vue': ['eslint'],
+\    'scss': ['prettier'],
+\    'html': ['prettier'],
+\}
+
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
@@ -46,3 +69,7 @@ augroup omnifuncs
   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 augroup end
+
+autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
+autocmd FileType javascript setlocal formatprg=prettier\ --parser\ javascript
+
