@@ -36,8 +36,10 @@ stty ixon -ixoff
 export GOPATH=$HOME/.go
 
 #PATH
+export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 export PATH=$PATH:$GOPATH/bin:/usr/lib/go/bin
-export PATH=$PATH:$HOME/.local/bin:$HOME/.gem/ruby/2.5.0/bin:$HOME/.cargo/bin:$HOME
+export PATH=$PATH:$HOME/.local/bin:$HOME/.cargo/bin:$HOME
+export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 
 #ALIASES
 source $HOME/.aliases
