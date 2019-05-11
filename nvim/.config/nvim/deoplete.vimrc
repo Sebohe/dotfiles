@@ -1,7 +1,7 @@
 " Set bin if you have many instalations
 let g:deoplete#sources#ternjs#tern_bin = '/home/sebas/.local/bin/tern'
 
-let g:deoplete#auto_complete_delay = 0
+let g:deoplete#auto_complete_delay = 1
 
 let g:deoplete#sources#ternjs#timeout = 1
 
@@ -29,7 +29,7 @@ let g:deoplete#sources#ternjs#case_insensitive = 0
 " When completing a property and no completions are found, Tern will use some 
 " heuristics to try and return some properties anyway. Set this to 0 to 
 " turn that off. Default: 1
-let g:deoplete#sources#ternjs#guess = 1
+let g:deoplete#sources#ternjs#guess = 0
 
 " Determines whether the result set will be sorted. Default: 1
 let g:deoplete#sources#ternjs#sort = 1
@@ -70,7 +70,10 @@ autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
 let g:deoplete#sources#ternjs#filetypes = [
 	\ 'jsx',
 	\ 'javascript.jsx',
-	\ 'javascript'
+	\ 'javascript',
+  \ 'tsx',
+  \ 'typescript',
+  \ 'typescript.tsx',
 	\ ]
 
 
