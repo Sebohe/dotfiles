@@ -31,11 +31,13 @@ static const Rule rules[] = {
   { "Discord",  NULL,       NULL,       4,            0,             -1},
   { "Signal",   NULL,       NULL,       4,            0,             -1},
   { "Telegram", NULL,       NULL,       4,            0,             -1},
+  { "QEMU",     NULL,       NULL,       5,            0,             -1},
+  { "Spotify",  NULL,       NULL,       6,            0,             -1},
   { "Google",   NULL,       NULL,       65,           0,             -1},
   { "Brave",    NULL,       NULL,       64,           0,             -1},
   { "Chromium", NULL,       NULL,       128,          0,             -1},
   { "Tor",      NULL,       NULL,       128,          0,             -1},
-  { "Code",     NULL,       NULL,       0,            0,             -1},
+  { "Code",     NULL,       NULL,       0,         0,                -1},
 };
 
 /* layout(s) */
