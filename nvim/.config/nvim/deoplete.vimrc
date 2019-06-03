@@ -76,5 +76,9 @@ let g:deoplete#sources#ternjs#filetypes = [
   \ 'typescript.tsx',
 	\ ]
 
+let g:deoplete#sources#rust#racer_binary='/home/sebas/.cargo/bin/racer'
+let g:deoplete#sources#rust#rust_source_path='/home/sebas/githubs/programs/rust/src'
 
 let g:deoplete#enable_at_startup = 1
+
+

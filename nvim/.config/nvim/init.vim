@@ -2,7 +2,6 @@ set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 
 set ls=0
-hi MatchParen cterm=underline ctermfg=magenta
 
 set encoding=utf-8
 set t_Co=256
@@ -55,3 +54,5 @@ autocmd FileType markdown setlocal spell
 " Source plugins
 source ~/.config/nvim/plugins.vimrc
 source ~/.config/nvim/deoplete.vimrc
+
+filetype on
