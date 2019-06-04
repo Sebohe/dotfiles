@@ -1,3 +1,13 @@
+function! BuildComposer(info)
+  if a:info.status != 'unchanged' || a:info.force
+    if has('nvim')
+      !cargo build --release
+    else
+      !cargo build --release --no-default-features --features json-rpc
+    endif
+  endif
+endfunction
+
 call plug#begin('~/.vim/plugged')
 Plug 'w0rp/ale'
 Plug 'vim-airline/vim-airline'
@@ -7,9 +17,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'wellle/tmux-complete.vim'
 Plug 'christoomey/vim-tmux-navigator'
 
-Plug 'mhartington/oceanic-next'
 Plug 'morhetz/gruvbox'
-
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'tomlion/vim-solidity'
@@ -30,10 +38,9 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 
 Plug 'tpope/vim-fugitive' " git
-
-Plug 'ledger/vim-ledger'
 
 Plug 'euclio/vim-markdown-composer', {'do': function('BuildComposer')}
 

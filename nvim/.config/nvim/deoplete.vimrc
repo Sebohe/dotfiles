@@ -76,4 +76,9 @@ let g:deoplete#sources#ternjs#filetypes = [
   \ 'typescript.tsx',
 	\ ]
 
+
+
+let g:deoplete#sources#go#gocode_binary = '/home/sebas/.go/bin/gocode'
+
+
 let g:deoplete#enable_at_startup = 1
