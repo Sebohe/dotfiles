@@ -1,13 +1,3 @@
-function! BuildComposer(info)
-  if a:info.status != 'unchanged' || a:info.force
-    if has('nvim')
-      !cargo build --release
-    else
-      !cargo build --release --no-default-features --features json-rpc
-    endif
-  endif
-endfunction
-
 call plug#begin('~/.vim/plugged')
 Plug 'w0rp/ale'
 Plug 'vim-airline/vim-airline'
@@ -17,11 +7,11 @@ Plug 'scrooloose/nerdtree'
 Plug 'wellle/tmux-complete.vim'
 Plug 'christoomey/vim-tmux-navigator'
 
-Plug 'flazz/vim-colorschemes'
 Plug 'mhartington/oceanic-next'
+Plug 'morhetz/gruvbox'
 
-Plug 'rust-lang/rust.vim'
-Plug 'sebastianmarkow/deoplete-rust'
+
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'tomlion/vim-solidity'
 
 
@@ -49,14 +39,14 @@ Plug 'euclio/vim-markdown-composer', {'do': function('BuildComposer')}
 
 call plug#end()
 
-" Colors
-
 " Theme
-" colorscheme seattle
-colorscheme OceanicNext
-syntax on
-syntax enable
-hi MatchParen cterm=underline ctermbg=none ctermfg=none
+colorscheme gruvbox
+let g:gruvbox_improved_strings = 0
+let g:gruvbox_invert_selection = 1
+let g:gruvbox_improved_warnings = 1
+let g:gruvbox_contrast_dark = "hard"
+set background=dark
+hi MatchParen cterm=underline ctermbg=none ctermfg=magenta
 
 " Nerd tree
 map <C-n> :NERDTreeToggle<CR>
@@ -65,7 +55,10 @@ map <C-n> :NERDTreeToggle<CR>
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
-let g:airline_theme='deus'
+let g:ale_theme = 'gruvbox'
+
+" airline
+let g:airline_theme='gruvbox'
 
 " tmux-complete
 let g:tmuxcomplete#trigger = ''
