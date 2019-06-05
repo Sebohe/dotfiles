@@ -24,9 +24,13 @@ compinit
 
 #DEFAULTS
 BROWSER=/usr/bin/firefox
-EDITOR=/usr/bin/vim
-GIT_EDITOR=vim
-VISUAL=vim
+EDITOR=/usr/bin/nvim
+if [ -f /usr/bin/nvim ]; then
+  EDITOR=/usr/bin/nvim
+fi
+EDITOR=/usr/bin/nvim
+GIT_EDITOR=$EDITOR
+VISUAL=$EDITOR
 
 #DISABLE crtl+s in terminal
 stty ixany
