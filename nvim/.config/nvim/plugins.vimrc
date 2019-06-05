@@ -15,7 +15,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 
 Plug 'wellle/tmux-complete.vim'
-Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'morhetz/gruvbox'
 
@@ -39,7 +38,7 @@ Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
-Plug 'stamblerre/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
+Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 
 Plug 'tpope/vim-fugitive' " git
 
@@ -70,7 +69,6 @@ let g:airline_theme='gruvbox'
 
 " tmux-complete
 let g:tmuxcomplete#trigger = ''
-
 
 " markdown-composer
 let g:markdown_composer_browser = 'firefox-developer-edition'

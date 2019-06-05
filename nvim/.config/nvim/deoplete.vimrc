@@ -37,9 +37,23 @@ let g:deoplete#sources#ternjs#filetypes = [
 
 " Go
 call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
+let g:deoplete#sources#go#filetypes = [
+	\ 'go',
+	\ ]
 let g:deoplete#sources#go#gocode_binary = '/home/sebas/.go/bin/gocode'
-let g:deoplete#sources#go#package_dot = 1
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+let g:deoplete#sources#go#package_dot = 0
+let g:deoplete#sources#go#sort_class = ['var', 'func', 'type', 'package', 'const']
+let g:deoplete#sources#go#unimported_packages = 1
+let g:deoplete#sources#go#builtin_objects = 1
+let g:deoplete#sources#go#fallback_to_source	= 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
 
 " enable deoplete at startup and make sure the autocompletion will actually
 " trigger using the omnifuncs set later on.
@@ -50,7 +64,7 @@ endif
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " deoplete tab-complete
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 let g:deoplete#auto_complete_delay = 0
 let g:deoplete#enable_at_startup = 1
