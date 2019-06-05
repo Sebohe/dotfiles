@@ -95,8 +95,6 @@ plugins=(
   ssh-agent
   docker
   history-substring-search
-  zsh-syntax-highlighting
-  git-open
   zsh-nvm
   nvm
   ansible
