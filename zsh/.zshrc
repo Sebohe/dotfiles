@@ -100,6 +100,7 @@ plugins=(
   ansible
   golang
   systemd
+  z
 )
 
 # I like it being super strict when it comes to paths
