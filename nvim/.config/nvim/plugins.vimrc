@@ -39,6 +39,7 @@ Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
+Plug 'stamblerre/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
 
 Plug 'tpope/vim-fugitive' " git
 
@@ -73,16 +74,3 @@ let g:tmuxcomplete#trigger = ''
 
 " markdown-composer
 let g:markdown_composer_browser = 'firefox-developer-edition'
-
-" omnifuncs
-augroup omnifuncs
-  autocmd!
-  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType javascript setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-augroup end
-
-autocmd FileType javascript setlocal formatprg=prettier\ --parser\ javascript
