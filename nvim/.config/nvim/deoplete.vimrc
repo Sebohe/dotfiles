@@ -1,18 +1,14 @@
 " omnifuncs
 augroup omnifuncs
   autocmd!
-  autocmd FileType css setlocal omnifunc=css#complete#CompleteCSS
-  autocmd FileType html,markdown setlocal omnifunc=html#complete#CompleteTags
-  autocmd FileType javascript setlocal omnifunc=javascript#complete#CompleteJS
-  autocmd FileType javascript setlocal omnifunc=css#complete#CompleteCSS
-  autocmd FileType python setlocal omnifunc=python#complete#Complete
-  autocmd FileType xml setlocal omnifunc=xml#complete#CompleteTags
-  autocmd FileType go setlocal omnifunc=python#complete#Complete
-  autocmd FileType go setlocal omnifunc=go#complete#Complete
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType javascript setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+  autocmd FileType go setlocal omnifunc=gocomplete#Complete
 augroup end
-
-autocmd FileType javascript setlocal formatprg=prettier\ --parser\ javascript
-
 
 " Set bin if you have many instalations
 let g:deoplete#sources#ternjs#tern_bin = '/home/sebas/.local/bin/tern'
