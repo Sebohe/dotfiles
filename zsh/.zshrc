@@ -90,7 +90,19 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="oxide"
 
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ssh-agent docker taskwarrior history-substring-search zsh-syntax-highlighting git-open zsh-nvm)
+plugins=(
+  git
+  ssh-agent
+  docker
+  history-substring-search
+  zsh-syntax-highlighting
+  git-open
+  zsh-nvm
+  nvm
+  ansible
+  golang
+  systemd
+)
 
 # I like it being super strict when it comes to paths
 CASE_SENSITIVE="true"
