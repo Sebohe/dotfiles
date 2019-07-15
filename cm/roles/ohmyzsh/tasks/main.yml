@@ -7,7 +7,7 @@
   become_user: "{{ username }}"
 
 
-- name: Stow files
+- name: Link files
   command: "stow --target=/home/{{ username }} {{ item }}"
   args:
     chdir: "{{ dotfiles }}"
@@ -20,6 +20,5 @@
   git:
     repo: https://github.com/lukechilds/zsh-nvm
     dest: "/home/{{ username }}/.oh-my-zsh/custom/plugins/zsh-nvm"
-    become: yes
-    become_user: "{{ username }}"
+  become_user: "{{ username }}"
 
