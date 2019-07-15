@@ -13,36 +13,28 @@ Plug 'w0rp/ale'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
-
 Plug 'wellle/tmux-complete.vim'
-
 Plug 'morhetz/gruvbox'
+Plug 'tpope/vim-fugitive' " git
+Plug 'euclio/vim-markdown-composer', {'do': function('BuildComposer')}
 
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'tomlion/vim-solidity'
-
-
-Plug 'jelera/vim-javascript-syntax'
+" Languages
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'carlitux/deoplete-ternjs', {
       \'do': 'npm install -g tern',
       \'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
 \     }
-Plug 'othree/jspc.vim', { 'for': [
-\     'javascript', 
-\     'javascript.jsx', 
-\   ]}
 
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'tomlion/vim-solidity'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 
-Plug 'tpope/vim-fugitive' " git
 
-Plug 'euclio/vim-markdown-composer', {'do': function('BuildComposer')}
 
 call plug#end()
 
