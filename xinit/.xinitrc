@@ -1,5 +1,6 @@
 [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
 xbindkeys
-feh --bg-max --randomize --no-fehbg --stretch ~/.wallpapers/*
-rust-dwm-status &
+feh --bg-fill --randomize --no-fehbg --stretch ~/.wallpapers/*
+/home/sebas/.go/bin/gods &
+#exec startkde
 exec dwm
