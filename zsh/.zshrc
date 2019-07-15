@@ -21,7 +21,6 @@ zstyle :compinstall filename '/home/'$HOME'/.zshrc'
 autoload -Uz compinit
 compinit
 
-
 #DEFAULTS
 BROWSER=/usr/bin/firefox
 EDITOR=/usr/bin/nvim
@@ -45,8 +44,6 @@ export PATH=$PATH:$GOPATH/bin:/usr/lib/go/bin
 export PATH=$PATH:$HOME/.local/bin:$HOME/.cargo/bin:$HOME
 export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 
-#ALIASES
-source $HOME/.aliases
 
 #NVM
 export NVM_DIR="$HOME/.nvm"
@@ -118,5 +115,6 @@ if [ -z $DISPLAY ] && [ -n $XDG_VTNR ] && [ "$XDG_VTNR" -eq 1 ]; then
   exec startx
 fi
 
-
 export NVM_LAZY_LOAD=true
+#ALIASES
+source $HOME/.aliases
