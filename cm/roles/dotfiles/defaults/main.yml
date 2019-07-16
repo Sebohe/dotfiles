@@ -13,7 +13,7 @@ server:
   - ".bashprofile"
   - ".bashrc"
   - ".config/nvim/init.vim"
-  - ".config/nvim/deoplete.vimr"
+  - ".config/nvim/deoplete.vimrc"
   - ".config/nvim/plugins.vimrc"
   - ".config/nvim/init.vim"
   - ".gitconfig"
