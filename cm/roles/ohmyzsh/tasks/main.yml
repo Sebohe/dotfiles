@@ -3,19 +3,28 @@
   git:
     repo: https://github.com/robbyrussell/oh-my-zsh
     dest: "/home/{{ username }}/.oh-my-zsh"
+    force: yes
   become: yes
   become_user: "{{ username }}"
   tags:
-    - doftiles
+    - dotfiles
 
-
-- name: Link files
-  command: "stow --target=/home/{{ username }} {{ item }}"
-  args:
-    chdir: "{{ dotfiles }}"
-  with_items:
-    - ohmyzsh
+- name: Create directories
+  file:
+    state: directory
+    path: "~/.oh-my-zsh/custom/themes"
   become: yes
   become_user: "{{ username }}"
   tags:
-    - doftiles
+    - dotfiles
+
+- name: Link dotfiles
+  file:
+    path: "~/.oh-my-zsh/custom/themes/oxide.zsh-theme"
+    src: "{{ dotfiles }}/.oh-my-zsh/custom/themes/oxide.zsh-theme"
+    state: link
+    force: yes
+  become: yes
+  become_user: "{{ username }}"
+  tags:
+    - dotfiles

@@ -6,7 +6,6 @@ dirs:
   - "~/.vim/doc"
   - "~/.vim/autoload"
   - "~/.vim/spell"
-  - "~/.oh-my-zsh/custom/themes"
   - "~/.local/bin"
 
 server:
@@ -22,7 +21,6 @@ server:
   - ".local/bin/update-resolv-conf.sh"
   - ".localvars"
   - ".npmrc"
-  - ".oh-my-zsh/custom/themes/oxide.zsh-theme"
   - ".tern-config"
   - ".tmux.conf"
   - ".vim/autoload/plug.vim"
