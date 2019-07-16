@@ -5,6 +5,8 @@
     dest: "/home/{{ username }}/.oh-my-zsh"
   become: yes
   become_user: "{{ username }}"
+  tags:
+    - doftiles
 
 
 - name: Link files
@@ -15,10 +17,5 @@
     - ohmyzsh
   become: yes
   become_user: "{{ username }}"
-
-- name: Clone zsh-nvm
-  git:
-    repo: https://github.com/lukechilds/zsh-nvm
-    dest: "/home/{{ username }}/.oh-my-zsh/custom/plugins/zsh-nvm"
-  become_user: "{{ username }}"
-
+  tags:
+    - doftiles
