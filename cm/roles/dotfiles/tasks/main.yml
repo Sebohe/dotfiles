@@ -10,13 +10,6 @@
   tags:
     - dotfiles
 
-- name: Remove .bashrc
-  file:
-    path: "/home/{{ username }}/.bashrc"
-    state: absent
-  tags:
-    - dotfiles
-
 - name: Create directories
   file:
     state: directory
