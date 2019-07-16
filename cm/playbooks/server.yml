@@ -2,16 +2,16 @@
 # python -c "from passlib.hash import sha512_crypt; import getpass; print(sha512_crypt.using(rounds=5000).hash(getpass.getpass()))"
 ---
 - hosts: ocean
-  remote_user: root
+  remote_user: sebas
   vars:
     username: sebas
     password: $6$UPMYdqKer/mevGzn$Ud0p//3jF6hfYIpP4OIBAWEHsPOrAjfnoPNbGKb5voL90Od9J/9dfsMaUHacfRgzNJGgb1PZYOQNnD6uUnqmu0
     public_key: ~/.ssh/id_ed25519.pub
-    ssh_port: 22
   roles:
     - common
     - user
     - dotfiles
     - ohmyzsh
-    - vim_plugins
     - sshd
+    - docker-install
+    - go

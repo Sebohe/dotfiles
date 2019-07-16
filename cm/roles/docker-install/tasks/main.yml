@@ -65,6 +65,6 @@
     state: present
   become: yes
   become_method: sudo
-  ignore_errors: True
+  ignore_errors: yes
   tags:
     - docker
