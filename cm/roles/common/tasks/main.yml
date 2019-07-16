@@ -1,17 +1,25 @@
 ---
-- name: Upgrade packages
-  apt: upgrade=safe
-  
 - name: Install packages
   apt:
     name: ['python3-pip',
           'python-pip',
-          'stow',
           'zsh',
           'ufw',
           'vim',
+          'neovim-runtime',
           'curl',
           'nmap',
-          'ncdu']
+          'ncdu',
+          'git',
+          'tmux',
+          ]
     state: present
     update_cache: yes
+  tags:
+    - needed
+
+- name: Upgrade packages
+  apt: upgrade=safe
+  tags:
+    - needed
+  

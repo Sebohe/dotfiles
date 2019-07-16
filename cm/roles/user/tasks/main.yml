@@ -3,6 +3,8 @@
   group:
     name: sudo
     state: present
+  tags:
+    - needed
 
 - name: Ensure sudo group has sudo priveleges
   lineinfile:
@@ -11,6 +13,8 @@
     regexp: "^%sudo"
     line: "%sudo ALL=(ALL:ALL) ALL"
     validate: "/usr/sbin/visudo -cf %s"
+  tags:
+    - needed
 
 - name: Create {{ username }} user
   user:
@@ -19,8 +23,12 @@
     password: "{{ password }}"
     shell: /bin/zsh
     state: present
+  tags:
+    - needed
 
 - name: Add authorized key
   authorized_key:
     user: "{{ username }}"
     key: "{{lookup('file', public_key) }}"
+  tags:
+    - needed

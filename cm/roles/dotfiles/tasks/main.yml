@@ -7,24 +7,41 @@
     recursive: yes
   become: yes
   become_user: "{{ username }}"
+  tags:
+    - dotfiles
 
 - name: Remove .bashrc
   file: 
     path: "/home/{{ username }}/.bashrc"
     state: absent
+  tags:
+    - dotfiles
 
-- name: Stow files
-  command: "stow --target=/home/{{ username }} {{ item }}"
-  args:
-    chdir: "{{ dotfiles }}"
-  with_items:
-    - stow
-    - zsh
-    - bash
-    - nvim
-    - vim
-    - tmux
-    - git
+- name: Remove .bashrc
+  file:
+    path: "/home/{{ username }}/.bashrc"
+    state: absent
+  tags:
+    - dotfiles
+
+- name: Create directories
+  file:
+    state: directory
+    path: "{{ item }}"
+  with_items: "{{dirs}}"
   become: yes
   become_user: "{{ username }}"
+  tags:
+    - dotfiles
 
+- name: Link dotfiles
+  file:
+    path: "~/{{ item }}"
+    src: "{{ dotfiles }}/{{ item }}"
+    state: link
+    force: yes
+  with_items: "{{ server }}"
+  become: yes
+  become_user: "{{ username }}"
+  tags:
+    - dotfiles

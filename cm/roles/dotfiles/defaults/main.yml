@@ -1,27 +1,45 @@
-server:
-  - bash
-  - bin
-  - git
-  - npm
-  - nvim
-  - ohmyzsh
-  - tern
-  - tmux
-  - vim
-  - zsh
+dotfiles: "/home/{{ username }}/.dotfiles"
 
-localhost:
-  - bash
-  - bin
-  - git
-  - npm
-  - nvim
-  - ohmyzsh
-  - tern
-  - tmux
-  - vim
-  - zsh
-  - alacritty
-  - suckless
-  - xinit
+dirs:
+  - "~/.config/nvim"
+  - "~/.config/alacritty"
+  - "~/.vim/doc"
+  - "~/.vim/autoload"
+  - "~/.vim/spell"
+  - "~/.oh-my-zsh/custom/themes"
+  - "~/.local/bin"
+
+server:
+  - ".aliases"
+  - ".bashprofile"
+  - ".bashrc"
+  - ".config/nvim/init.vim"
+  - ".config/nvim/deoplete.vimr"
+  - ".config/nvim/plugins.vimrc"
+  - ".config/nvim/init.vim"
+  - ".gitconfig"
+  - ".local/bin/attach-docker.sh"
+  - ".local/bin/update-resolv-conf.sh"
+  - ".localvars"
+  - ".npmrc"
+  - ".oh-my-zsh/custom/themes/oxide.zsh-theme"
+  - ".tern-config"
+  - ".tmux.conf"
+  - ".vim/autoload/plug.vim"
+  - ".vim/doc/learnvim.txt"
+  - ".vim/spell/es.utf-8.spl"
+  - ".vim/spell/es.utf-8.sug"
+  - ".vimrc"
+  - ".zshrc"
+
+locahost:
+  - "{{server}}"
+  - ".config/alacritty/alacritty.yml"
+  - ".config/nvim/server_plugins.vimrc"
+  - ".inputrc"
+  - ".local/bin/brightness.sh"
+  - ".local/bin/xinputs_disable.sh"
+  - ".xbindkeysrc"
+  - ".xinit"
+  - ".Xmodmap"
 
