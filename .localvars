@@ -1,0 +1,58 @@
+alias wemo='~/githubs/programs/wemo/cli.py 192.168.1.227'
+export WORKIP='50.233.100.202'
+export INFURA_API='d967ea4e3a8a4b5bba44601ab99bd67d'
+export MNEMONIC="panel raise total together love easy fan quote deal wage obvious payment"
+export MNEMONIC_MAINNET="quality gas van recall warfare arena age history climb grace wonder elder"
+export PK=44a063d41c81093b59d3d6f34eb3283292207b02a606c65c300e42f087746cdd
+export RINKEBY_PASSWORD=supersecret95supersecret95
+export ARAGON=/home/sebas/.npm-global/lib/node_modules/@aragon/cli
+alias ADDRESS='cat build/contracts/NodeList.json| jq .networks | grep address | cut -d: -f2 | tr -d \" | tr -d \\n'
+export WINEPREFIX='/home/sebas/.wine/'
+
+export WEB3_PROVIDER='http://sasquatch.network:10545'
+export PRIVATE_KEY='f20fe8e18ce0da9a812d4b63c252781b0f75e3143c148e9d52438a5e385d6745'
+export ANDROID_SDK_ROOT=$HOME/Documents/Android
+
+
+# https://developer.makerdao.com/dai/1/api/
+# https://github.com/makerdao/sai/blob/master/README.md
+GEM=0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2
+# MKR
+GOV=0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2
+PIP=0x729D19f657BD0614b4985Cf1D82531c67569197B
+PEP=0x99041F808D598B782D5a3e498681C2452A31da08
+PIT=0x69076e44a9c70a67d5b79d95795aba299083c275
+ADM=0x8e2a84d6ade1e7fffee039a35ef5f19f13057152
+SAI=0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359
+SIN=0x79f6d0f646706e1261acf0b93dcb864f357d4680
+# PETH
+SKR=0xf53ad2c6851052a81b42133467480961b2321c09
+DAD=0x315cbb88168396d12e1a255f9cb935408fe80710
+MOM=0xf2c5369cffb8ea6284452b0326e326dbfdcb867c
+VOX=0x9b0f70df76165442ca6092939132bbaea77f2d7a
+# List of cups
+TUB=0x448a5065aebb8e423f0896e6c5d525c040f59af3
+TAP=0xbda109309f9fafa6dd6a9cb9f1df4085b27ee8ef
+TOP=0x9b0ccf7c8994e19f39b2b4cf708e0a7df65fa8a3
+ETH_FROM=0xD7CCDf5d758280995DC0f37bc8668C36Bc490554
+
+# Steps to lock up ether:
+# convert eth to weth
+# 
+# dai join <amount> // buy PETH
+# dai lock --cup=<id> <amount>
+
+
+
+
+
+export OPENSSL_INCLUDE_DIR=/usr/include/openssl-1.0
+export OPENSSL_LIB_DIR=/usr/lib/openssl-1.0
+
+
+export CHANNEL_ADDRESS=0x71040e8334abdb218487c38e76324311a8dfc04e
+export TOKEN_ADDRESS=0xb2d2c66efe0cffc6c96eb0faf7daef950cd23c18
+
+CONTRACT=0xA194dB10efe05d885F98437141654A2d9c72a180
+
+#82c80b35b12d8abe521cd23a2a1622a39355bcd1
