@@ -1,9 +1,5 @@
 # dotfiles
 
-##  Stow
-
-    stow <MODULE>
-
 # Cheat codes
 ### NIX
 
