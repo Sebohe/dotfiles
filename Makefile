@@ -1,3 +1,3 @@
 
 servers:
-	ansible-playbook playbooks/server.yml
+	ansible-playbook cm/playbooks/server.yml
