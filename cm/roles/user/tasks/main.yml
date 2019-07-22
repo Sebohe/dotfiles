@@ -5,8 +5,10 @@
   group:
     name: sudo
     state: present
+  become: yes
+  become_method: sudo
   tags:
-    - needed
+    - user
 
 - name: Ensure sudo group has sudo priveleges
   lineinfile:
@@ -15,8 +17,10 @@
     regexp: "^%sudo"
     line: "%sudo ALL=(ALL:ALL) ALL"
     validate: "/usr/sbin/visudo -cf %s"
+  become: yes
+  become_method: sudo
   tags:
-    - needed
+    - user
 
 - name: Create {{ username }} user
   user:
@@ -25,12 +29,16 @@
     password: "{{ password }}"
     shell: /bin/zsh
     state: present
+  become: yes
+  become_method: sudo
   tags:
-    - needed
+    - user
 
 - name: Add authorized key
   authorized_key:
     user: "{{ username }}"
     key: "{{lookup('file', public_key) }}"
+  become: yes
+  become_method: sudo
   tags:
-    - needed
+    - user

@@ -1,4 +1,14 @@
 ---
+- name: Ensure zsh is the default shell
+  user:
+    name: "{{ username }}"
+    shell: /bin/zsh
+    state: present
+  become: yes
+  become_user: "{{username}}"
+  tags:
+    - dotfiles
+
 - name: Clone dotfiles
   git:
     repo: https://gitlab.com/sebohe/dotfiles 
