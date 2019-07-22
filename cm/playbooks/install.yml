@@ -1,7 +1,7 @@
 ---
-- hosts: cosmos
+- hosts: all
   vars:
-    username: sebas
+    username: "{{ansible_user}}"
   roles:
     - common
     - user
