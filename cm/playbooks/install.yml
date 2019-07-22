@@ -1,6 +1,5 @@
 ---
 - hosts: cosmos
-  remote_user: sebas
   vars:
     username: sebas
   roles:
