@@ -21,10 +21,9 @@
 
 - name: Add Kubernetes repository.
   vars:
-    arch: amd64
-    release_channel: stable
-    repository: "deb [arch=amd64] https://apt.kubernetes.io/ {{distro[ansible_distribution | lower] }} main"
-  apt_repository: repo: "{{ repository }}"
+    repository: "deb https://apt.kubernetes.io/ kubernetes-xenial main"
+  apt_repository:
+    repo: "{{ repository }}"
     state: present
   become: yes
   become_method: sudo
@@ -34,7 +33,7 @@
 - name: Install kubernates
   apt:
     update_cache: yes
-    name: ["kubectl", "kubeadm", "kubectl"]
+    name: ["kubectl", "kubeadm", "kubelet"]
     state: present
   become: yes
   become_method: sudo
