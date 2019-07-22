@@ -1,8 +1,3 @@
-# WARNING
-# The repositoy url is incorrect and hacked.
-# This migh lead to issues.
-# deb [arch=amd64] https://apt.kubernetes.io/ kubernetes-stretch main
-# `stretch` should {{ ansible_distribution }}
 ---
 - name: Ensure deps are installed
   apt: 
@@ -28,9 +23,8 @@
   vars:
     arch: amd64
     release_channel: stable
-    repository: "deb [arch=amd64] https://apt.kubernetes.io/ kubernetes-stretch main"
-  apt_repository:
-    repo: "{{ repository }}"
+    repository: "deb [arch=amd64] https://apt.kubernetes.io/ {{distro[ansible_distribution | lower] }} main"
+  apt_repository: repo: "{{ repository }}"
     state: present
   become: yes
   become_method: sudo
@@ -39,7 +33,8 @@
 
 - name: Install kubernates
   apt:
-    name: ["kubectl"]
+    update_cache: yes
+    name: ["kubectl", "kubeadm", "kubectl"]
     state: present
   become: yes
   become_method: sudo
