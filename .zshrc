@@ -23,11 +23,11 @@ compinit
 
 #DEFAULTS
 BROWSER=/usr/bin/firefox
-EDITOR=/usr/bin/nvim
+EDITOR=/usr/bin/vim
 if [ -f /usr/bin/nvim ]; then
   EDITOR=/usr/bin/nvim
 fi
-EDITOR=/usr/bin/nvim
+
 GIT_EDITOR=$EDITOR
 VISUAL=$EDITOR
 
@@ -96,7 +96,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="oxide"
+# ZSH_THEME="oxide"
 
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
@@ -107,6 +107,7 @@ plugins=(
   history-substring-search
   ansible
   golang
+  rust
   systemd
   z
 )
@@ -114,9 +115,9 @@ plugins=(
 # I like it being super strict when it comes to paths
 CASE_SENSITIVE="true"
 
-
 # THIS NEEDS TO BE AT THE BOTTOM
 source $ZSH/oh-my-zsh.sh
+source $HOME/.aliases
 
 # Vi mode in zsh
 bindkey -v
@@ -126,5 +127,5 @@ if [ -z $DISPLAY ] && [ -n $XDG_VTNR ] && [ "$XDG_VTNR" -eq 1 ]; then
   exec startx
 fi
 
+eval "$(starship init zsh)"
 #ALIASES
-source $HOME/.aliases
