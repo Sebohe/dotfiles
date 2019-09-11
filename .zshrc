@@ -37,21 +37,36 @@ stty ixon -ixoff
 
 #GO
 export GOPATH=$HOME/.go
-
-#PATH
-export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 export PATH=$PATH:$GOPATH/bin:/usr/lib/go/bin
-export PATH=$PATH:$HOME/.local/bin:$HOME/.cargo/bin:$HOME
-export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 
+#RUST BIN
+export PATH=$PATH:$HOME/.cargo/bin:$HOME
+
+#LOCAL PATH
+export PATH=$PATH:$HOME/.local/bin
 
 #NVM
-export NVM_DIR="$HOME/.nvm"
-function nvm() {
-	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" 
-	[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
-	nvm "$*"
+nvm() {
+  unset -f nvm
+  export NVM_DIR=~/.nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This lo      ads nvm
+  nvm "$@"
 }
+
+node() {
+  unset -f node
+  export NVM_DIR=~/.nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This lo      ads nvm
+  node "$@"
+}
+
+npm() {
+  unset -f npm
+  export NVM_DIR=~/.nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This lo      ads nvm
+  npm "$@"
+}
+export NVM_LAZY_LOAD=true
 
 #LOCALVARS
 if [ ! -f $HOME/.localvars ]
@@ -59,7 +74,6 @@ then
     touch $HOME/.localvar
 fi
 
-source $HOME/.nix-profile/etc/profile.d/nix.sh
 source $HOME/.localvars
 
 if [[ `hostname` == "ultron" ]]
@@ -88,10 +102,9 @@ ZSH_THEME="oxide"
 plugins=(
   git
   ssh-agent
+  zsh-navigation-tools
   docker
   history-substring-search
-  zsh-nvm
-  nvm
   ansible
   golang
   systemd
@@ -113,6 +126,5 @@ if [ -z $DISPLAY ] && [ -n $XDG_VTNR ] && [ "$XDG_VTNR" -eq 1 ]; then
   exec startx
 fi
 
-export NVM_LAZY_LOAD=true
 #ALIASES
 source $HOME/.aliases
