@@ -28,16 +28,15 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
   { "Riot",     NULL,       NULL,       4,            0,             -1},
-  { "Discord",  NULL,       NULL,       4,            0,             -1},
+  { "Discord",  NULL,       "Discord",       4,            0,             -1},
   { "Signal",   NULL,       NULL,       4,            0,             -1},
   { "Telegram", NULL,       NULL,       4,            0,             -1},
-  { "QEMU",     NULL,       NULL,       5,            0,             -1},
-  { "Spotify",  NULL,       NULL,       6,            0,             -1},
-  { "Google",   NULL,       NULL,       65,           0,             -1},
+  { "QEMU",     NULL,       NULL,       8,            0,             -1},
+  { "Google",   NULL,       NULL,       64,           0,             -1},
   { "Brave",    NULL,       NULL,       64,           0,             -1},
   { "Chromium", NULL,       NULL,       128,          0,             -1},
   { "Tor",      NULL,       NULL,       128,          0,             -1},
-  { "Code",     NULL,       NULL,       0,         0,                -1},
+  { "Code",     NULL,       "Code",       0,            0,             -1},
 };
 
 /* layout(s) */
@@ -73,7 +72,7 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask,		XK_l,	   spawn,	   {.v = i3lock } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
