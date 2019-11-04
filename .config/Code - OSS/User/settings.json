@@ -2,24 +2,32 @@
   "window.menuBarVisibility": "toggle",
   "window.zoomLevel": 0,
   "vim.disableExtension": false,
+  "vim.handleKeys": {
+    "<C-k>": false
+  },
   "editor.lineNumbers": "relative",
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "solidity.linter": "solium",
   "editor.formatOnSave": true,
-  "editor.fontFamily": "'Fira Code'",
+  "editor.fontFamily": "\"Inconsolata\"",
   "terminal.integrated.rendererType": "dom",
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "cSpell.language": ",es",
   "liveshare.featureSet": "insiders",
-  "go.useLanguageServer": true,
   "explorer.confirmDelete": false,
   "workbench.editor.tabSizing": "shrink",
   "editor.minimap.renderCharacters": false,
   "editor.minimap.maxColumn": 20,
   "editor.minimap.enabled": false,
   "editor.suggest.maxVisibleSuggestions": 15,
-  "workbench.colorTheme": "FlatUI Dark",
-  "sync.autoUpload": true
+  "workbench.colorTheme": "Monokai Dimmed",
+  "zenMode.hideLineNumbers": false,
+  "zenMode.hideTabs": false,
+  "editor.fontSize": 16.5,
+  "editor.fontLigatures": true,
+  "editor.fontWeight": "400",
+  "files.associations": {
+    "*.rmd": "markdown"
+  },
+  "workbench.sideBar.location": "left",
 }
