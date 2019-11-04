@@ -1,9 +1,9 @@
 function! BuildComposer(info)
   if a:info.status != 'unchanged' || a:info.force
     if has('nvim')
-      !cargo build --release
+      !cargo build --release --locked
     else
-      !cargo build --release --no-default-features --features json-rpc
+      !cargo build --release --locked --no-default-features --features json-rpc
     endif
   endif
 endfunction
@@ -15,25 +15,16 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 Plug 'wellle/tmux-complete.vim'
 Plug 'morhetz/gruvbox'
-Plug 'tpope/vim-fugitive' " git
+
 Plug 'euclio/vim-markdown-composer', {'do': function('BuildComposer')}
 
 " Languages
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'carlitux/deoplete-ternjs', {
-      \'do': 'npm install -g tern',
-      \'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
-\     }
 
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
+
 Plug 'tomlion/vim-solidity'
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
-Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
-
-Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
-Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
-
 
 
 call plug#end()
@@ -64,3 +55,7 @@ let g:tmuxcomplete#trigger = ''
 
 " markdown-composer
 let g:markdown_composer_browser = 'firefox-developer-edition'
+
+" Go
+let g:go_highlight_types = 1
+let g:go_highlight_functions = 1

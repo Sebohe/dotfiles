@@ -1,6 +1,8 @@
 [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
 xbindkeys
+#exec startplasma
+
 feh --bg-fill --randomize --no-fehbg --stretch ~/.wallpapers/*
-/home/sebas/.go/bin/gods &
-#exec startkde
+/home/sebas/.cargo/bin/dwm-status /home/sebas/.config/dwm-status.toml &
+dunst -history_key Menu &
 exec dwm

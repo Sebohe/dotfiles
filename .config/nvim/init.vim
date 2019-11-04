@@ -51,8 +51,13 @@ set undodir=~/.vim/undodir
 " Add spell check to markdown files
 autocmd FileType markdown setlocal spell
 
+" Write as sudo
+cmap w!! w !sudo tee > /dev/null %
+
+"enable mouse support
+set mouse=a
+ 
 " Source plugins
 source ~/.config/nvim/plugins.vimrc
-source ~/.config/nvim/deoplete.vimrc
-
-filetype on
+source ~/.config/nvim/omnifuncs.vimrc
+" source ~/.config/nvim/deoplete.vimrc
