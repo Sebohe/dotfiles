@@ -13,7 +13,7 @@
   boot.loader = {
    # Use the systemd-boot EFI boot loader.
    systemd-boot.enable = true;
-   systemd-boot.configurationLimit = 3;
+   systemd-boot.configurationLimit = 20;
    systemd-boot.consoleMode = "keep";
    timeout = 0;
    efi.canTouchEfiVariables = true;
@@ -41,7 +41,7 @@
     binutils
     gcc
     gnumake
-    gnugpg
+    gnupg
     openssl
     pkgconfig
   ];
@@ -60,6 +60,10 @@
     desktopManager.plasma5.enable = true;
     # Enable touchpad support.
     libinput.enable = true;
+    # displayManager.startx.enable = true;
+    # desktopManager.default = "none";
+    # desktopManager.xterm.enable = false;
+    # windowManager.dwm.enable = true;  # as a convenient way to install the dwm package
   };
 
   # I'm gonna keep this zsh config to the bare minum
