@@ -41,6 +41,7 @@
     binutils
     gcc
     gnumake
+    gnugpg
     openssl
     pkgconfig
   ];
@@ -54,7 +55,7 @@
     enable = true;
     layout = "us";
     # caps locks boot
-    xkbOptions = "ctrl:nocaps";
+    xkbOptions = "ctrl:swapcaps,compose:ralt";
     autorun = true;
     desktopManager.plasma5.enable = true;
     # Enable touchpad support.
@@ -88,7 +89,7 @@
       packages = with pkgs; [
         cargo
         rustup
-	 neovim
+        neovim
       ];
       isNormalUser = true;
       extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
