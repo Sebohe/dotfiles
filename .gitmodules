@@ -1,0 +1,3 @@
+[submodule "suck/dwm-repo"]
+	path = suck/dwm-repo
+	url = https://git.suckless.org/dwm/
