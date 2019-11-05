@@ -61,6 +61,24 @@
     libinput.enable = true;
   };
 
+  # I'm gonna keep this zsh config to the bare minum
+  # because I don't want to rebuild the dotfiles.
+  # This is enough to avoid sourcing errors
+  # when I start zsh the first time and also makes it easy
+  # to bootstrap the dotfiles in other computers in which
+  # nixos is not present
+  programs.zsh = {
+    enable = true;
+    # ohMyZsh.enable = true; # not needed because it is in referenced in
+    # pkgs.oh-my-zsh
+    interactiveShellInit = ''
+      # z - jump around
+      source ${pkgs.fetchurl {url = "https://github.com/rupa/z/raw/2ebe419ae18316c5597dd5fb84b5d8595ff1dde9/z.sh"; sha256 = "0ywpgk3ksjq7g30bqbhl9znz3jh6jfg8lxnbdbaiipzgsy41vi10";}}
+      export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh
+    '';
+    promptInit = "";
+  };
+
   users = {
     defaultUserShell = pkgs.zsh;
     # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -70,6 +88,7 @@
       packages = with pkgs; [
         cargo
         rustup
+	 neovim
       ];
       isNormalUser = true;
       extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.

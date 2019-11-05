@@ -38,10 +38,8 @@ stty ixon -ixoff
 #GO
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin:/usr/lib/go/bin
-
 #RUST BIN
 export PATH=$PATH:$HOME/.cargo/bin:$HOME
-
 #LOCAL PATH
 export PATH=$PATH:$HOME/.local/bin
 
@@ -56,14 +54,14 @@ nvm() {
 node() {
   unset -f node
   export NVM_DIR=~/.nvm
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This lo      ads nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
   node "$@"
 }
 
 npm() {
   unset -f npm
   export NVM_DIR=~/.nvm
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This lo      ads nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
   npm "$@"
 }
 export NVM_LAZY_LOAD=true
@@ -91,12 +89,9 @@ c() {
 }
 
 # OH MY ZSH
-export ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="oxide"
+if [ -z "$ZSH" ]; then
+ export ZSH=$HOME/.oh-my-zsh
+fi
 
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
@@ -113,10 +108,11 @@ plugins=(
 )
 
 # I like it being super strict when it comes to paths
-CASE_SENSITIVE="true"
+export CASE_SENSITIVE="true"
 
 # THIS NEEDS TO BE AT THE BOTTOM
 source $ZSH/oh-my-zsh.sh
+#ALIASES
 source $HOME/.aliases
 
 # Vi mode in zsh
@@ -128,4 +124,3 @@ if [ -z $DISPLAY ] && [ -n $XDG_VTNR ] && [ "$XDG_VTNR" -eq 1 ]; then
 fi
 
 eval "$(starship init zsh)"
-#ALIASES
