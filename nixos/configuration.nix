@@ -55,7 +55,7 @@
     enable = true;
     layout = "us";
     # caps locks boot
-    xkbOptions = "ctrl:swapcaps,compose:ralt";
+    xkbOptions = "ctrl:nocaps,compose:ralt";
     autorun = true;
     desktopManager.plasma5.enable = true;
     # Enable touchpad support.
