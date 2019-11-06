@@ -91,9 +91,9 @@
   };
 
   users = {
-    # For all users
+    # Sets the default shell for all users
     defaultUserShell = pkgs.zsh;
-    # Define a user account. Don't forget to set a password with ‘passwd’.
+    # Define a user account. 
     users.sebas = {
       # The set of packages that should be made availabe to the user. This is in
       # contrast to environment.systemPackages, which adds packages to all users. 
