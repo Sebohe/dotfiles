@@ -5,8 +5,7 @@ mkdir -p ~/.vim/{autoload,doc,spell}
 
 files=".aliases
 .config/alacritty/alacritty.yml
-.config/Code/User/keybindings.json
-.config/Code/User/settings.json
+.config/Code/User/*
 .config/dwm-status.toml
 .config/nvim/*
 .gitconfig
