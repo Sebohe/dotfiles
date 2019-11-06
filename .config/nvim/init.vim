@@ -59,5 +59,5 @@ set mouse=a
  
 " Source plugins
 source ~/.config/nvim/plugins.vimrc
-source ~/.config/nvim/omnifuncs.vimrc
+" source ~/.config/nvim/omnifuncs.vimrc
 " source ~/.config/nvim/deoplete.vimrc
