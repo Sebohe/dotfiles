@@ -3,7 +3,6 @@ mkdir -p ~/.local/bin
 mkdir -p ~/.config/{nvim,alacritty,Code/User}
 mkdir -p ~/.vim/{autoload,doc,spell}
 
-
 files=".aliases
 .config/alacritty/alacritty.yml
 .config/Code/User/keybindings.json
