@@ -83,20 +83,11 @@
     # ohMyZsh.enable = true; # not needed because it is in referenced in
     # pkgs.oh-my-zsh
     interactiveShellInit = ''
+      # z - jump around
+      source ${pkgs.fetchurl {url = "https://github.com/rupa/z/raw/2ebe419ae18316c5597dd5fb84b5d8595ff1dde9/z.sh"; sha256 = "0ywpgk3ksjq7g30bqbhl9znz3jh6jfg8lxnbdbaiipzgsy41vi10";}}
       export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh
     '';
-    plugins = [
-      {
-        name = "z";
-        file = "z.sh";
-        src = pkgs.fetchFromGitHub {
-          owner = "rupa";
-          repo = "z";
-          rev = "v1.9";
-          sha256 = "1h0yk0sbv9d571sfkg97wi5q06cpxnhnvh745dlpazpgqi1vb1a8";
-        };
-      }
-    ];
+    promptInit = "";
   };
 
   users = {
