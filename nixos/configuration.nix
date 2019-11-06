@@ -50,6 +50,12 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
+  nixpkgs.config.packageOverrides = pkgs: {
+    dwm = pkgs.dwm.override {
+      patches =
+        [ /home/sebas/.dotfiles/suck/dwm/dwm-config.patch ];
+    };
+  };
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
@@ -57,13 +63,13 @@
     # caps locks boot
     xkbOptions = "ctrl:nocaps,compose:ralt";
     autorun = true;
-    desktopManager.plasma5.enable = true;
     # Enable touchpad support.
     libinput.enable = true;
-    # displayManager.startx.enable = true;
-    # desktopManager.default = "none";
-    # desktopManager.xterm.enable = false;
-    # windowManager.dwm.enable = true;  # as a convenient way to install the dwm package
+    displayManager.startx.enable = true;
+    #desktopManager.plasma5.enable = true;
+    desktopManager.default = "none";
+    desktopManager.xterm.enable = false;
+    windowManager.dwm.enable = true;  # as a convenient way to install the dwm package
   };
 
   # I'm gonna keep this zsh config to the bare minum
@@ -85,6 +91,7 @@
   };
 
   users = {
+    # For all users
     defaultUserShell = pkgs.zsh;
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.sebas = {
