@@ -58,7 +58,11 @@
 
   # Enable sound.
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio = {
+    enable = true;
+    package = pkgs.pulseaudioFull;
+    extraConfig = "load-module module-echo-cancel";
+  };
 
   nixpkgs.config.packageOverrides = pkgs: {
     dwm = pkgs.dwm.override {
@@ -74,7 +78,10 @@
     xkbOptions = "ctrl:nocaps,compose:ralt";
     autorun = true;
     # Enable touchpad support.
-    libinput.enable = true;
+    libinput = {
+      enable = true;
+      tapping = false;
+    };
     displayManager.startx.enable = true;
     #desktopManager.plasma5.enable = true;
     desktopManager.default = "none";
