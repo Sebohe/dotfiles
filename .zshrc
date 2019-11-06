@@ -100,11 +100,11 @@ plugins=(
   zsh-navigation-tools
   docker
   history-substring-search
-  ansible
-  golang
+  # ansible
+  # golang
   rust
   systemd
-  z
+  pass
 )
 
 # I like it being super strict when it comes to paths
