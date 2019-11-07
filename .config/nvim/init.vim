@@ -1,8 +1,6 @@
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
-
 set ls=0
-
 set encoding=utf-8
 set t_Co=256
 set termencoding=utf-8
@@ -58,6 +56,8 @@ cmap w!! w !sudo tee > /dev/null %
 set mouse=a
  
 " Source plugins
-source ~/.config/nvim/plugins.vimrc
-" source ~/.config/nvim/omnifuncs.vimrc
-" source ~/.config/nvim/deoplete.vimrc
+if has('nvim')
+  source ~/.config/nvim/plugins.vimrc
+  " source ~/.config/nvim/deoplete.vimrc
+endif
+source ~/.config/nvim/omnifuncs.vimrc

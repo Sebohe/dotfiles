@@ -14,19 +14,18 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 Plug 'wellle/tmux-complete.vim'
+
+" color theme
 Plug 'morhetz/gruvbox'
 
 Plug 'euclio/vim-markdown-composer', {'do': function('BuildComposer')}
 
-" Languages
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/deoplete.nvim' { 'do': ':UpdateRemotePlugins' }
 
+" Languages
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
-
 Plug 'tomlion/vim-solidity'
-
-
 call plug#end()
 
 " Theme
@@ -56,6 +55,6 @@ let g:tmuxcomplete#trigger = ''
 " markdown-composer
 let g:markdown_composer_browser = 'firefox-developer-edition'
 
-" Go
-let g:go_highlight_types = 1
-let g:go_highlight_functions = 1
+" rust racer
+let g:racer_cmd = "/home/sebas/.nix-profile/bin/racer"
+let g:racer_experimental_completer = 1
