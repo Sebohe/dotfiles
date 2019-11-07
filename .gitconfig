@@ -3,9 +3,9 @@
 	name = Sebastian Bolanos
 	signingkey = 994BAAD59E549901650F6533BA776CA40972302A
 [core]
-	edit = nvim
+	edit = vim
 	helper = store
-	editor = nvim
+	editor = vim
 [color]
 	ui = true
 [pager]
