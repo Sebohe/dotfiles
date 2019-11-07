@@ -30,16 +30,6 @@
   # Set your time zone.
   time.timeZone = "America/Managua";
 
-  fonts.fonts = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    liberation_ttf
-    fira-code
-    fira-code-symbols
-    font-awesome
-  ];
-
   environment.systemPackages = with pkgs; [
     wget
     vim
