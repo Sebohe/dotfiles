@@ -32,18 +32,19 @@
 
   environment.systemPackages = with pkgs; [
     wget
-    vim
-    firefox
+    curl
+    nmap
+    traceroute
+    bind # provides dig
+    ldns # provides drill
     git
-    tmux
-    dwm
-    dmenu
     binutils
     gcc
     gnumake
     gnupg
     openssl
     pkgconfig
+    vim
   ];
 
   # Enable sound.
@@ -54,12 +55,6 @@
     extraConfig = "load-module module-echo-cancel";
   };
 
-  nixpkgs.config.packageOverrides = pkgs: {
-    dwm = pkgs.dwm.override {
-      patches =
-        [ /home/sebas/.dotfiles/suck/dwm/dwm-config.patch ];
-    };
-  };
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
@@ -102,13 +97,7 @@
     defaultUserShell = pkgs.zsh;
     # Define a user account. 
     users.sebas = {
-      # The set of packages that should be made availabe to the user. This is in
-      # contrast to environment.systemPackages, which adds packages to all users. 
-      packages = with pkgs; [
-        cargo
-        rustup
-        neovim
-      ];
+      # moved 
       isNormalUser = true;
       extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     };

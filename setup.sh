@@ -8,6 +8,7 @@ files=".aliases
 .config/Code/User/*
 .config/dwm-status.toml
 .config/nvim/*
+.config/nixpkgs/*
 .config/starship.toml
 .gitconfig
 .local/bin/*
