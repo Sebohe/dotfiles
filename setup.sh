@@ -20,6 +20,7 @@ files=".aliases
 .vim/doc/*
 .vim/spell/*
 .vimrc
+.xbindkeysrc
 .zshrc
 "
 

@@ -24,6 +24,7 @@ with import <nixpkgs> {};
         rustup
         neovim
         lsd
+        pavucontrol
         firefox
         tmux
         libreoffice-fresh
@@ -32,6 +33,7 @@ with import <nixpkgs> {};
             [ /home/sebas/.dotfiles/suck/dwm/dwm-config.patch ];
         })
         dmenu
+        xbindkeys
       ];
       pathsToLink = [ "/share" "/bin" ];
     };
