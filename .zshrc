@@ -96,7 +96,6 @@ fi
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  ssh-agent
   zsh-navigation-tools
   docker
   history-substring-search
