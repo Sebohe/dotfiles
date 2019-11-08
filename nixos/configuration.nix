@@ -22,7 +22,7 @@
 
   networking = {
    hostName = "mini"; # Define your hostname.
-   wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+   networkmanager.enable = true;
    interfaces.enp0s25.useDHCP = true;
    interfaces.wlp3s0.useDHCP = true;
   };
@@ -99,7 +99,13 @@
     users.sebas = {
       # moved 
       isNormalUser = true;
-      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+      extraGroups = [ 
+        "wheel" # Enable ‘sudo’ for the user.
+        "audio"
+        "sound"
+        "video"
+        "networkmanager"
+      ];
     };
   };
 
