@@ -19,7 +19,7 @@ with import <nixpkgs> {};
         pass
         gitAndTools.gitFull
         gitAndTools.git-annex
-      	gitAndTools.gitRemoteGcrypt
+        gitAndTools.gitRemoteGcrypt
         vscode
         rustup
         neovim
