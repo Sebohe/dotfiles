@@ -38,7 +38,8 @@
     traceroute
     bind # provides dig
     ldns # provides drill
-    less
+    less # better than the busybox less
+    htop
     git
     binutils
     gcc
