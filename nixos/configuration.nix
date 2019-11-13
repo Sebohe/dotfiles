@@ -31,19 +31,20 @@
   time.timeZone = "America/Managua";
 
   environment.systemPackages = with pkgs; [
+    acpi
     wget
     curl
     nmap
     traceroute
     bind # provides dig
     ldns # provides drill
+    less
     git
     binutils
     gcc
     gnumake
     gnupg
     openssl
-    pkgconfig
     vim
   ];
 
@@ -54,6 +55,7 @@
     package = pkgs.pulseaudioFull;
     extraConfig = "load-module module-echo-cancel";
   };
+  hardware.ledger.enable = true;
 
   # Enable the X11 windowing system.
   services.xserver = {
