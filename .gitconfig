@@ -1,13 +1,25 @@
 [user]
-	email = sebasheston@gmail.com
-	name = Sebastian Bolanos
-	signingkey = 994BAAD59E549901650F6533BA776CA40972302A
+  email = sebasheston@gmail.com
+  name = Sebastian Bolanos
+  signingkey = 994BAAD59E549901650F6533BA776CA40972302A
 [core]
-	edit = vim
-	helper = store
-	editor = vim
+  edit = vim
+  editor = vim
+  pager = less -XRF
 [color]
-	ui = true
+  diff = true
+  status = true
+  branch = true
+  interactive = true
+  ui = true
+  pager = true
 [pager]
   branch = false
   log = true
+[merge]
+  tool = meld
+[diff]
+  guitool = meld
+[alias]
+  mg = mergetool -y
+  df = difftool -y
