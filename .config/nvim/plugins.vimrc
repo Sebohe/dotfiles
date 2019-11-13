@@ -18,7 +18,7 @@ Plug 'wellle/tmux-complete.vim'
 " color theme
 Plug 'morhetz/gruvbox'
 
-Plug 'euclio/vim-markdown-composer', {'do': function('BuildComposer')}
+" Plug 'euclio/vim-markdown-composer', {'do': function('BuildComposer')}
 
 " Plug 'Shougo/deoplete.nvim' { 'do': ':UpdateRemotePlugins' }
 
@@ -26,6 +26,7 @@ Plug 'euclio/vim-markdown-composer', {'do': function('BuildComposer')}
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 Plug 'tomlion/vim-solidity'
+Plug 'LnL7/vim-nix'
 call plug#end()
 
 " Theme

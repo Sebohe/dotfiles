@@ -55,6 +55,10 @@ cmap w!! w !sudo tee > /dev/null %
 "enable mouse support
 set mouse=a
  
+
+colo desert
+syntax on
+
 " Source plugins
 if has('nvim')
   source ~/.config/nvim/plugins.vimrc
