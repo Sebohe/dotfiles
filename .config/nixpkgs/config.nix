@@ -5,37 +5,62 @@ with import <nixpkgs> {};
     myPackages = pkgs.buildEnv {
       name = "myPackages";
       paths = [
-        chromium
+        # programming
         vscode
-        signal-desktop
+        ripgrep
+        rustup
+        neovim
         rustracer
-        vlc
-        alacritty
-        scrot
-        feh
+
+        # messagin
+        discord
+        signal-desktop
         tdesktop
-        dwm-status
-        dunst
+        riot-desktop
+
+        # tools
+        scrot
+        alacritty
         pass
         gitAndTools.gitFull
         gitAndTools.git-annex
         gitAndTools.gitRemoteGcrypt
-        vscode
-        rustup
-        neovim
         lsd
         pavucontrol
-        firefox
-        tmux
-        libreoffice-fresh
+        pythonPackages.youtube-dl
+        xbindkeys
+        jq
+
+        # UI
         (dwm.override {
           patches =
-            [ /home/sebas/.dotfiles/suck/dwm/dwm-config.patch ];
+            [
+              /home/sebas/.dotfiles/suck/dwm/dwm-config.patch
+            ];
         })
+        dwm-status
         dmenu
-        xbindkeys
+        feh
+        dunst
+        tmux
+        i3lock-color
+
+        # Browsers and  programs
+        firefox
+        brave
+        chromium
+        libreoffice-fresh
+        vlc
+
+        # desktop ui
+        nomacs
+        breeze-icons
+        kompare
+        gnome3.meld
+        kcalc
+        ktorrent
+        dolphin # file manager
       ];
-      pathsToLink = [ "/share" "/bin" ];
     };
   };
 }
