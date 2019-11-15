@@ -1,5 +1,4 @@
 alias grep='grep --color=auto'
-alias ls='lsd'
 alias connect='nmcli d w c'
 alias v='vim '
 alias dls='docker service ls'
