@@ -10,6 +10,8 @@
       /etc/nixos/hardware-configuration.nix
     ];
 
+
+  boot.extraModulePackages = [ config.boot.kernelPackages.wireguard ];
   boot.loader = {
    # Use the systemd-boot EFI boot loader.
    systemd-boot.enable = true;
@@ -31,6 +33,8 @@
   time.timeZone = "America/Managua";
 
   environment.systemPackages = with pkgs; [
+    wireguard
+    wireguard-tools
     acpi
     wget
     curl
