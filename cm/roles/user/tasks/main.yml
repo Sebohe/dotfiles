@@ -42,3 +42,76 @@
   become_method: sudo
   tags:
     - user
+
+- name: Ensure zsh is the default shell
+  user:
+    name: "{{ username }}"
+    shell: /bin/zsh
+    state: present
+  become: yes
+  become_user: "{{username}}"
+  tags:
+    - dotfiles
+
+- name: Clone dotfiles
+  git:
+    repo: https://gitlab.com/sebohe/dotfiles 
+    dest: "{{ dotfiles }}"
+    force: yes
+    recursive: yes
+  become: yes
+  become_user: "{{ username }}"
+  tags:
+    - dotfiles
+
+- name: Create directories
+  file:
+    state: directory
+    path: "{{ item }}"
+  with_items: "{{dirs}}"
+  become: yes
+  become_user: "{{ username }}"
+  tags:
+    - dotfiles
+
+- name: Link dotfiles
+  file:
+    path: "~/{{ item }}"
+    src: "{{ dotfiles }}/{{ item }}"
+    state: link
+    force: yes
+  with_items: "{{ server }}"
+  become: yes
+  become_user: "{{ username }}"
+  tags:
+    - dotfiles
+
+- name: Cloning oh-my-zsh
+  git:
+    repo: https://github.com/robbyrussell/oh-my-zsh
+    dest: "/home/{{ username }}/.oh-my-zsh"
+    force: yes
+  become: yes
+  become_user: "{{ username }}"
+  tags:
+    - dotfiles
+
+- name: Create directories
+  file:
+    state: directory
+    path: "~/.oh-my-zsh/custom/themes"
+  become: yes
+  become_user: "{{ username }}"
+  tags:
+    - dotfiles
+
+- name: Link dotfiles
+  file:
+    path: "~/.oh-my-zsh/custom/themes/oxide.zsh-theme"
+    src: "{{ dotfiles }}/.oh-my-zsh/custom/themes/oxide.zsh-theme"
+    state: link
+    force: yes
+  become: yes
+  become_user: "{{ username }}"
+  tags:
+    - dotfiles
