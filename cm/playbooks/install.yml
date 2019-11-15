@@ -7,4 +7,5 @@
     - docker-install
     - k8-install
     - sshd
+    - wireguard
     - ufw

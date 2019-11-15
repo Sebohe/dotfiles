@@ -1,0 +1,17 @@
+---
+# tasks file for wireguard_role
+
+- name: Install wireguard and other prequisites on the server
+  include: 'install_wireguard.yml'
+  tags:
+    - wireguard
+
+- name: Generate client keys and enable wireguard interface
+  include: 'generate_keys.yml'
+  tags:
+    - wireguard
+
+- name: Set up nat and firewall rules
+  include: 'nat_and_firewall.yml'
+  tags:
+    - wireguard
