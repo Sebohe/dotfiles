@@ -96,10 +96,11 @@ fi
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  ssh-agent
   zsh-navigation-tools
   docker
   history-substring-search
-  # ansible
+  ansible
   # golang
   rust
   systemd
@@ -122,4 +123,8 @@ if [ -z $DISPLAY ] && [ -n $XDG_VTNR ] && [ "$XDG_VTNR" -eq 1 ]; then
   exec startx
 fi
 
-eval "$(starship init zsh)"
+if hash starship; then
+  eval "$(starship init zsh)"
+else
+  export ZSH_THEME="oxide"
+fi
