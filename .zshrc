@@ -123,8 +123,12 @@ if [ -z $DISPLAY ] && [ -n $XDG_VTNR ] && [ "$XDG_VTNR" -eq 1 ]; then
   exec startx
 fi
 
-if hash starship; then
+if hash starship 2>/dev/null; then
   eval "$(starship init zsh)"
 else
   export ZSH_THEME="oxide"
+fi
+
+if hash lsd 2>/dev/null; then
+  alias ls='lsd'
 fi
