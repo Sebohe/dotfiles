@@ -60,6 +60,9 @@ with import <nixpkgs> {};
         kcalc
         ktorrent
         dolphin # file manager
+
+        # devops
+        ansible
       ];
     };
   };
