@@ -1,4 +1,5 @@
 ---
+username: sebas
 public_key: ~/.ssh/id_ed25519.pub
 password: $6$UPMYdqKer/mevGzn$Ud0p//3jF6hfYIpP4OIBAWEHsPOrAjfnoPNbGKb5voL90Od9J/9dfsMaUHacfRgzNJGgb1PZYOQNnD6uUnqmu0
 
@@ -19,7 +20,6 @@ server:
   - ".config/nvim/init.vim"
   - ".config/nvim/deoplete.vimrc"
   - ".config/nvim/plugins.vimrc"
-  - ".config/nvim/init.vim"
   - ".gitconfig"
   - ".local/bin/attach-docker.sh"
   - ".local/bin/update-resolv-conf.sh"

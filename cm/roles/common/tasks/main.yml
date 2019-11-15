@@ -13,6 +13,7 @@
           'ncdu',
           'git',
           'tmux',
+          'sudo'
           ]
     state: present
     update_cache: yes

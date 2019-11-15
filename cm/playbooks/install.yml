@@ -1,13 +1,10 @@
 ---
 - hosts: all
-  vars:
-    username: "{{ansible_user}}"
   roles:
     - common
     - user
-    - dotfiles
-    - ohmyzsh
-    - sshd
-    - docker-install
     - go
+    - docker-install
     - k8-install
+    - sshd
+    - ufw
