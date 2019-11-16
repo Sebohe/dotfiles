@@ -9,6 +9,7 @@ files=".aliases
 .config/dwm-status.toml
 .config/nvim/*
 .config/nixpkgs/*
+.oh-my-zsh/custom/themes/*
 .config/starship.toml
 .gitconfig
 .local/bin/*
