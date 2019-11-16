@@ -77,18 +77,10 @@
   tags:
     - dotfiles
 
-- name: Create directories
-  file:
-    state: directory
-    path: "~/.oh-my-zsh/custom/themes"
-  become: yes
-  become_method: su
-  become_user: "{{ username }}"
-  tags:
-    - dotfiles
-
 - name: Setup dotfiles
   shell: "{{ dotfiles }}/setup.sh"
+  args:
+    chdir: "{{ dotfiles }}"
   become: yes
   become_method: su
   become_user: "{{ username }}"
