@@ -1,3 +1,5 @@
+let hostname = substitute(system('hostname'), '\n', '', '')
+
 function! BuildComposer(info)
   if a:info.status != 'unchanged' || a:info.force
     if has('nvim')
@@ -18,14 +20,16 @@ Plug 'wellle/tmux-complete.vim'
 " color theme
 Plug 'morhetz/gruvbox'
 
-Plug 'euclio/vim-markdown-composer', {'do': function('BuildComposer')}
+if hostname == "mini"
+  Plug 'euclio/vim-markdown-composer', {'do': function('BuildComposer')}
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Languages
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'racer-rust/vim-racer', { 'for': 'rust' }
-Plug 'tomlion/vim-solidity'
-Plug 'LnL7/vim-nix'
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  " Languages
+  Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+  Plug 'racer-rust/vim-racer', { 'for': 'rust' }
+  Plug 'tomlion/vim-solidity'
+  Plug 'LnL7/vim-nix'
+endif
 call plug#end()
 
 let mapleader = ","
@@ -56,15 +60,15 @@ let g:airline_theme='gruvbox'
 " tmux-complete
 let g:tmuxcomplete#trigger = ''
 
-" markdown-composer
-let g:markdown_composer_browser = 'firefox-devedition'
+if hostname == "mini"
+  " markdown-composer
+  let g:markdown_composer_browser = 'firefox-devedition'
 
-
-
-" Racer
-set hidden
-let g:racer_cmd = "/home/sebas/.nix-profile/bin/racer"
-let g:racer_experimental_completer = 1
-au FileType rust nmap <leader>rx <Plug>(rust-doc)
-au FileType rust nmap <leader>rd <Plug>(rust-def)
-au FileType rust nmap <leader>rs <Plug>(rust-def-split)
+  " Racer
+  set hidden
+  let g:racer_cmd = "/home/sebas/.nix-profile/bin/racer"
+  let g:racer_experimental_completer = 1
+  au FileType rust nmap <leader>rx <Plug>(rust-doc)
+  au FileType rust nmap <leader>rd <Plug>(rust-def)
+  au FileType rust nmap <leader>rs <Plug>(rust-def-split)
+endif

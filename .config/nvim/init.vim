@@ -58,9 +58,13 @@ set mouse=a
 colo desert
 syntax on
 
+let hostname = substitute(system('hostname'), '\n', '', '')
+
 " Source plugins
 if has('nvim')
   source ~/.config/nvim/plugins.vimrc
   source ~/.config/nvim/omnifuncs.vimrc
-  source ~/.config/nvim/deoplete.vimrc
+  if hostname == "mini"
+    source ~/.config/nvim/deoplete.vimrc
+  endif
 endif
