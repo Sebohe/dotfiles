@@ -7,6 +7,7 @@ files=".aliases
 .config/alacritty/alacritty.yml
 .config/Code/User/*
 .config/dwm-status.toml
+.config/dunstrc
 .config/nvim/*
 .config/nixpkgs/*
 .oh-my-zsh/custom/themes/*
