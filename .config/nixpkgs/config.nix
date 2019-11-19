@@ -30,6 +30,7 @@ with import <nixpkgs> {};
         pythonPackages.youtube-dl
         xbindkeys
         jq
+        unzip
 
         # UI
         (dwm.override {
@@ -44,11 +45,14 @@ with import <nixpkgs> {};
         dunst
         tmux
         i3lock-color
+        libnotify
 
         # Browsers and  programs
         firefox
         brave
+        google-chrome
         chromium
+        tor-browser-bundle-bin
         libreoffice-fresh
         vlc
 
@@ -60,9 +64,11 @@ with import <nixpkgs> {};
         kcalc
         ktorrent
         dolphin # file manager
+        calibre # ebooks
 
         # devops
         ansible
+        docker-compose
       ];
     };
   };
