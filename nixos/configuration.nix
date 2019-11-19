@@ -61,7 +61,7 @@
     extraConfig = "load-module module-echo-cancel";
   };
   hardware.ledger.enable = true;
-
+  services.tlp.enable = true;
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
@@ -112,10 +112,15 @@
         "sound"
         "video"
         "networkmanager"
+        "docker"
       ];
     };
   };
 
+  virtualisation.docker = {
+    enable = true;
+    enableOnBoot = true;
+  };
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
