@@ -101,7 +101,7 @@ plugins=(
   docker
   history-substring-search
   ansible
-  # golang
+  golang
   rust
   systemd
   pass

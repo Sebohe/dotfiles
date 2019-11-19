@@ -29,6 +29,8 @@ if hostname == "mini"
   Plug 'racer-rust/vim-racer', { 'for': 'rust' }
   Plug 'tomlion/vim-solidity'
   Plug 'LnL7/vim-nix'
+  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 endif
 call plug#end()
 
@@ -71,4 +73,9 @@ if hostname == "mini"
   au FileType rust nmap <leader>rx <Plug>(rust-doc)
   au FileType rust nmap <leader>rd <Plug>(rust-def)
   au FileType rust nmap <leader>rs <Plug>(rust-def-split)
+
+  let g:go_def_mode='gopls'
+  let g:go_info_mode='gopls'
 endif
+
+
