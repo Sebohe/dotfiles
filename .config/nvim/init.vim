@@ -64,7 +64,4 @@ let hostname = substitute(system('hostname'), '\n', '', '')
 if has('nvim')
   source ~/.config/nvim/plugins.vimrc
   source ~/.config/nvim/omnifuncs.vimrc
-  if hostname == "mini"
-    source ~/.config/nvim/deoplete.vimrc
-  endif
 endif

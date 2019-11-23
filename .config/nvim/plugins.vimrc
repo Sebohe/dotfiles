@@ -11,7 +11,7 @@ function! BuildComposer(info)
 endfunction
 
 call plug#begin('~/.vim/plugged')
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
@@ -30,7 +30,6 @@ if hostname == "mini"
   Plug 'tomlion/vim-solidity'
   Plug 'LnL7/vim-nix'
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-  Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 endif
 call plug#end()
 
@@ -62,7 +61,35 @@ let g:airline_theme='gruvbox'
 " tmux-complete
 let g:tmuxcomplete#trigger = ''
 
+" remaps . menu from C-n and C-i to Tab
+inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-i>"
+let g:deoplete#enable_at_startup=1
+
 if hostname == "mini"
+
+  " vim-go higlights
+  let g:go_highlight_build_constraints = 1
+  let g:go_highlight_extra_types = 1
+  let g:go_highlight_fields = 1
+  let g:go_highlight_functions = 1
+  let g:go_highlight_methods = 1
+  let g:go_highlight_operators = 1
+  let g:go_highlight_structs = 1
+  let g:go_highlight_types = 1
+  " let g:go_auto_sameids = 1  " highlights same variable names
+  let g:go_auto_type_info = 1
+  let g:go_addtags_transform = "snakecase"
+  let g:go_code_completion_enabled = 1
+  let g:go_info_mode = 'gopls'
+  let g:go_doc_popup_window = 0
+  let g:go_gopls_complete_unimported = 1
+  let g:go_echo_command_info = 1
+  let g:go#statusline#Show = 1
+  setlocal omnifunc=go#complete#Complete
+  
+  " This triggers the . menu
+  au FileType go inoremap <buffer> . .<C-x><C-o>
+ 
   " markdown-composer
   let g:markdown_composer_browser = 'firefox-devedition'
 
@@ -74,8 +101,6 @@ if hostname == "mini"
   au FileType rust nmap <leader>rd <Plug>(rust-def)
   au FileType rust nmap <leader>rs <Plug>(rust-def-split)
 
-  let g:go_def_mode='gopls'
-  let g:go_info_mode='gopls'
 endif
 
 
