@@ -37,7 +37,7 @@ with import <nixpkgs> {};
         (dwm.override {
           patches =
             [
-              /home/sebas/.dotfiles/suck/dwm/dwm-config.patch
+              /home/sebas/.dotfiles/dwm/dwm-config.patch
             ];
         })
         dwm-status
