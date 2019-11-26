@@ -11,6 +11,21 @@
     ];
 
 
+
+  hardware.cpu.amd.updateMicrocode = true;
+  hardware.enableRedistributableFirmware = true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelParams = [ "amd__iommu=pt" "iommu=soft" ];
+  boot.kernelPatches = [
+    {
+      name ="amdgpu-config";
+      patch = null;
+      extraConfig = ''
+        DRM_AMD_DC_DCN1_0 y
+     '';
+    }
+  ];
+
   boot.extraModulePackages = [ config.boot.kernelPackages.wireguard ];
   boot.loader = {
    # Use the systemd-boot EFI boot loader.
@@ -25,8 +40,8 @@
   networking = {
    hostName = "mini"; # Define your hostname.
    networkmanager.enable = true;
-   interfaces.enp0s25.useDHCP = true;
-   interfaces.wlp3s0.useDHCP = true;
+   interfaces.enp2s0.useDHCP = true;
+   interfaces.wlp4s0.useDHCP = true;
   };
 
   # Set your time zone.
@@ -66,6 +81,7 @@
   services.xserver = {
     enable = true;
     layout = "us";
+    videoDrivers = [ "amdgpu" ];
     # caps locks boot
     xkbOptions = "ctrl:nocaps,compose:ralt";
     autorun = true;
@@ -78,7 +94,6 @@
     #desktopManager.plasma5.enable = true;
     desktopManager.default = "none";
     desktopManager.xterm.enable = false;
-    windowManager.dwm.enable = true;  # as a convenient way to install the dwm package
   };
 
   # I'm gonna keep this zsh config to the bare minum
