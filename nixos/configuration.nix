@@ -67,6 +67,10 @@
     mediaKeys.enable = true;
   };
   hardware = {
+    opengl = {
+      enable = true;
+      driSupport = true;
+    };
     enableRedistributableFirmware = true;
     acpilight.enable = true;
     ledger.enable = true;
@@ -91,11 +95,15 @@
       # Enable touchpad support.
       libinput = {
         enable = true;
-        tapping = false;
+        tapping = true;
+        tappingDragLock = false;
       };
-      libinput.accelSpeed = "5";
-      synaptics.minSpeed = "4.0";
-      synaptics.maxSpeed = "10.0";
+      libinput.accelSpeed = "0.6";
+      synaptics = {
+        dev = "/dev/input/event12";
+        minSpeed = "30.0";
+        maxSpeed = "30.0";
+      };
       displayManager.startx.enable = true;
       #desktopManager.plasma5.enable = true;
       desktopManager.default = "none";
