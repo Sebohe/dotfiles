@@ -13,15 +13,6 @@
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [ "amd__iommu=pt" "iommu=soft" "acpi_backlight=vendor" ];
-    kernelPatches = [
-        {
-          name ="amdgpu-config";
-          patch = null;
-          extraConfig = ''
-            DRM_AMD_DC_DCN1_0 y
-         '';
-        }
-      ];
     extraModulePackages = [ config.boot.kernelPackages.wireguard ];
     loader = {
      # Use the systemd-boot EFI boot loader.
@@ -64,6 +55,10 @@
     openssl
     vim
     xorg.xbacklight
+    libnotify
+    glib
+    alsaLib
+    alsaUtils
   ];
 
   # Enable sound.
@@ -98,9 +93,9 @@
         enable = true;
         tapping = false;
       };
-      libinput.accelSpeed = "2";
-      synaptics.minSpeed = "1.5";
-      synaptics.maxSpeed = "2.0";
+      libinput.accelSpeed = "5";
+      synaptics.minSpeed = "4.0";
+      synaptics.maxSpeed = "10.0";
       displayManager.startx.enable = true;
       #desktopManager.plasma5.enable = true;
       desktopManager.default = "none";
