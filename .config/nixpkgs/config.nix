@@ -11,6 +11,7 @@ with import <nixpkgs> {};
         rustup
         neovim
         rustracer
+        go_1_13
 
         # messagin
         discord

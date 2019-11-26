@@ -10,31 +10,28 @@
       /etc/nixos/hardware-configuration.nix
     ];
 
-
-
-  hardware.cpu.amd.updateMicrocode = true;
-  hardware.enableRedistributableFirmware = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelParams = [ "amd__iommu=pt" "iommu=soft" ];
-  boot.kernelPatches = [
-    {
-      name ="amdgpu-config";
-      patch = null;
-      extraConfig = ''
-        DRM_AMD_DC_DCN1_0 y
-     '';
-    }
-  ];
-
-  boot.extraModulePackages = [ config.boot.kernelPackages.wireguard ];
-  boot.loader = {
-   # Use the systemd-boot EFI boot loader.
-   systemd-boot.enable = true;
-   systemd-boot.configurationLimit = 20;
-   systemd-boot.consoleMode = "keep";
-   timeout = 0;
-   efi.canTouchEfiVariables = true;
-   # grub.device = "/dev/sda";
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+    kernelParams = [ "amd__iommu=pt" "iommu=soft" "acpi_backlight=vendor" ];
+    kernelPatches = [
+        {
+          name ="amdgpu-config";
+          patch = null;
+          extraConfig = ''
+            DRM_AMD_DC_DCN1_0 y
+         '';
+        }
+      ];
+    extraModulePackages = [ config.boot.kernelPackages.wireguard ];
+    loader = {
+     # Use the systemd-boot EFI boot loader.
+     systemd-boot.enable = true;
+     systemd-boot.configurationLimit = 20;
+     systemd-boot.consoleMode = "keep";
+     timeout = 0;
+     efi.canTouchEfiVariables = true;
+     # grub.device = "/dev/sda";
+    };
   };
 
   networking = {
@@ -66,38 +63,49 @@
     gnupg
     openssl
     vim
+    xorg.xbacklight
   ];
 
   # Enable sound.
-  sound.enable = true;
-  sound.mediaKeys.enable = true;
-  hardware.pulseaudio = {
+  sound = {
     enable = true;
-    package = pkgs.pulseaudioFull;
-    extraConfig = "load-module module-echo-cancel";
+    mediaKeys.enable = true;
   };
-  hardware.acpilight.enable = true;
-  hardware.ledger.enable = true;
-  services.tlp.enable = true;
-  # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-    layout = "us";
-    videoDrivers = [ "amdgpu" ];
-    # caps locks boot
-    xkbOptions = "ctrl:nocaps,compose:ralt";
-    autorun = true;
-    # Enable touchpad support.
-    libinput = {
+  hardware = {
+    enableRedistributableFirmware = true;
+    acpilight.enable = true;
+    ledger.enable = true;
+    cpu.amd.updateMicrocode = true;
+    pulseaudio = {
       enable = true;
-      tapping = false;
+      package = pkgs.pulseaudioFull;
+      extraConfig = "load-module module-echo-cancel";
     };
-    synaptics.minSpeed = "0.8";
-    server.synaptics.maxSpeed = "1.2";
-    displayManager.startx.enable = true;
-    #desktopManager.plasma5.enable = true;
-    desktopManager.default = "none";
-    desktopManager.xterm.enable = false;
+  };
+
+  services = {
+    tlp.enable = true;
+    # Enable the X11 windowing system.
+    xserver = {
+      enable = true;
+      layout = "us";
+      videoDrivers = [ "amdgpu" ];
+      # caps locks boot
+      xkbOptions = "ctrl:nocaps,compose:ralt";
+      autorun = true;
+      # Enable touchpad support.
+      libinput = {
+        enable = true;
+        tapping = false;
+      };
+      libinput.accelSpeed = "2";
+      synaptics.minSpeed = "1.5";
+      synaptics.maxSpeed = "2.0";
+      displayManager.startx.enable = true;
+      #desktopManager.plasma5.enable = true;
+      desktopManager.default = "none";
+      desktopManager.xterm.enable = false;
+    };
   };
 
   # I'm gonna keep this zsh config to the bare minum
