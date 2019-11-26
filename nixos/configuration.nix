@@ -70,11 +70,13 @@
 
   # Enable sound.
   sound.enable = true;
+  sound.mediaKeys.enable = true;
   hardware.pulseaudio = {
     enable = true;
     package = pkgs.pulseaudioFull;
     extraConfig = "load-module module-echo-cancel";
   };
+  hardware.acpilight.enable = true;
   hardware.ledger.enable = true;
   services.tlp.enable = true;
   # Enable the X11 windowing system.
@@ -90,6 +92,8 @@
       enable = true;
       tapping = false;
     };
+    synaptics.minSpeed = "0.8";
+    server.synaptics.maxSpeed = "1.2";
     displayManager.startx.enable = true;
     #desktopManager.plasma5.enable = true;
     desktopManager.default = "none";
