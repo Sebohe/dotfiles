@@ -1,0 +1,3 @@
+Add a commit to config.h then:
+
+git diff dwm-base config.h > dwm-config.patch

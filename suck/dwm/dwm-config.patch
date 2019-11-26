@@ -1,8 +1,8 @@
-diff --git a/config.h b/config.h
+diff --git a/suck/dwm/config.h b/suck/dwm/config.h
 new file mode 100644
-index 0000000..5d88d4a
+index 0000000..f59d515
 --- /dev/null
-+++ b/config.h
++++ b/suck/dwm/config.h
 @@ -0,0 +1,127 @@
 +/* See LICENSE file for copyright and license details. */
 +
@@ -73,7 +73,7 @@ index 0000000..5d88d4a
 +static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 +static const char *termcmd[]  = { "alacritty", NULL };
 +static const char *passmenu[]  = { "passmenu", NULL };
-+static const char *i3lock[] = {"i3lock", "-c","000000", NULL};
++static const char *i3lock[] = {"i3lock-color", "-c","000000", NULL};
 +
 +static Key keys[] = {
 +	/* modifier                     key        function        argument */
