@@ -1,6 +1,0 @@
-#ce game group by a valid group on your system
-## Steam controller keyboard/mouse mode
-SUBSYSTEM=="usb", ATTRS{idVendor}=="28de", GROUP="plugdev", MODE="0660"
-#
-## Steam controller gamepad mode
-KERNEL=="uinput", MODE="0660", GROUP="plugdev", OPTIONS+="static_node=uinput"
