@@ -2,6 +2,12 @@
 mkdir -p ~/.local/bin
 mkdir -p ~/.config/{nvim,alacritty,Code/User}
 mkdir -p ~/.vim/{autoload,doc,spell}
+mkdir -p ~/.vim/{autoload,doc,spell}
+
+if [ -z "$ZSH" ]; then
+  mkdir -p ~/.oh-my-zsh/custom/themes/*
+fi
+
 
 files=".aliases
 .config/alacritty/alacritty.yml
