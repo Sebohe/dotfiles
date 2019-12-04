@@ -4,9 +4,7 @@ mkdir -p ~/.config/{nvim,alacritty,Code/User}
 mkdir -p ~/.vim/{autoload,doc,spell}
 mkdir -p ~/.vim/{autoload,doc,spell}
 
-if [ -z "$ZSH" ]; then
-  mkdir -p ~/.oh-my-zsh/custom/themes/*
-fi
+git clone https://github.com/ohmyzsh/ohmyzsh ~/.oh-my-zsh
 
 
 files=".aliases
