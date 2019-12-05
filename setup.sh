@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 mkdir -p ~/.local/bin
 mkdir -p ~/.config/{nvim,alacritty,Code/User}
 mkdir -p ~/.vim/{autoload,doc,spell}
