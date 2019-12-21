@@ -1,7 +1,7 @@
 [user]
-  email = sebasheston@gmail.com
+  email = sebasheston@protonmail.com
   name = Sebastian Bolanos
-  signingkey = 994BAAD59E549901650F6533BA776CA40972302A
+  signingkey = 8FD19580EB2B286C8FEA5407B7E9320FDC065EA1
 [core]
   edit = vim
   editor = vim
@@ -23,3 +23,8 @@
 [alias]
   mg = mergetool -y
   df = difftool -y
+[commit]
+  #gpgsign = true
+[credential]
+	username = sebohe
+	helper = store
