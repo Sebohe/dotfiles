@@ -15,27 +15,26 @@
     kernelParams = [ "amd__iommu=pt" "iommu=soft" "acpi_backlight=vendor" ];
     extraModulePackages = [ config.boot.kernelPackages.wireguard ];
     loader = {
-     # Use the systemd-boot EFI boot loader.
      systemd-boot.enable = true;
      systemd-boot.configurationLimit = 20;
      systemd-boot.consoleMode = "keep";
      timeout = 0;
      efi.canTouchEfiVariables = true;
-     # grub.device = "/dev/sda";
     };
   };
 
   networking = {
-   hostName = "mini"; # Define your hostname.
-   networkmanager.enable = true;
-   interfaces.enp2s0.useDHCP = true;
-   interfaces.wlp4s0.useDHCP = true;
+    hostName = "mini"; # Define your hostname.
+    networkmanager.enable = true;
+    interfaces.enp2s0.useDHCP = true;
+    interfaces.wlp4s0.useDHCP = true;
   };
 
   # Set your time zone.
   time.timeZone = "America/Managua";
 
   environment.systemPackages = with pkgs; [
+    lsof
     wireguard
     wireguard-tools
     acpi
@@ -70,6 +69,7 @@
     opengl = {
       enable = true;
       driSupport = true;
+      driSupport32Bit = true;
     };
     enableRedistributableFirmware = true;
     acpilight.enable = true;
@@ -78,12 +78,16 @@
     pulseaudio = {
       enable = true;
       package = pkgs.pulseaudioFull;
-      extraConfig = "load-module module-echo-cancel";
+      support32Bit = true;
+      extraConfig = ''
+        load-module module-echo-cancel
+      '';
     };
   };
 
   services = {
     tlp.enable = true;
+    #usbguard.enable = true;
     # Enable the X11 windowing system.
     xserver = {
       enable = true;
@@ -101,11 +105,11 @@
       libinput.accelSpeed = "0.6";
       synaptics = {
         dev = "/dev/input/event12";
-        minSpeed = "30.0";
-        maxSpeed = "30.0";
+        minSpeed = "0.5";
+        maxSpeed = "1";
       };
       displayManager.startx.enable = true;
-      #desktopManager.plasma5.enable = true;
+      desktopManager.plasma5.enable = true;
       desktopManager.default = "none";
       desktopManager.xterm.enable = false;
     };
@@ -117,19 +121,24 @@
   # when I start zsh the first time and also makes it easy
   # to bootstrap the dotfiles in other computers in which
   # nixos is not present
-  programs.zsh = {
-    enable = true;
-    # ohMyZsh.enable = true; # not needed because it is in referenced in
-    # pkgs.oh-my-zsh
-    interactiveShellInit = ''
-      # z - jump around
-      source ${pkgs.fetchurl {url = "https://github.com/rupa/z/raw/2ebe419ae18316c5597dd5fb84b5d8595ff1dde9/z.sh"; sha256 = "0ywpgk3ksjq7g30bqbhl9znz3jh6jfg8lxnbdbaiipzgsy41vi10";}}
-      export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh
-    '';
-    promptInit = "";
+  programs = {
+    zsh = {
+      enable = true;
+      interactiveShellInit = ''
+        # z - jump around
+        source ${pkgs.fetchurl {url = "https://github.com/rupa/z/raw/2ebe419ae18316c5597dd5fb84b5d8595ff1dde9/z.sh"; sha256 = "0ywpgk3ksjq7g30bqbhl9znz3jh6jfg8lxnbdbaiipzgsy41vi10";}}
+        export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh
+      '';
+      promptInit = "";
+    };
+    adb.enable = true;
   };
 
   users = {
+    groups = {
+       plugdev = { };
+       jackaudio = { };
+    };
     # Sets the default shell for all users
     defaultUserShell = pkgs.zsh;
     # Define a user account. 
@@ -143,13 +152,18 @@
         "video"
         "networkmanager"
         "docker"
+        "plugdev"
+        "adbusers"
+        "jackaudio"
       ];
     };
   };
 
   virtualisation.docker = {
     enable = true;
+    liveRestore = false;
     enableOnBoot = true;
+    autoPrune.enable = true;
   };
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
