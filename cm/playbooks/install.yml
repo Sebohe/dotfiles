@@ -2,10 +2,14 @@
 - hosts: all
   roles:
     - common
-    - user
+    - root-work-server
+    - docker
+    - ethereum-ssl-nginx
     - go
-    - docker-install
+    - ipv4-forward
     - k8-install
     - sshd
-    - wireguard
     - ufw
+    - user
+    - wireguard
+    - disable-root-sshd
