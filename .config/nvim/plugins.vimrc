@@ -16,6 +16,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 Plug 'wellle/tmux-complete.vim'
+Plug 'cespare/vim-toml'
 
 " color theme
 Plug 'morhetz/gruvbox'
