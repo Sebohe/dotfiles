@@ -115,9 +115,7 @@ with import <nixpkgs> {};
         brave
         chromium
         libreoffice-fresh
-        (vlc.override {
-          jackSupport = true;
-        })
+        vlc
         taskwarrior
 
         # desktop ui
