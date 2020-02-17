@@ -5,13 +5,13 @@
 [core]
   edit = vim
   editor = vim
-  pager = less -XRF
+  pager = less --tabs=4 -RFX
 [color]
   diff = true
   status = true
   branch = true
   interactive = true
-  ui = true
+	ui = true
   pager = true
 [pager]
   branch = false
@@ -20,11 +20,20 @@
   tool = meld
 [diff]
   guitool = meld
-[alias]
-  mg = mergetool -y
-  df = difftool -y
 [commit]
   #gpgsign = true
 [credential]
 	username = sebohe
 	helper = store
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
