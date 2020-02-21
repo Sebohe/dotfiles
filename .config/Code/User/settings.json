@@ -1,6 +1,6 @@
 {
   "window.menuBarVisibility": "toggle",
-  "window.zoomLevel": -2,
+  "window.zoomLevel": 1,
   "vim.disableExtension": false,
   "vim.handleKeys": {
     "<C-k>": false
@@ -30,4 +30,9 @@
     "*.rmd": "markdown"
   },
   "workbench.sideBar.location": "left",
+  "go.formatTool": "goimports",
+  "files.autoSave": "off",
+  "cSpell.userWords": [
+    "ethereum"
+  ],
 }
