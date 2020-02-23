@@ -24,8 +24,9 @@ compinit
 #DEFAULTS
 BROWSER=/usr/bin/firefox
 EDITOR=/usr/bin/vim
-if [ -f /usr/bin/nvim ]; then
-  EDITOR=/usr/bin/nvim
+
+if hash nvim 2>/dev/null; then
+  export EDITOR=/usr/bin/nvim
 fi
 
 GIT_EDITOR=$EDITOR
@@ -107,21 +108,12 @@ plugins=(
   pass
 )
 
-# I like it being super strict when it comes to paths
-export CASE_SENSITIVE="true"
-
-# THIS NEEDS TO BE AT THE BOTTOM
 source $ZSH/oh-my-zsh.sh
-#ALIASES
 source $HOME/.aliases
 
 # Vi mode in zsh
 bindkey -v
 KEYTIMEOUT=1
-
-if [ -z $DISPLAY ] && [ -n $XDG_VTNR ] && [ "$XDG_VTNR" -eq 1 ]; then
-  exec startx
-fi
 
 if hash starship 2>/dev/null; then
   eval "$(starship init zsh)"
@@ -131,6 +123,10 @@ fi
 
 if hash lsd 2>/dev/null; then
   alias ls='lsd'
+fi
+
+if [ -z $DISPLAY ] && [ -n $XDG_VTNR ] && [ "$XDG_VTNR" -eq 1 ]; then
+  exec startx
 fi
 
 if [[ "$TMUX" == "" ]]; then
