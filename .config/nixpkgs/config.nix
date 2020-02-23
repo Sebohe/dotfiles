@@ -74,9 +74,9 @@ with import <nixpkgs> {};
         lazydocker
         lazygit
         gitAndTools.gitFull
+        gitAndTools.diff-so-fancy
         R
         travis
-        mkdocs
       ];
     };
     myMessaging = pkgs.buildEnv {
