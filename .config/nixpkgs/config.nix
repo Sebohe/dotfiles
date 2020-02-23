@@ -14,19 +14,6 @@ with import <nixpkgs> {};
         audacity
       ];
     };
-    myFonts = pkgs.buildEnv {
-      name = "myFonts";
-      paths = [
-        dejavu_fonts
-        fira
-        fira-code
-        fira-code-symbols
-        fira-mono
-        font-awesome
-        helvetica-neue-lt-std
-        inconsolata
-      ];
-    };
     myBrowsers = pkgs.buildEnv {
       name = "myBrowsers";
       paths = [
