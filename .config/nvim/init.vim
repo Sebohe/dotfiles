@@ -60,6 +60,8 @@ syntax on
 
 let hostname = substitute(system('hostname'), '\n', '', '')
 
+set guifont=Fira\ Code:h11
+
 " Source plugins
 if has('nvim')
   source ~/.config/nvim/plugins.vimrc
