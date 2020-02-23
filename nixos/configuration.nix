@@ -85,6 +85,26 @@
     };
   };
 
+  fonts.fonts = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    liberation_ttf
+    fira-code
+    fira-code-symbols
+    mplus-outline-fonts
+    dina-font
+    proggyfonts
+    dejavu_fonts
+    fira
+    fira-mono
+    font-awesome
+    inconsolata
+    emojione
+    twemoji-color-font
+    twitter-color-emoji
+  ];
+
   services = {
     tlp.enable = true;
     #usbguard.enable = true;
