@@ -10,91 +10,34 @@ with import <nixpkgs> {};
         qjackctl
         python38Packages.foxdot
         supercollider
-        #gimp
+        gimp
         audacity
       ];
     };
     myFonts = pkgs.buildEnv {
       name = "myFonts";
       paths = [
-        aileron
         dejavu_fonts
-        dina-font
-        eunomia
-        f5_6
-        ferrum
         fira
         fira-code
         fira-code-symbols
         fira-mono
         font-awesome
         helvetica-neue-lt-std
-        ibm-plex
         inconsolata
-        league-of-moveable-type
-        liberation_ttf
-        libre-baskerville
-        libre-bodoni
-        libre-caslon
-        libre-franklin
-        medio
-        mplus-outline-fonts
-        national-park-typeface
-        norwester-font
-        penna
-        proggyfonts
-        route159
-        seshat
-        siji
-        tenderness
-        vegur
-        vistafonts
       ];
     };
-    myPackagesExtras = pkgs.buildEnv {
-      name = "myPackagesExtras";
+    myBrowsers = pkgs.buildEnv {
+      name = "myBrowsers";
       paths = [
-        R
         tor-browser-bundle-bin
+        firefox
+        chromium
       ];
     };
-    myPackages = pkgs.buildEnv {
-      name = "myPackages";
+    myUI = pkgs.buildEnv {
+      name = "myUI";
       paths = [
-        # programming
-        vscode
-        ripgrep
-        rustup
-        neovim
-        rustracer
-        go_1_13
-        gnome3.meld
-
-        # messagin
-        discord
-        signal-desktop
-        tdesktop
-        riot-desktop
-
-        # tools
-        scrot
-        alacritty
-        pass
-        gitAndTools.gitFull
-        gitAndTools.git-annex
-        gitAndTools.gitRemoteGcrypt
-        lsd
-        pavucontrol
-        pythonPackages.youtube-dl
-        xbindkeys
-        jq
-        unzip
-        ncdu
-        ipcalc
-        sshuttle
-        xclip
-        whois
-
         # UI
         (dwm.override {
           patches =
@@ -102,36 +45,75 @@ with import <nixpkgs> {};
               /home/sebas/.dotfiles/dwm/dwm-config.patch
             ];
         })
-        dwm-status
+        dwm-status # this is the rust version
         dmenu
         feh
         dunst
         tmux
         i3lock-color
         libnotify
-
-        # Browsers and  programs
-        firefox
-        brave
-        chromium
+        scrot
+        alacritty
+        pass
+        pavucontrol
+        xclip
+        lsd
+        xbindkeys
+      ];
+    };
+    myProgramming = pkgs.buildEnv {
+      name = "myProgramming";
+      paths = [
+        vscode
+        ripgrep
+        rustup
+        rustracer
+        go_1_13
+        ansible
+        docker-compose
+        lazydocker
+        lazygit
+        gitAndTools.gitFull
+        R
+        travis
+        mkdocs
+      ];
+    };
+    myMessaging = pkgs.buildEnv {
+      name = "myMessaging";
+      paths = [
+        discord
+        signal-desktop
+        tdesktop
+        riot-desktop
+        zoom-us
+        kbfs
+        keybase
+        keybae-gui
+      ];
+    };
+    myTools = pkgs.buildEnv {
+      name = "myTools";
+      paths = [
+        gitAndTools.git-annex
+        gitAndTools.gitRemoteGcrypt
+        pythonPackages.youtube-dl
+        jq
+        unzip
+        ncdu
+        xorg.xev
+        ipcalc
+        whois
+        tcpdump
         libreoffice-fresh
         vlc
         taskwarrior
-
-        # desktop ui
         nomacs
         breeze-icons
-        kcalc
-        ktorrent
+        speedcrunch #caculator
         dolphin # file manager
         calibre # ebooks
-        zoom-us
-
-        # devops
-        ansible
-        docker-compose
       ];
     };
-
   };
 }
