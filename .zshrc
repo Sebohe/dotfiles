@@ -108,6 +108,7 @@ plugins=(
   pass
 )
 
+export CASE_SENSITIVE="true"
 source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases
 
