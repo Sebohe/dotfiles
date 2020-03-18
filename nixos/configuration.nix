@@ -8,17 +8,24 @@
   imports =
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
+     # /etc/nixos/wireguard.nix
     ];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = [ "amd__iommu=pt" "iommu=soft" "acpi_backlight=vendor" ];
-    extraModulePackages = [ config.boot.kernelPackages.wireguard ];
+    kernelParams = [
+      "amd_iommu=pt"
+      "ivrs_ioapic[32]=00:14.0"
+      "iommu=pt"
+      "quiet"
+      "acpi_backlight=video"
+    ];
+    extraModulePackages = [ ];
     loader = {
      systemd-boot.enable = true;
      systemd-boot.configurationLimit = 20;
      systemd-boot.consoleMode = "keep";
-     timeout = 0;
+     timeout = 1;
      efi.canTouchEfiVariables = true;
     };
   };
@@ -28,10 +35,11 @@
     networkmanager.enable = true;
     interfaces.enp2s0.useDHCP = true;
     interfaces.wlp4s0.useDHCP = true;
-  };
+    wireguard.enable = true;
+ };
 
   # Set your time zone.
-  time.timeZone = "America/Managua";
+  time.timeZone = "Europe/London";
 
   environment.systemPackages = with pkgs; [
     lsof
@@ -66,6 +74,7 @@
     mediaKeys.enable = true;
   };
   hardware = {
+    bluetooth.enable = true;
     opengl = {
       enable = true;
       driSupport = true;
@@ -122,15 +131,18 @@
         tapping = true;
         tappingDragLock = false;
       };
-      libinput.accelSpeed = "0.6";
+      libinput.accelSpeed = "0.8";
       synaptics = {
         dev = "/dev/input/event12";
-        minSpeed = "0.5";
+        minSpeed = "0.8";
         maxSpeed = "1";
+	      scrollDelta = 400;
       };
-      displayManager.startx.enable = true;
       desktopManager.plasma5.enable = true;
+      #displayManager.startx.enable = false;
+      #desktopManager.default = "plasma5";
       desktopManager.default = "none";
+      displayManager.startx.enable = true;
       desktopManager.xterm.enable = false;
     };
   };
@@ -179,6 +191,9 @@
     };
   };
 
+  #system.activationScripts.bash = ''
+	#ln -s ${pkgs.bash}/bin/bash /bin/bash
+  #'';
   virtualisation.docker = {
     enable = true;
     liveRestore = false;
