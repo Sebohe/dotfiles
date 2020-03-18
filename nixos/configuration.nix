@@ -158,7 +158,10 @@
       enable = true;
       interactiveShellInit = ''
         # z - jump around
-        source ${pkgs.fetchurl {url = "https://github.com/rupa/z/raw/2ebe419ae18316c5597dd5fb84b5d8595ff1dde9/z.sh"; sha256 = "0ywpgk3ksjq7g30bqbhl9znz3jh6jfg8lxnbdbaiipzgsy41vi10";}}
+        source ${pkgs.fetchurl {
+          url = "https://raw.githubusercontent.com/rupa/z/6586b61384cff33d2c3ce6512c714e20ea59bfed/z.sh";
+          sha256 = "b3969a36b35889a097cd5a38e5e9740762f0e45f994b5e45991e2a9bdb2b8079";
+        }}
         export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh
       '';
       promptInit = "";
