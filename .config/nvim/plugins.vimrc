@@ -96,7 +96,7 @@ if hostname == "mini"
 
   " Racer
   set hidden
-  let g:racer_cmd = "/home/sebas/.nix-profile/bin/racer"
+  let g:racer_cmd = "/home/sebas/.cargo/bin/racer"
   let g:racer_experimental_completer = 1
   au FileType rust nmap <leader>rx <Plug>(rust-doc)
   au FileType rust nmap <leader>rd <Plug>(rust-def)
