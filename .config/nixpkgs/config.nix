@@ -20,6 +20,7 @@ with import <nixpkgs> {};
         tor-browser-bundle-bin
         firefox
         chromium
+        spotify
       ];
     };
     myUI = pkgs.buildEnv {
@@ -36,7 +37,7 @@ with import <nixpkgs> {};
         dmenu
         feh
         dunst
-        tmux
+        #tmux
         i3lock-color
         libnotify
         scrot
@@ -54,7 +55,6 @@ with import <nixpkgs> {};
         vscode
         ripgrep
         rustup
-        rustracer
         go_1_13
         ansible
         docker-compose
@@ -76,7 +76,7 @@ with import <nixpkgs> {};
         zoom-us
         kbfs
         keybase
-        keybae-gui
+        keybase-gui
       ];
     };
     myTools = pkgs.buildEnv {
