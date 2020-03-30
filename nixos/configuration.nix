@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
-     # /etc/nixos/wireguard.nix
+      #/etc/nixos/wireguard.nix
     ];
 
   boot = {
@@ -90,6 +90,8 @@
       support32Bit = true;
       extraConfig = ''
         load-module module-echo-cancel
+	load-module module-bluetooth-policy
+	load-module module-bluetooth-discover
       '';
     };
   };
@@ -194,9 +196,9 @@
     };
   };
 
-  #system.activationScripts.bash = ''
-	#ln -s ${pkgs.bash}/bin/bash /bin/bash
-  #'';
+  system.activationScripts.bash = ''
+	ln -s ${pkgs.neovim}/bin/nvim /usr/bin/nvim
+  '';
   virtualisation.docker = {
     enable = true;
     liveRestore = false;
