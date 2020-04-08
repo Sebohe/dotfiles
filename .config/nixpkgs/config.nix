@@ -1,4 +1,4 @@
-with import <nixpkgs> {};
+with import <nixpkgs-unstable> {};
 {
   allowUnfree = true;
   packageOverrides = pkgs: with pkgs; {
@@ -37,7 +37,7 @@ with import <nixpkgs> {};
         dmenu
         feh
         dunst
-        #tmux
+        tmux
         i3lock-color
         libnotify
         scrot
@@ -47,6 +47,7 @@ with import <nixpkgs> {};
         xclip
         lsd
         xbindkeys
+        transmission-gtk
       ];
     };
     myProgramming = pkgs.buildEnv {
@@ -64,6 +65,7 @@ with import <nixpkgs> {};
         gitAndTools.diff-so-fancy
         R
         travis
+        pipenv
       ];
     };
     myMessaging = pkgs.buildEnv {
@@ -73,7 +75,6 @@ with import <nixpkgs> {};
         signal-desktop
         tdesktop
         riot-desktop
-        zoom-us
         kbfs
         keybase
         keybase-gui
@@ -100,6 +101,10 @@ with import <nixpkgs> {};
         speedcrunch #caculator
         dolphin # file manager
         calibre # ebooks
+        p7zip
+        gptfdisk
+        qrencode
+        pciutils
       ];
     };
   };
