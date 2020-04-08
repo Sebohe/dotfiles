@@ -5,7 +5,7 @@
 [core]
   edit = vim
   editor = vim
-	pager = delta --dark
+  pager = delta --plus-color="#1f6a25" --plus-emph-color="#4fdc6e" --minus-color="#a87f80" --minus-emph-color="#ce0003"
 [color]
   diff = true
   status = true
