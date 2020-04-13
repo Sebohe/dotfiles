@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+file=/etc/nixos/configuration.nix
+vpnFile="/etc/nixos/wireguard.nix"
+
+cat $file | grep $vpnFile
+
+if [ $(cat $file | grep \#$vpnFile) ]; then
+  echo "VPN is OFF. Turning on..."
+  sudo sed -i "s|#$vpnFile|$vpnFile|" /etc/nixos/configuration.nix
+else
+  echo "VPN is ON. Turning off..."
+  sudo sed -i "s|$vpnFile|#$vpnFile|" /etc/nixos/configuration.nix
+fi
+
+sudo nixos-rebuild switch
