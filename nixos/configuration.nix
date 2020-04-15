@@ -5,11 +5,15 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
+  imports = [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
-      #/etc/nixos/wireguard.nix
+      /etc/nixos/wireguard.nix
     ];
+
+  nix.gc = {
+    automatic = true;
+    options = "--delete-older-than 2d";
+  };
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
@@ -75,6 +79,10 @@
   };
   hardware = {
     bluetooth.enable = true;
+    bluetooth.extraConfig = "
+  	[General]
+  	Enable=Source,Sink,Media,Socket
+    ";
     opengl = {
       enable = true;
       driSupport = true;
@@ -196,9 +204,9 @@
     };
   };
 
-  system.activationScripts.bash = ''
-	ln -s ${pkgs.neovim}/bin/nvim /usr/bin/nvim
-  '';
+  #system.activationScripts.bash = ''
+  #ln -s ${pkgs.neovim}/bin/nvim /usr/bin/nvim
+  #'';
   virtualisation.docker = {
     enable = true;
     liveRestore = false;
