@@ -5,15 +5,11 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ # Include the results of the hardware scan.
+  imports =
+    [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
       /etc/nixos/wireguard.nix
     ];
-
-  nix.gc = {
-    automatic = true;
-    options = "--delete-older-than 2d";
-  };
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
@@ -104,14 +100,23 @@
     };
   };
 
+  nixpkgs.config.allowUnfree = true;
   fonts.fonts = with pkgs; [
+    corefonts
     noto-fonts
     noto-fonts-cjk
+    xkcd-font
+    opensans-ttf
     noto-fonts-emoji
     liberation_ttf
     fira-code
     fira-code-symbols
+    google-fonts
+    hack-font
+    liberation_ttf
+    #nerdfonts
     mplus-outline-fonts
+    freefont_ttf 
     dina-font
     proggyfonts
     dejavu_fonts
