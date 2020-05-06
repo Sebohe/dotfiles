@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-file=/etc/nixos/configuration.nix
+file=$(readlink -f /etc/nixos/configuration.nix)
+echo $file
 vpnFile="/etc/nixos/wireguard.nix"
 
 message="VPN is ON. Turning off..."
