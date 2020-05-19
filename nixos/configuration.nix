@@ -12,6 +12,8 @@
     ];
 
   boot = {
+    # Needed for pi3 iso img
+    binfmt.emulatedSystems = [ "aarch64-linux" ];
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [
       "amd_iommu=pt"
@@ -35,6 +37,12 @@
     networkmanager.enable = true;
     interfaces.enp2s0.useDHCP = true;
     interfaces.wlp4s0.useDHCP = true;
+    enableIPv6 = false;
+    nameservers = [ 
+      "1.1.1.1"
+      "8.8.4.4"
+      "8.8.8.8"
+    ];
     wireguard.enable = true;
  };
 
@@ -66,6 +74,7 @@
     glib
     alsaLib
     alsaUtils
+    gtk2
   ];
 
   # Enable sound.
@@ -75,10 +84,7 @@
   };
   hardware = {
     bluetooth.enable = true;
-    bluetooth.extraConfig = "
-  	[General]
-  	Enable=Source,Sink,Media,Socket
-    ";
+    bluetooth.config.General.Enable = "Source,Sink,Media,Socket";
     opengl = {
       enable = true;
       driSupport = true;
@@ -156,7 +162,7 @@
       desktopManager.plasma5.enable = true;
       #displayManager.startx.enable = false;
       #desktopManager.default = "plasma5";
-      desktopManager.default = "none";
+      displayManager.defaultSession = "none";
       displayManager.startx.enable = true;
       desktopManager.xterm.enable = false;
     };
@@ -169,6 +175,12 @@
   # to bootstrap the dotfiles in other computers in which
   # nixos is not present
   programs = {
+    gnupg = {
+      agent = {
+        enable = true;
+        pinentryFlavor = "gtk2";
+      };
+    };
     zsh = {
       enable = true;
       interactiveShellInit = ''
@@ -208,6 +220,11 @@
       ];
     };
   };
+  # Needed for building pi3 iso
+#  nix.extraOptions = ''
+#  extra-platforms = aarch64-linux arm-linux
+#  '';
+#  services.qemuGuest.enable = true;
 
   #system.activationScripts.bash = ''
   #ln -s ${pkgs.neovim}/bin/nvim /usr/bin/nvim
