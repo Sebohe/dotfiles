@@ -1,6 +1,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+
 # XDG
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -10,7 +11,6 @@ if [ ! -w ${XDG_RUNTIME_DIR:="/run/user/$UID"} ]; then
     XDG_RUNTIME_DIR=/tmp
 fi
 export XDG_RUNTIME_DIR
-
 
 HISTFILE=~/.histfile
 HISTSIZE=10000
@@ -22,11 +22,11 @@ autoload -Uz compinit
 compinit
 
 #DEFAULTS
-BROWSER=/usr/bin/firefox
-EDITOR=/usr/bin/vim
+BROWSER=`which firefox`
+EDITOR=`which vim`
 
 if hash nvim 2>/dev/null; then
-  export EDITOR=/usr/bin/nvim
+  export EDITOR=`which nvim`
 fi
 
 GIT_EDITOR=$EDITOR
@@ -44,29 +44,6 @@ export PATH=$PATH:$HOME/.cargo/bin:$HOME
 #LOCAL PATH
 export PATH=$PATH:$HOME/.local/bin
 
-#NVM
-nvm() {
-  unset -f nvm
-  export NVM_DIR=~/.nvm
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This lo      ads nvm
-  nvm "$@"
-}
-
-node() {
-  unset -f node
-  export NVM_DIR=~/.nvm
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-  node "$@"
-}
-
-npm() {
-  unset -f npm
-  export NVM_DIR=~/.nvm
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-  npm "$@"
-}
-export NVM_LAZY_LOAD=true
-
 #LOCALVARS
 if [ ! -f $HOME/.localvars ]
 then
@@ -82,7 +59,6 @@ then
     setxkbmap -option ctrl:nocaps
 fi
 
-# https://raw.githubusercontent.com/Parth/dotfiles/master/zsh/zshrc.sh
 # Custom cd
 c() {
 		cd $1;
@@ -101,7 +77,6 @@ plugins=(
   zsh-navigation-tools
   docker
   history-substring-search
-  ansible
   golang
   rust
   systemd

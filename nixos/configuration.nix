@@ -5,10 +5,17 @@
 { config, pkgs, ... }:
 
 {
+  nix.gc = {
+    automatic = true;
+    options = "--delete-older-than 10d";
+  };
   imports =
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
-      /etc/nixos/wireguard.nix
+      #/etc/nixos/wireguard-mullvad.nix
+      #/etc/nixos/wireguard.nix
+      #/etc/nixos/openvpn.nix
+      /etc/nixos/cachix.nix
     ];
 
   boot = {
@@ -37,12 +44,13 @@
     networkmanager.enable = true;
     interfaces.enp2s0.useDHCP = true;
     interfaces.wlp4s0.useDHCP = true;
+    #defaultGateway.address = "192.168.1.254";
     enableIPv6 = false;
-    nameservers = [ 
-      "1.1.1.1"
-      "8.8.4.4"
-      "8.8.8.8"
-    ];
+#    nameservers = [ 
+#      "1.1.1.1"
+#      "8.8.4.4"
+#      "8.8.8.8"
+#    ];
     wireguard.enable = true;
  };
 
@@ -50,6 +58,7 @@
   time.timeZone = "Europe/London";
 
   environment.systemPackages = with pkgs; [
+    #direnv
     lsof
     wireguard
     wireguard-tools
@@ -100,8 +109,10 @@
       support32Bit = true;
       extraConfig = ''
         load-module module-echo-cancel
-	load-module module-bluetooth-policy
-	load-module module-bluetooth-discover
+	      load-module module-bluetooth-policy
+	      load-module module-bluetooth-discover
+        load-module module-bluez5-device
+        load-module module-bluez5-discover
       '';
     };
   };
@@ -111,16 +122,17 @@
     corefonts
     noto-fonts
     noto-fonts-cjk
+    noto-fonts-emoji
+    noto-fonts-extra
     xkcd-font
     opensans-ttf
-    noto-fonts-emoji
     liberation_ttf
     fira-code
     fira-code-symbols
+    symbola
     google-fonts
     hack-font
     liberation_ttf
-    #nerdfonts
     mplus-outline-fonts
     freefont_ttf 
     dina-font
@@ -136,6 +148,7 @@
   ];
 
   services = {
+    #lorri.enable = true;
     tlp.enable = true;
     #usbguard.enable = true;
     # Enable the X11 windowing system.
@@ -157,7 +170,7 @@
         dev = "/dev/input/event12";
         minSpeed = "0.8";
         maxSpeed = "1";
-	      scrollDelta = 400;
+	      scrollDelta = 800;
       };
       desktopManager.plasma5.enable = true;
       #displayManager.startx.enable = false;
@@ -183,6 +196,7 @@
     };
     zsh = {
       enable = true;
+      enableCompletion = true;
       interactiveShellInit = ''
         # z - jump around
         source ${pkgs.fetchurl {

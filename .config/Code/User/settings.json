@@ -1,6 +1,6 @@
 {
   "window.menuBarVisibility": "toggle",
-  "window.zoomLevel": 1,
+  "window.zoomLevel": 0,
   "vim.disableExtension": false,
   "vim.handleKeys": {
     "<C-k>": false
@@ -33,6 +33,33 @@
   "go.formatTool": "goimports",
   "files.autoSave": "off",
   "cSpell.userWords": [
-    "ethereum"
+    "check",
+    "check postgres is up",
+    "ethereum",
+    "is",
+    "letsencrypt",
+    "postgres",
+    "signup",
+    "tslib",
+    "typeorm",
+    "up"
   ],
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "tabnine.experimentalAutoImports": true,
+  "java.semanticHighlighting.enabled": true,
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.factorypath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "node_modules": true
+  },
+  "explorer.confirmDragAndDrop": false,
+  "update.mode": "none",
+  "update.showReleaseNotes": false,
+  "workbench.activityBar.visible": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
 }

@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
+
+vpnFile="/etc/nixos/wireguard-mullvad.nix"
+if [[ $1 == "home" ]]; then
+  vpnFile="/etc/nixos/wireguard.nix"
+fi
+
 file=$(readlink -f /etc/nixos/configuration.nix)
-echo $file
-vpnFile="/etc/nixos/wireguard.nix"
+echo $vpnFile
 
 message="VPN is ON. Turning off..."
 old=$vpnFile

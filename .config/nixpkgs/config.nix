@@ -1,7 +1,20 @@
 with import <nixpkgs-unstable> {};
 {
   allowUnfree = true;
+  permittedInsecurePackages = [
+    "p7zip-16.02"
+  ];
   packageOverrides = pkgs: with pkgs; {
+    mySc2 = pkgs.buildEnv {
+      name = "sc2";
+      paths = [
+        wine-staging
+        winetricks
+        libpulseaudio
+        libjpeg_turbo
+        libpng
+      ];
+    };
     myArt = pkgs.buildEnv {
       name = "myArt";
       paths = [
@@ -18,8 +31,8 @@ with import <nixpkgs-unstable> {};
       name = "myBrowsers";
       paths = [
         tor-browser-bundle-bin
-        firefox
-        chromium
+        firefox-devedition-bin
+        brave
         spotify
       ];
     };
@@ -53,31 +66,27 @@ with import <nixpkgs-unstable> {};
     myProgramming = pkgs.buildEnv {
       name = "myProgramming";
       paths = [
-        vscode
         ripgrep
         rustup
-        go_1_13
+        go_1_14
         ansible
         docker-compose
         lazydocker
+        #dive # analyze docker image layers
         lazygit
         gitAndTools.gitFull
-        gitAndTools.diff-so-fancy
-        R
-        travis
+        gitAndTools.diff-so-fancy # needed for diff-highlight?
+        #R
         pipenv
       ];
     };
     myMessaging = pkgs.buildEnv {
       name = "myMessaging";
       paths = [
-        discord
+        #discord
         signal-desktop
-        tdesktop
+        #tdesktop
         riot-desktop
-        kbfs
-        keybase
-        keybase-gui
       ];
     };
     myTools = pkgs.buildEnv {
@@ -85,7 +94,7 @@ with import <nixpkgs-unstable> {};
       paths = [
         gitAndTools.git-annex
         gitAndTools.gitRemoteGcrypt
-        pythonPackages.youtube-dl
+        #pythonPackages38.youtube-dl
         jq
         unzip
         ncdu
@@ -101,7 +110,6 @@ with import <nixpkgs-unstable> {};
         speedcrunch #caculator
         dolphin # file manager
         calibre # ebooks
-        p7zip
         gptfdisk
         qrencode
         pciutils
