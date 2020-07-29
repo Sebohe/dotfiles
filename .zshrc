@@ -47,17 +47,10 @@ export PATH=$PATH:$HOME/.local/bin
 #LOCALVARS
 if [ ! -f $HOME/.localvars ]
 then
-    touch $HOME/.localvar
+    touch $HOME/.localvars
 fi
 
 source $HOME/.localvars
-
-if [[ `hostname` == "ultron" ]]
-then
-    xinputs_disable.sh
-    setxkbmap -option compose:ralt
-    setxkbmap -option ctrl:nocaps
-fi
 
 # Custom cd
 c() {
@@ -93,8 +86,6 @@ KEYTIMEOUT=1
 
 if hash starship 2>/dev/null; then
   eval "$(starship init zsh)"
-else
-  export ZSH_THEME="oxide"
 fi
 
 if hash lsd 2>/dev/null; then
