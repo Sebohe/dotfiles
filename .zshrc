@@ -101,6 +101,6 @@ if [[ "$TMUX" == "" ]]; then
     if tmux has-session -t $WHOAMI 2>/dev/null; then
       tmux attach-session -t $WHOAMI
     else
-        tmux new-session -s $WHOAMI
+      tmux new-session -s $WHOAMI
     fi
 fi
