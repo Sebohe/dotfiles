@@ -1,6 +1,3 @@
 [submodule "dwm"]
 	path = dwm
 	url = git@gitlab.com:sebohe/dwm-config.git
-[submodule "cm/roles"]
-	path = cm/roles
-	url = https://gitlab.com/sebohe/ansible-roles
