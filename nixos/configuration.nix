@@ -55,7 +55,7 @@ in
   time.timeZone = "Europe/Berlin";
 
   environment.systemPackages = with pkgs; [
-    #direnv
+    direnv
     lsof
     wireguard
     wireguard-tools
@@ -201,10 +201,8 @@ in
       ohMyZsh = {
         enable = true;
         custom = "/home/sebas/.oh-my-zsh";
-        plugins = [
-          "nix-zsh-completions"
-          "nix-shell"
-        ];
+        # For some reason this is very slow
+        #plugins = [ "nix-zsh-completions" "nix-shell" ];
       };
       enable = true;
       enableCompletion = true;
