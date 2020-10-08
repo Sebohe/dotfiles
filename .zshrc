@@ -22,16 +22,13 @@ autoload -Uz compinit
 compinit
 
 #DEFAULTS
-BROWSER=`which firefox`
-EDITOR=`which vim`
-
+export BROWSER=`which firefox`
+export EDITOR=`which vim`
 if hash nvim 2>/dev/null; then
   export EDITOR=`which nvim`
 fi
-
-GIT_EDITOR=$EDITOR
-VISUAL=$EDITOR
-
+export GIT_EDITOR=$EDITOR
+export VISUAL=$EDITOR
 #DISABLE crtl+s in terminal
 stty ixany
 stty ixon -ixoff
@@ -40,17 +37,9 @@ stty ixon -ixoff
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin:/usr/lib/go/bin
 #RUST BIN
-export PATH=$PATH:$HOME/.cargo/bin:$HOME
+export PATH=$PATH:$HOME/.cargo/bin
 #LOCAL PATH
 export PATH=$PATH:$HOME/.local/bin
-
-#LOCALVARS
-if [ ! -f $HOME/.localvars ]
-then
-    touch $HOME/.localvars
-fi
-
-source $HOME/.localvars
 
 # Custom cd
 c() {
@@ -65,15 +54,15 @@ fi
 
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  nix-zsh-completions # needs to be installed seperately
+  nix-shell # needs to be installed seperately
   git
   ssh-agent
   zsh-navigation-tools
   docker
   history-substring-search
-  golang
   rust
   systemd
-  pass
 )
 
 export CASE_SENSITIVE="true"

@@ -3,32 +3,29 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-
+let
+in
 {
-  nix.gc = {
-    automatic = true;
-    options = "--delete-older-than 10d";
-  };
-  imports =
-    [ # Include the results of the hardware scan.
+  imports = [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
       #/etc/nixos/wireguard-mullvad.nix
-      #/etc/nixos/wireguard.nix
+      /etc/nixos/wireguard.nix
       #/etc/nixos/openvpn.nix
-      /etc/nixos/cachix.nix
+      #/etc/nixos/cachix.nix
+      #/home/sebas/repos/nix/nixos-configs/virtual.nix
     ];
-
   boot = {
     # Needed for pi3 iso img
     binfmt.emulatedSystems = [ "aarch64-linux" ];
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [
-      "amd_iommu=pt"
+      "amd_iommu=on"
       "ivrs_ioapic[32]=00:14.0"
       "iommu=pt"
       "quiet"
       "acpi_backlight=video"
     ];
+    kernelModules = [ "kvm-amd" ];
     extraModulePackages = [ ];
     loader = {
      systemd-boot.enable = true;
@@ -45,17 +42,17 @@
     interfaces.enp2s0.useDHCP = true;
     interfaces.wlp4s0.useDHCP = true;
     #defaultGateway.address = "192.168.1.254";
-    enableIPv6 = false;
-#    nameservers = [ 
-#      "1.1.1.1"
-#      "8.8.4.4"
-#      "8.8.8.8"
-#    ];
+    enableIPv6 = true; # enable to allow wireguard to capture ::/0
+    nameservers = [ 
+      "10.100.0.1"
+      "165.227.245.71"
+      "1.1.1.1"
+    ];
     wireguard.enable = true;
  };
 
   # Set your time zone.
-  time.timeZone = "Europe/London";
+  time.timeZone = "Europe/Berlin";
 
   environment.systemPackages = with pkgs; [
     #direnv
@@ -148,7 +145,12 @@
   ];
 
   services = {
-    #lorri.enable = true;
+    #printing = {
+    #  enable = true;
+    #  drivers = with pkgs; [ gutenprint ];
+    #};
+    lorri.enable = false;
+    # TLP power management
     tlp.enable = true;
     #usbguard.enable = true;
     # Enable the X11 windowing system.
@@ -188,6 +190,7 @@
   # to bootstrap the dotfiles in other computers in which
   # nixos is not present
   programs = {
+    adb.enable = false;
     gnupg = {
       agent = {
         enable = true;
@@ -195,31 +198,43 @@
       };
     };
     zsh = {
+      ohMyZsh = {
+        enable = true;
+        custom = "/home/sebas/.oh-my-zsh";
+        plugins = [
+          "nix-zsh-completions"
+          "nix-shell"
+        ];
+      };
       enable = true;
       enableCompletion = true;
+      autosuggestions = {
+        enable = true;
+        highlightStyle = "fg=6";
+        # "Chooses the most recent match whose preceding history item matches the most
+        # recently executed command (more info). Note that this strategy won't work as
+        # expected with ZSH options that don't preserve the history order such as
+        # HIST_IGNORE_ALL_DUPS or HIST_EXPIRE_DUPS_FIRST"
+        strategy = "match_prev_cmd";
+      };
+      # interactiveShellInit = builtins.readFile ./zshrc;
       interactiveShellInit = ''
-        # z - jump around
-        source ${pkgs.fetchurl {
-          url = "https://raw.githubusercontent.com/rupa/z/6586b61384cff33d2c3ce6512c714e20ea59bfed/z.sh";
-          sha256 = "b3969a36b35889a097cd5a38e5e9740762f0e45f994b5e45991e2a9bdb2b8079";
-        }}
-        export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh
+         # z - jump around
+         source ${pkgs.fetchurl {
+           url = "https://raw.githubusercontent.com/rupa/z/6586b61384cff33d2c3ce6512c714e20ea59bfed/z.sh";
+           sha256 = "b3969a36b35889a097cd5a38e5e9740762f0e45f994b5e45991e2a9bdb2b8079";
+         }}
+         export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh
       '';
       promptInit = "";
     };
-    adb.enable = true;
   };
 
   users = {
-    groups = {
-       plugdev = { };
-       jackaudio = { };
-    };
     # Sets the default shell for all users
     defaultUserShell = pkgs.zsh;
     # Define a user account. 
     users.sebas = {
-      # moved 
       isNormalUser = true;
       extraGroups = [ 
         "wheel" # Enable ‘sudo’ for the user.
@@ -234,20 +249,30 @@
       ];
     };
   };
-  # Needed for building pi3 iso
-#  nix.extraOptions = ''
-#  extra-platforms = aarch64-linux arm-linux
-#  '';
-#  services.qemuGuest.enable = true;
-
-  #system.activationScripts.bash = ''
-  #ln -s ${pkgs.neovim}/bin/nvim /usr/bin/nvim
-  #'';
-  virtualisation.docker = {
-    enable = true;
-    liveRestore = false;
-    enableOnBoot = true;
-    autoPrune.enable = true;
+  nix = {
+    package = pkgs.nixUnstable;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+    gc = {
+      automatic = true;
+      options = "--delete-older-than 10d";
+    };
+  };
+  virtualisation = {
+    docker = {
+      enable = false;
+      liveRestore = false;
+      enableOnBoot = true;
+      autoPrune.enable = true;
+    };
+    libvirtd = {
+      enable = false;
+      qemuOvmf = true;
+      qemuRunAsRoot = false;
+      onBoot = "ignore";
+      onShutdown = "shutdown";
+    };
   };
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
