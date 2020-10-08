@@ -221,8 +221,8 @@ in
       interactiveShellInit = ''
          # z - jump around
          source ${pkgs.fetchurl {
-           url = "https://raw.githubusercontent.com/rupa/z/6586b61384cff33d2c3ce6512c714e20ea59bfed/z.sh";
-           sha256 = "b3969a36b35889a097cd5a38e5e9740762f0e45f994b5e45991e2a9bdb2b8079";
+           url = "https://raw.githubusercontent.com/rupa/z/125f4dc47e15891739dd8262d5b23077fe8fb9ab/z.sh";
+           sha256 = "ea8fb754e83fab8cff672ca705e9c0206d2f0e7076ec18da98e7a4a41df32233";
          }}
          export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh
       '';
