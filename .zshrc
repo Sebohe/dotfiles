@@ -54,8 +54,8 @@ fi
 
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  nix-zsh-completions # needs to be installed seperately
-  nix-shell # needs to be installed seperately
+  #nix-zsh-completions # needs to be installed seperately
+  #nix-shell # needs to be installed seperately
   git
   ssh-agent
   zsh-navigation-tools
