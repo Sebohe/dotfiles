@@ -5,7 +5,8 @@ set encoding=utf-8
 set t_Co=256
 set termencoding=utf-8
 
-" Configs
+" Remap some common misstypes due
+" to fast fingers
 command WQ wq
 command Wq wq
 command W w
@@ -21,6 +22,7 @@ set hlsearch
 
 set number
 set relativenumber
+set noeol
 augroup linenumbers
   autocmd!
   autocmd BufEnter *    :set relativenumber
@@ -47,19 +49,18 @@ set undofile
 set undodir=~/.vim/undodir
 
 " Add spell check to markdown files
-autocmd FileType markdown setlocal spell
+autocmd FileType markdown setlocal spell spelllang=en_us
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+autocmd FileType markdown set conceallevel=2
+hi SpellBad cterm=underline
 
 " Write as sudo
 cmap w!! w !sudo tee > /dev/null %
 
 "enable mouse support
 set mouse=a
- 
 colo desert
 syntax on
-
-let hostname = substitute(system('hostname'), '\n', '', '')
-
 set guifont=Fira\ Code:h11
 
 " Source plugins

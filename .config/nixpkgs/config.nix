@@ -30,10 +30,11 @@ with import <nixpkgs-unstable> {};
     myBrowsers = pkgs.buildEnv {
       name = "myBrowsers";
       paths = [
-        tor-browser-bundle-bin
+        #tor-browser-bundle-bin
         firefox-devedition-bin
-        brave
-        spotify
+        chromium
+        #brave
+        #spotify
       ];
     };
     myUI = pkgs.buildEnv {
@@ -68,7 +69,7 @@ with import <nixpkgs-unstable> {};
       paths = [
         ripgrep
         rustup
-        go_1_14
+        go_1_15
         ansible
         docker-compose
         lazydocker
@@ -83,10 +84,11 @@ with import <nixpkgs-unstable> {};
     myMessaging = pkgs.buildEnv {
       name = "myMessaging";
       paths = [
-        #discord
+        #zoom-us
+        discord
         signal-desktop
         #tdesktop
-        riot-desktop
+        element-desktop
       ];
     };
     myTools = pkgs.buildEnv {

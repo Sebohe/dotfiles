@@ -1,13 +1,12 @@
 {
   "window.menuBarVisibility": "toggle",
-  "window.zoomLevel": 0,
+  "window.zoomLevel": 1,
   "vim.disableExtension": false,
   "vim.handleKeys": {
     "<C-k>": false
   },
   "editor.lineNumbers": "relative",
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "editor.formatOnSave": true,
   "editor.fontFamily": "\"Fira Code\"",
   "terminal.integrated.rendererType": "dom",
   "[typescriptreact]": {
@@ -61,5 +60,5 @@
   "workbench.activityBar.visible": true,
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  }
 }
