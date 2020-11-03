@@ -24,7 +24,6 @@
   #gpgsign = true
 [credential]
 	username = sebohe
-	helper = store
 [color "diff"]
 	meta = 11
 	frag = magenta bold
