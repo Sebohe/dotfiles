@@ -6,5 +6,8 @@
         "nix"
       ]
     }
+  },
+  "eslint": {
+    "autoFixOnSave" : true
   }
 }
