@@ -1,18 +1,32 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 let
+  swarmMetricsPort = 9323;
+  dockerbip="172.17.0.1";
+  hostname = "mini";
+  ethWgInterface = "wg1eth";
+  enableVPN = true;
 in
 {
+  #services.prometheus.exporters.node.enable = true;
   imports = [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
       #/etc/nixos/wireguard-mullvad.nix
-      /etc/nixos/wireguard.nix
+      (import /home/sebas/repos/nix/mynixos-config/wireguard.nix {
+        inherit config;
+        hostname = hostname;
+        server = "bastion";
+        enabled = enableVPN;
+      })
       #/etc/nixos/openvpn.nix
       #/etc/nixos/cachix.nix
       #/home/sebas/repos/nix/nixos-configs/virtual.nix
+      (import /home/sebas/repos/nix/mynixos-config/stakers/wg-ethereum-nodes.nix {
+          inherit config hostname pkgs;
+          server="eth2-vpn";
+          interface=ethWgInterface;
+          enabled = true;
+          enableCompose = true;
+      })
     ];
   boot = {
     # Needed for pi3 iso img
@@ -36,14 +50,17 @@ in
     };
   };
 
+
   networking = {
-    hostName = "mini"; # Define your hostname.
+    hostName = hostname;
     networkmanager.enable = true;
     interfaces.enp2s0.useDHCP = true;
     interfaces.wlp4s0.useDHCP = true;
+    #interfaces.wlp4s1 = { ipv4 = { addresses = [{ address = "192.168.0.3"; prefixLength = 16; }]; routes = [ { address = "192.168.0.3"; prefixLength = 16; via = "192.168.1.1"; }];};};
     #defaultGateway.address = "192.168.1.254";
     enableIPv6 = true; # enable to allow wireguard to capture ::/0
     nameservers = [ 
+      "192.168.1.1"
       "10.100.0.1"
       "165.227.245.71"
       "1.1.1.1"
@@ -52,9 +69,13 @@ in
  };
 
   # Set your time zone.
-  time.timeZone = "Europe/Berlin";
+  time.timeZone = "Europe/Edinburgh";
 
   environment.systemPackages = with pkgs; [
+    libfaketime
+    fakeroot
+    glibc
+
     direnv
     lsof
     wireguard
@@ -89,7 +110,7 @@ in
     mediaKeys.enable = true;
   };
   hardware = {
-    bluetooth.enable = true;
+    bluetooth.enable = true; # https://github.com/google/security-research/security/advisories/GHSA-h637-c88j-47wq
     bluetooth.config.General.Enable = "Source,Sink,Media,Socket";
     opengl = {
       enable = true;
@@ -145,11 +166,22 @@ in
   ];
 
   services = {
-    #printing = {
-    #  enable = true;
-    #  drivers = with pkgs; [ gutenprint ];
-    #};
-    lorri.enable = false;
+    pcscd.enable = true;
+    udev = {
+      packages = [
+        pkgs.yubikey-personalization
+        pkgs.libu2f-host
+      ];
+      # disables builtin bluetooth
+      extraRules = ''
+      SUBSYSTEM=="usb", ATTRS{idVendor}=="8087", ATTRS{idProduct}=="0025", ATTR{authorized}="0"
+      '';
+    };
+    printing = {
+      enable = true;
+      drivers = with pkgs; [ gutenprint ];
+    };
+    lorri.enable = true;
     # TLP power management
     tlp.enable = true;
     #usbguard.enable = true;
@@ -167,11 +199,11 @@ in
         tapping = true;
         tappingDragLock = false;
       };
-      libinput.accelSpeed = "0.8";
+      libinput.accelSpeed = "0.2";
       synaptics = {
         dev = "/dev/input/event12";
-        minSpeed = "0.8";
-        maxSpeed = "1";
+        minSpeed = "0.2";
+        maxSpeed = "0.5";
 	      scrollDelta = 800;
       };
       desktopManager.plasma5.enable = true;
@@ -181,6 +213,11 @@ in
       displayManager.startx.enable = true;
       desktopManager.xterm.enable = false;
     };
+  };
+  hardware.trackpoint = {
+    enable = true;
+    sensitivity = 16;
+    speed = 32;
   };
 
   # I'm gonna keep this zsh config to the bare minum
@@ -194,7 +231,7 @@ in
     gnupg = {
       agent = {
         enable = true;
-        pinentryFlavor = "gtk2";
+        pinentryFlavor = "gtk2"; # curses, tty, gtk2
       };
     };
     zsh = {
@@ -244,25 +281,27 @@ in
         "plugdev"
         "adbusers"
         "jackaudio"
+        "kvm"
       ];
     };
   };
   nix = {
-    package = pkgs.nixUnstable;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
+    package = pkgs.nixStable;
+    useSandbox = true;
+    #extraOptions = ''experimental-features = nix-command flakes'';
     gc = {
       automatic = true;
       options = "--delete-older-than 10d";
     };
   };
+  virtualisation.kvmgt.enable = true;
   virtualisation = {
     docker = {
-      enable = false;
+      enable = true;
       liveRestore = false;
       enableOnBoot = true;
       autoPrune.enable = true;
+      extraOptions = ''--metrics-addr=${dockerbip}:${toString swarmMetricsPort} --experimental --bip=${dockerbip}/16'';
     };
     libvirtd = {
       enable = false;
