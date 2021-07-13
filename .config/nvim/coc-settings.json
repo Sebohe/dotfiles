@@ -1,13 +1,38 @@
 {
   "languageserver": {
+    "terraform": {
+      "command": "terraform-ls",
+      "args": ["serve"],
+      "filetypes": ["terraform", "tf"],
+      "initializationOptions": {}
+    },
+    "nim": {
+      "command": "nimlsp",
+      "filetypes": ["nim"]
+    },
     "nix": {
       "command": "rnix-lsp",
       "filetypes": [
         "nix"
       ]
+    },
+    "go": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "trace.server": "verbose",
+      "filetypes": ["go"]
     }
   },
   "eslint": {
     "autoFixOnSave" : true
-  }
+  },
+  "tsserver": {
+    "enable": true,
+    "organizeImports": true,
+    "formatOnSave": true
+  },
+  "coc.preferences.formatOnSaveFiletypes": [
+    "typescript", "javascript", "rust", "go", "markdown", "nim"
+  ],
+  "gofumpt": true
 }

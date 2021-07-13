@@ -5,3 +5,5 @@ dunst -history_key Print --confg ~/.config/dunst.conf &
 #ibus-daemon -drx
 #exec startplasma-x11
 exec dwm
+#exec /home/sebas/repos/programs/my-penrose/target/debug/penrose &>> ~/penrose.log
+#exec penrose &>> ~/penrose.log

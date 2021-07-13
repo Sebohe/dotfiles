@@ -5,7 +5,13 @@
 [core]
   edit = vim
   editor = vim
-  #pager = delta --plus-color="#1f6a25" --plus-emph-color="#4fdc6e" --minus-color="#a87f80" --minus-emph-color="#ce0003"
+  pager = delta --plus-color="#1f6a25" --plus-emph-color="#4fdc6e" --minus-color="#a87f80" --minus-emph-color="#ce0003"
+[init]
+  defaultBranch = master
+  
+[interactive]
+  diffFilter = delta --color-only
+
 [color]
   diff = true
   status = true
@@ -23,7 +29,8 @@
 [commit]
   #gpgsign = true
 [credential]
-	username = sebohe
+	username = sbc64
+	helper = store
 [color "diff"]
 	meta = 11
 	frag = magenta bold
@@ -33,3 +40,13 @@
 	whitespace = red reverse
 [alias]
 	ap = -c interactive.diffFilter=\"diff-so-fancy --color-words\" add -p
+[pull]
+	ff = only
+[delta]
+    features = side-by-side line-numbers decorations
+    whitespace-error-style = 22 reverse
+
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none

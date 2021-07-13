@@ -82,6 +82,7 @@ let
       #R
       rnix-lsp
       neovim
+      delta
       niv
     ];
   };

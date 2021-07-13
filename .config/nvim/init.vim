@@ -1,3 +1,4 @@
+au BufNewFile,BufRead /dev/shm/gopass.* setlocal noswapfile nobackup noundofile
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 set ls=0
@@ -19,6 +20,10 @@ set expandtab
 set ff=unix
 set autoread
 set hlsearch
+
+autocmd Filetype go setlocal tabstop=4 shiftwidth=4 softtabstop=4
+filetype plugin indent on
+set backspace=indent,eol,start
 
 set number
 set relativenumber
@@ -42,7 +47,8 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " https://www.johnhawthorn.com/2012/09/vi-escape-delays/
-set timeoutlen=500 ttimeoutlen=0
+" set timeoutlen=500 ttimeoutlen=0
+set timeout timeoutlen=500 ttimeoutlen=100
 
 " Maintain undo history between sessions
 set undofile 
@@ -59,7 +65,6 @@ cmap w!! w !sudo tee > /dev/null %
 
 "enable mouse support
 set mouse=a
-colo desert
 syntax on
 set guifont=Fira\ Code:h11
 

@@ -1,22 +1,15 @@
 #!/usr/bin/env bash
 
-vpnFile="/etc/nixos/wireguard-mullvad.nix"
-if [[ $1 == "home" ]]; then
-  vpnFile="/etc/nixos/wireguard.nix"
+current=$(grep "enableVPN =" /etc/nixos/configuration.nix)
+message="VPN is OFF. Turning on..."
+new="  enableVPN = true;"
+
+if [[ "$(echo -n $current | cut -f3 -d ' ')" == "true;" ]];then
+  message="VPN is ON. Turning off..."
+  new="  enableVPN = false;"
 fi
 
-file=$(readlink -f /etc/nixos/configuration.nix)
-echo $vpnFile
-
-message="VPN is ON. Turning off..."
-old=$vpnFile
-new=\#$vpnFile
-if [ $(cat $file | grep \#$vpnFile) ]; then
-  message="VPN is OFF. Turning on..."
-  old=\#$vpnFile
-  new=$vpnFile
-fi
-
+sudo
 echo $message
-sudo sed -i "s|$old|$new|" $file
+sed -i "s|$current|$new|" $(readlink -f /etc/nixos/configuration.nix)
 sudo nixos-rebuild switch

@@ -1,7 +1,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-
 # XDG
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -40,6 +39,8 @@ export PATH=$PATH:$GOPATH/bin:/usr/lib/go/bin
 export PATH=$PATH:$HOME/.cargo/bin
 #LOCAL PATH
 export PATH=$PATH:$HOME/.local/bin
+#LOCAL PATH
+export PATH=$PATH:$HOME/.npm-global/bin
 
 # Custom cd
 c() {
@@ -57,6 +58,7 @@ plugins=(
   #nix-zsh-completions # needs to be installed seperately
   #nix-shell # needs to be installed seperately
   git
+  aws
   ssh-agent
   zsh-navigation-tools
   docker
@@ -78,18 +80,18 @@ if hash starship 2>/dev/null; then
 fi
 
 if hash lsd 2>/dev/null; then
-  alias ls='lsd'
+#  alias ls='lsd'
 fi
 
 if [ -z $DISPLAY ] && [ -n $XDG_VTNR ] && [ "$XDG_VTNR" -eq 1 ]; then
   exec startx
 fi
 
-if [[ "$TMUX" == "" ]]; then
-    WHOAMI=$(whoami)
-    if tmux has-session -t $WHOAMI 2>/dev/null; then
-      tmux attach-session -t $WHOAMI
-    else
-      tmux new-session -s $WHOAMI
-    fi
-fi
+#if [[ "$TMUX" == "" ]]; then
+#    WHOAMI=$(whoami)
+#    if tmux has-session -t $WHOAMI 2>/dev/null; then
+#      tmux attach-session -t $WHOAMI
+#    else
+#      tmux new-session -s $WHOAMI
+#    fi
+#fi

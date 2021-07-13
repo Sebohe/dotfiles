@@ -1,5 +1,5 @@
 debug = false
-order = ["audio", "battery", "time"]
+order = ["audio", "battery", "network", "time"]
 separator = " | "
 
 [audio]
@@ -29,7 +29,7 @@ update_interval = 20
 
 [network]
 no_value = "NA"
-template = "{IPv4} · {IPv6} · {ESSID}"
+template = "{IPv4}"
 
 [time]
 format = "%Y-%m-%d %H:%M:%S"

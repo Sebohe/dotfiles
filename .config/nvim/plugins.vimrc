@@ -16,24 +16,33 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 Plug 'wellle/tmux-complete.vim'
 Plug 'LnL7/vim-nix'
-Plug 'lifepillar/vim-gruvbox8'
-Plug 'morhetz/gruvbox'
+Plug 'flazz/vim-colorschemes'
 
 
 if hostname == "mini"
+  Plug 'tomlion/vim-solidity'
+
+  Plug 'wakatime/vim-wakatime'
+  Plug 'zah/nim.vim'
+
+  Plug 'junegunn/goyo.vim'
+  Plug 'evanleck/vim-svelte', {'branch': 'main'}
+  Plug 'HerringtonDarkholme/yats.vim' " yet another typescript syntax
   Plug 'euclio/vim-markdown-composer', {'do': function('BuildComposer')}
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
-  Plug 'junegunn/vim-easy-align'
 endif
 call plug#end()
 
 let mapleader = ","
 
 " Theme
-set termguicolors
-colorscheme gruvbox8
+if has('termguicolors')
+  set termguicolors
+endif
+" colorscheme White2
+colorscheme gruvbox
 hi MatchParen cterm=underline ctermbg=none ctermfg=magenta
 let g:gruvbox_transp_bg = 1
 let g:gruvbox_italicize_strings = 0
@@ -46,7 +55,7 @@ let NERDTreeShowHidden=1
 let NERDTreeIgnore=['node_modules']
 
 " airline
-let g:airline_theme='gruvbox'
+let g:airline_theme='simple'
 
 " tmux-complete
 let g:tmuxcomplete#trigger = ''
